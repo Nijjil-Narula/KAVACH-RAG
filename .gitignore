@@ -1,0 +1,43 @@
+# Virtual environments & Python caches
+.venv/
+.venv_gpu/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Logs & runtime locks
+*.log
+logs/.bench.lock
+
+# Model download cache
+models/hf_cache/
+!models/.gitkeep
+
+# Raw downloaded datasets (keep root folder via .gitkeep)
+data/raw/*
+!data/raw/.gitkeep
+
+# Processed temporary/intermediate caches & artifacts (keep corpus_chunks* & .gitkeep)
+data/processed/*.parquet
+!data/processed/corpus_chunks*.parquet
+data/processed/*.npz
+data/processed/**/*.npz
+data/processed/*.npy
+data/processed/*_ckpt*
+data/processed/vectors_mrl512.parquet
+data/processed/retrieved_contexts_150.json
+!data/processed/.gitkeep
+!data/processed/embeddings/.gitkeep
+!data/processed/embeddings/checkpoint/.gitkeep
+
+# Ad-hoc FAISS artifacts outside production models/
+*.faiss
+*.idmap.json
+!models/index_sq8_mrl512.faiss
+!models/index_sq8_mrl512.idmap.json

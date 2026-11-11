@@ -1,0 +1,14 @@
+{
+  "allowed_dirs": [
+    "./kavach",
+    "./data",
+    "./models",
+    "./app",
+    "./tests",
+    "./reports",
+    "./scripts",
+    "./logs",
+    "./.venv"
+  ],
+  "max_steps": 150
+}

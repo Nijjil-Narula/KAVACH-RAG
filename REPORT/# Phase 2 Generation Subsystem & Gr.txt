@@ -1,0 +1,384 @@
+# Phase 2: Generation Subsystem & Grounded Synthesis
+
+Phase 2 establishes the generation and response synthesis layer of the cybersecurity RAG pipeline, bridging retrieved context chunks with natural-language intelligence. Operating directly within the dedicated GPU memory boundary (NVIDIA GeForce RTX 4050 6GB Laptop GPU), Phase 2 hosts `Qwen/Qwen2.5-7B-Instruct` in an optimized 4-bit quantization envelope (`Q4_K_M`). 
+Because Phase 1 completely isolated data ingestion, bi-encoder embeddings, and cross-attention reranking to the host CPU and system RAM, Phase 2 grants the language model exclusive access to the GPU's tensor cores and VRAM. This phase focuses on zero-cost local execution, strict prompt alignment to prevent hallucinations, negative constraint enforcement (`INSUFFICIENT_CONTEXT`), and real-time token streaming with instrumentation for Time-To-First-Token (TTFT).
+---
+
+### Deliverables Covered Under Phase 2 (from Project Specification)
+* **Local GPU Inference Engine:** A fully local, containerized runtime using Ollama or `llama.cpp` serving `Qwen/Qwen2.5-7B-Instruct` (`Q4_K_M`) with 100% layer offloading to the RTX 4050 6GB GPU, configured with an absolute context window constraint of `num_ctx=4096` to prevent KV cache bloat.
+* **Deterministic Synthesis Prompt Architecture:** A hardened cybersecurity system prompt enforcing strict negative constraints, verbatim CVSS decimal preservation, literal casing rules, bracketed source chunk citations (`[chunk_id]`), and clear version conflict separation (e.g., OWASP Top-10 v1.1 vs. v2.0).
+* **Streaming Response & TTFT Telemetry:** An asynchronous streaming generation wrapper utilizing Server-Sent Events (SSE) via a chunk-by-chunk generator loop, passing partial tokens to the web gateway as raw chunks immediately upon execution to optimize Time-To-First-Token (TTFT) metrics and token generation velocity (tokens/sec) independently across all test queries.
+* **Synthesis Batch Pipeline for the Golden Dataset:** An offline execution runner that passes the evaluated top-$3$ reranked chunks from Sub-Part 1.3 through the local generator across all 150 golden dataset items, compiling candidate answers for downstream Tier 6 evaluation.
+---
+
+### Why `Qwen/Qwen2.5-7B-Instruct` Was Selected for Tier 5
+Rather than defaulting to generic conversational models, `Qwen/Qwen2.5-7B-Instruct` was chosen based on empirical benchmarks that map directly to the failure modes of cybersecurity text:
+* **Strict Instruction Adherence (IFEval: 75.85%):**
+Cybersecurity synthesis requires exact adherence to negative constraints. When retrieved context does not answer a query, conversational models frequently over-reach and fabricate plausible technical advice. An IFEval score of **75.85%** ensures the model strictly follows structural rules, such as refusing to answer when context is insufficient and matching requested citation schemas.
+* **Mathematical & Numerical Precision (MATH: 50.00%):**
+Cybersecurity documentation is dominated by exact numerical thresholds: CVSS v3.1 base scores (`9.8`), vector strings (`AV:N/AC:L`), exploitability decimals (`3.9`), CWE IDs, and port numbers (`443`, `8080`). Models with weak mathematical foundations round numbers or invert comparison operators (e.g., confusing `>= 7.0` with `> 7.0`). A 50.00% score on MATH confirms high precision when extracting and reasoning over technical numbers.
+* **Direct Synthesis Architecture (Low TTFT under Concurrency):**
+Unlike reasoning models (such as DeepSeek-R1 or hybrid "thinking" models) that generate 200–500 hidden chain-of-thought tokens before producing their first response word, Qwen 2.5 7B outputs direct synthesis tokens immediately. Because the upstream pipeline (Tiers 1–4) already isolated the ground-truth chunks, generating hundreds of latent thinking tokens would only saturate the 6GB VRAM and inflate TTFT under concurrent loads.
+* **Grouped Query Attention (GQA) & Memory Footprint:**
+Qwen 2.5 7B uses Grouped Query Attention with a 4:1 query-to-key-value head ratio. When constrained to an explicit 4,096-token RAG window, its entire KV cache requires only **~235 MB** in FP16, allowing the model and active context to run fully within the RTX 4050's 6GB limit.
+---
+
+### Locked Specifications & Operational Anchors for Phase 2
+* **Physical GPU Resource Budget & Context Clamping (NVIDIA RTX 4050 6GB):**
+* **Quantization Format:** `Q4_K_M` (4-bit medium quantization, GGUF format).
+* **Runtime Context Flag:** Configures the inference engine with an absolute context window constraint of `num_ctx=4096` to strictly cap the multi-user concurrent KV cache sizing (preventing Ollama/`llama.cpp` from defaulting to the native 32,768-token window, which would instantly trigger a CUDA OOM).
+* **Static Model Weights in VRAM:** **~4.36 GB**.
+* **KV Cache Allocation (`num_ctx=4096`):** **~0.25 GB** (using GQA).
+* **CUDA Engine & Runtime Buffers:** **~0.60 GB**.
+* **Total Peak GPU Footprint:** **~5.21 GB out of 6.0 GB VRAM**, leaving a safe operating margin of ~0.79 GB for Windows OS display buffers and preventing CUDA OOM crashes.
+* **Inference Throughput Target:** ~35 to 45 tokens per second with single-request Time-To-First-Token under 300 ms.
+* **Prompt Engineering & Negative Constraint Rule:**
+The system prompt enforces strict context boundaries to prevent ungrounded generation:
+> *"You are a strict cybersecurity assistant. Answer the user prompt ONLY using facts directly stated in the retrieved context chunks. If the provided context does not contain sufficient factual evidence to answer the question with absolute certainty, you MUST REFUSE to guess, state 'INSUFFICIENT_CONTEXT', and briefly explain what specific data is missing. Never rely on internal pretraining knowledge for CVE, CVSS, or exploit details not present in the text."*
+* **Literal Math, Decimal, and Case Preservation Directive:**
+Enforces strict literal preservation of alphanumeric hashes, function parameters, version strings, and exact CVSS decimals. The model is strictly forbidden from rounding numbers (e.g., changing `9.8` to `10` or `9.80`), altering comparison operators, or normalizing string casings (e.g., mutating camelCase tags like `cvssMetricV31` into uppercase or lowercase).
+* **Citation & Provenance Schemas:**
+The model must append bracketed source identifiers (e.g., `[CVE-2024-3094_chunk_001]`) immediately following any technical claim or numerical metric, enabling automated citation checking during Phase 4 evaluation.
+* **Version Conflict Resolution (OWASP v1.1 vs. v2.0):**
+When conflicting context chunks are retrieved, the prompt mandates that the model explicitly distinguish both versions (e.g., stating: *"Under OWASP v1.1, LLM03 is defined as Training Data Poisoning, whereas under OWASP v2.0, LLM03 represents Supply Chain Vulnerabilities"*) rather than blending them into a single conflicting statement.
+
+# Phase 2: Generation Subsystem & Grounded Synthesis (Execution Specification)
+Phase 2 transitions the retrieved contextual payloads from Phase 1 into deterministic, grounded cybersecurity intelligence. Operating on the dedicated NVIDIA GeForce RTX 4050 6GB Laptop GPU, this phase establishes runtime container parameters, context memory clamping, strict prompt boundary execution, and real-time streaming telemetry.
+---
+
+### 1. Architectural Topology: Tier 5 Generator Pipeline
+The structural data flow across the dedicated GPU hardware is mapped below:
+```
+[Top-3 Reranked Chunks from Phase 1] + [Normalized User Query]
+                                │
+                                ▼
+┌───────────────────────────────────────────────────────┐
+│ DEDICATED GPU BOUNDARY: NVIDIA GeForce RTX 4050 6GB Laptop GPU         │
+│                                                                        │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │ Runtime Context Allocation Guardrails                            │  │
+│  │ • Ollama / llama.cpp Server Instance                             │  │
+│  │ • Model: Qwen/Qwen2.5-7B-Instruct (Q4_K_M GGUF, ~4.36 GB)        │  │
+│  │ • Context Window Flag: num_ctx = 4096 (Hard ceiling)             │  │
+│  │ • KV Cache: 28 layers, 4 KV Heads (GQA), FP16 (~235 MB)          │  │
+│  │ • GPU Offload: 100% Layers (ngl=28 / all layers to CUDA)         │  │
+│  │ • VRAM Envelope: 5.21 GB Peak / 0.79 GB System Headroom          │  │
+│  └──────────────┬────────────────────────────────────┘  │
+│                      │                                                 │
+│                      ▼                                                 │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │ System Prompt & Constraint Enforcement Engine                    │  │
+│  │ • Hard Negative Refusal ("INSUFFICIENT_CONTEXT")                 │  │
+│  │ • Literal Decimal & Case Preservation (No rounding)              │  │
+│  │ • Provenance Tracking: [chunk_id] inline brackets                │  │
+│  │ • Temporal Disambiguation: OWASP v1.1 vs. v2.0 Matrix Parser     │  │
+│  └──────────────┬────────────────────────────────────┘  │
+│                      │                                                 │
+│                      ▼                                                 │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │ Streaming Response & Telemetry Hook                              │  │
+│  │ • Protocol: Server-Sent Events (SSE) Chunk Generator             │  │
+│  │ • Metrics Instrumentation: TTFT (ms), Tokens/sec, Total Duration │  │
+│  │ • Concurrency Shield: Non-blocking async queue forwarder         │  │
+│  └───────────────┬───────────────────────────────────┘  │
+└─────────────────┼──────────────────────────────────────┘
+                       │
+                       ├─────────────────────────┐
+                       ▼                                ▼
+        [Live Production Gateway]     [Offline Golden Dataset Batch]
+        SSE Stream to Web Client      Generate Answers for 150 Items
+        (FastAPI / Phase 3 Bridge)    Export to evaluation_payloads.jsonl
+``
+---
+
+### 2. Runtime GPU Configuration & Memory Clamping
+Deploying a 7B parameter model on a 6GB VRAM constraint requires controlling runtime context allocations.
+
+#### 1. Context Window Clamping (`num_ctx = 4096`
+`Qwen/Qwen2.5-7B-Instruct` natively supports an internal context window of up to 32,768 tokens. If the inference server initializes without explicit context bounds:
+* **The Failure Mode:** The KV cache dynamically allocates space for 32k tokens, which consumes over **1.88 GB** of VRAM for attention buffers alone. Added to the 4.36 GB model weights, the total memory exceeds 6.24 GB, triggering an immediate CUDA `Out of Memory` crash or offloading attention tensors to system RAM via PCIe (causing token throughput to drop from 40 tokens/s down to 2 tokens/s).
+* **The Configuration Guard:** The runtime is locked to an absolute context ceiling of `num_ctx = 4096`.
+
+#### 2. Grouped Query Attention (GQA) Memory Math
+With `num_ctx` locked to 4,096 tokens, memory footprint is calculated as:
+* **Architecture:** 28 transformer layers, 28 query heads, 4 key-value heads ($GQA = 7:1$), head dimension = 128.
+* **KV Cache Calculation (FP16, 2 bytes/element):**
+$$\text{KV Cache Size} = 2 \times (\text{layers}) \times (\text{kv\_heads}) \times (\text{head\_dim}) \times (\text{num\_ctx}) \times (\text{bytes\_per\_elem})$$
+$$\text{KV Cache Size} = 2 \times 28 \times 4 \times 128 \times 4096 \times 2 = 234,881,024 \text{ bytes} \approx 234.8 \text{ MB} \approx 0.235 \text{ GB}$$
+```
+┌───────────────────────────────────┬───────────┬────────────────────────┐
+│ Component                                    │ VRAM Size    │ Allocation State              │
+├───────────────────────────────────┼───────────┼────────────────────────┤
+│ Windows DWM / Display Server Baseline        │ ~0.60 GB     │ Fixed Host Allocation         │
+│ Qwen 2.5 7B Instruct (Q4_K_M GGUF)           │ ~4.36 GB     │ CUDA Global Memory            │
+│ KV Cache (num_ctx=4096, FP16 GQA)            │ ~0.24 GB     │ Dynamic Device Buffers        │
+│ CUDA Context Overhead / Compute Buffers      │ ~0.08 GB     │ Scratchpad Allocation         │
+├───────────────────────────────────┼───────────┼────────────────────────┤
+│ Total Peak Allocated VRAM                    │ ~5.28 GB     │ Active Inference Load         │
+│ Unallocated Safety Margin                    │ ~0.72 GB     │ Headroom (Zero CUDA OOM Risk) │
+└───────────────────────────────────┴───────────┴────────────────────────┘
+```
+
+#### 3. Modelfile Definitio
+The local instance is deployed using a custom Ollama Modelfile enforcing runtime flags and zero-temperature decoding:\
+```dockerfile
+# Modelfile: qwen2.5-cyber-tier5
+FROM ./models/qwen2.5-7b-instruct-q4_k_m.gguf
+# Lock runtime parameters to prevent memory expansion
+PARAMETER num_ctx 4096
+PARAMETER num_predict 512
+PARAMETER num_gpu 999
+PARAMETER temperature 0.0
+PARAMETER top_p 0.1
+PARAMETER repeat_penalty 1.1
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|endoftext|>"
+# Static System Prompt Definition
+SYSTEM """You are the Tier 5 Generation Engine of an enterprise cybersecurity RAG pipeline.
+Your duty is to produce factual, authoritative, and strictly bounded technical intelligence.
+Adhere strictly to the operational directives, negative constraints, and formatting rules provided."""
+```
+---
+
+### 3. Hardened System Prompt & Boundary Directives
+
+Small language models (7B) require explicit, unambiguous negative constraints to prevent out-of-domain extrapolation and format drift. The generation prompt enforces four operational rules:
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│                        TIER 5 SYSTEM PROMPT DIRECTIVE MATRIX                           │
+├─────────────────────┬──────────────────────────────────────────────┤
+│ 1. Hard Negative Refusal   │ If facts are absent, output "INSUFFICIENT_CONTEXT"        │
+├──────────────────────┼─────────────────────────────────────────────┤
+│ 2. Literal Fidelity        │ Zero rounding of decimals (9.8 != 10); strict case lock   │
+├──────────────────────┼─────────────────────────────────────────────┤
+│ 3. Strict Citation Schema  │ Append [chunk_id] immediately after claims/metrics        │
+├──────────────────────┼─────────────────────────────────────────────┤
+│ 4. Version Conflict Lock   │ Explicitly bifurcate OWASP v1.1 vs. v2.0 discrepancies    │
+└──────────────────────┴─────────────────────────────────────────────┘
+```
+
+#### The Production System Prompt Formulation
+```markdown
+You are a specialized Cybersecurity Intelligence Engine. You are evaluating retrieved context to answer a security query.
+
+### OPERATIONAL DIRECTIVES:
+1. STRICT BOUNDED KNOWLEDGE:
+   - Base your answer ENTIRELY and EXCLUSIVELY on the provided Context Chunks.
+   - Do NOT use internal pretraining knowledge, training assumptions, or unstated facts.
+   - Every factual assertion, CVE identifier, CVSS score, mitigation, or attack step must be directly traceable to a provided chunk.
+2. NEGATIVE CONSTRAINT & HARD REFUSAL:
+   - If the provided Context Chunks do not contain sufficient evidence to answer the query completely and unambiguously, you MUST REFUSE.
+   - Output exact token: "INSUFFICIENT_CONTEXT" as the very first sentence.
+   - Follow with a concise statement specifying exactly what piece of information is missing (e.g., "INSUFFICIENT_CONTEXT: The retrieved context mentions CVE-2024-3094 affected versions but does not contain the CVSS v3.1 base score or attack vector.").
+3. LITERAL MATH, DECIMAL & CASING PRESERVATION:
+   - Preserve exact numeric values without modification. Never round, truncate, or summarize numbers (e.g., a CVSS score of 9.8 must NEVER be written as 9.80, 10, or ~9.8).
+   - Preserve exact case-sensitive alphanumeric syntax for CWE codes (CWE-89), MITRE techniques (T1190, TA0001, M1041), JSON keys (cvssMetricV31), and software versions (liblzma 5.6.0).
+4. PROVENANCE & CITATION REQUIREMENTS:
+   - Every single technical claim, metric, or mitigation MUST be immediately followed by its bracketed chunk identifier, e.g., "XZ Utils was backdoored via malicious code injected into liblzma [CVE-2024-3094_chunk_001]."
+   - Never combine citations into generic bibliographies at the end.
+5. CONFLICT RESOLUTION (OWASP v1.1 vs. v2.0):
+   - When encountering conflicting context chunks representing different version releases, you must NEVER blend them or pick one arbitrarily.
+   - State the version distinction explicitly, e.g.:
+     "Under OWASP GenAI Top-10 v1.1, LLM03 represents Training Data Poisoning [OWASP_v1.1_chunk_003]. However, under the updated OWASP GenAI Top-10 v2.0, LLM03 is reclassified as Supply Chain Vulnerabilities [OWASP_v2.0_chunk_005]."
+```
+---
+
+### 4. Generation Payload Assembly & Prompt Formatting
+To maintain compatibility with Qwen 2.5 ChatML syntax and ensure maximum prefix caching efficiency, the execution payload wraps the context blocks in a structured, immutable XML layout:
+
+```text
+<|im_start|>system
+[SYSTEM PROMPT INSERTED HERE]<|im_end|>
+<|im_start|>user
+### RETRIEVED CONTEXT CHUNKS:
+---
+[CHUNK ID: CVE-2024-3094_chunk_001]
+Source: nvd_cve_2024_3094.json
+Vulnerability: CVE-2024-3094
+CVSS v3.1 Base Score: 10.0
+Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
+Content: Malicious code was discovered in the upstream tarballs of xz, starting with versions 5.6.0 and 5.6.1. Through a series of complex M4 macros, the build process injects a pre-compiled object file into liblzma, intercepting RSA decryption functions in OpenSSH sshd daemon.
+---
+[CHUNK ID: MITRE_T1190_chunk_003]
+Source: mitre_attack_enterprise.md
+Technique ID: T1190
+Name: Exploit Public-Facing Application
+Mitigations: M1041 (Defensive Software), M1050 (Exploit Protection).
+Content: Adversaries may attempt to exploit vulnerabilities in software facing the Internet. For supply chain library compromises impacting SSH services, mitigation M1041 requires auditing dynamically linked dependencies and rolling back affected package releases.
+---
+### USER QUERY:
+What is the CVSS base score for CVE-2024-3094, and what MITRE enterprise mitigation applies to its exploitation vector?
+<|im_end|>
+<|im_start|>assistant
+```
+---
+
+### 5. Server-Sent Events (SSE) Streaming & TTFT Telemetry
+To satisfy the latency and concurrency benchmarking mandates of Part 2, the generation pipeline integrates a non-blocking streaming wrapper that emits partial tokens via Server-Sent Events (SSE) while recording telemetry metrics:
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│                        TOKEN GENERATION TELEMETRY LIFECYCLE                            │
+├────────────────────┬───────────────────────────────────────────────┤
+│ $t_0$ (Request)    │ Payload arrives at generation subsystem                           │
+├────────────────────┼───────────────────────────────────────────────┤
+│ $t_1$ (Prefill)    │ Model finishes ingesting context tokens                           │
+├────────────────────┼───────────────────────────────────────────────┤
+│ $t_2$ (TTFT)       │ First token byte emitted to output queue ($TTFT = t_2 - t_0$)[cite: 20]│
+├────────────────────┼──────────────────────────────────────────────┤
+│ $t_n$ (Completion) │ Final `<|im_end|>` token decoded; stream terminates              │
+└────────────────────┴──────────────────────────────────────────────┘
+```
+
+#### Streaming Engine Implementation (`generator.py`)
+```python
+import time
+import json
+import httpx
+from typing import AsyncGenerator, Dict, Any
+OLLAMA_API_URL = "http://localhost:11434/api/generate"
+async def stream_generator(
+    prompt: str,
+    client: httpx.AsyncClient,
+    model_name: str = "qwen2.5-cyber-tier5:latest"
+) -> AsyncGenerator[str, None]:
+    """
+    Streams partial tokens using Server-Sent Events (SSE) protocol
+    while computing Time-To-First-Token (TTFT) and throughput telemetry.
+    """
+    t_start = time.perf_counter()
+    ttft_recorded = False
+    ttft_ms = 0.0
+    token_count = 0
+
+    payload = {
+        "model": model_name,
+        "prompt": prompt,
+        "stream": True,
+        "options": {
+            "num_ctx": 4096,
+            "temperature": 0.0,
+            "num_predict": 512
+        }
+    }
+    async with client.stream("POST", OLLAMA_API_URL, json=payload, timeout=60.0) as response:
+        if response.status_code != 200:
+            error_data = await response.aread()
+            yield f"event: error\ndata: {json.dumps({'status': response.status_code, 'error': error_data.decode()})}\n\n"
+            return
+        async for line in response.aiter_lines():
+            if not line:
+                continue
+            chunk = json.loads(line)
+            token = chunk.get("response", "")
+            done = chunk.get("done", False)
+            if not ttft_recorded and token:
+                ttft_ms = (time.perf_counter() - t_start) * 1000.0
+                ttft_recorded = True
+            token_count += 1
+            # Emit token as Server-Sent Event (SSE)
+            yield f"event: token\ndata: {json.dumps({'token': token})}\n\n"
+            if done:
+                total_duration = time.perf_counter() - t_start
+                tokens_per_sec = token_count / total_duration if total_duration > 0 else 0.0
+
+                telemetry = {
+                    "ttft_ms": round(ttft_ms, 2),
+                    "total_duration_sec": round(total_duration, 3),
+                    "total_tokens": token_count,
+                    "tokens_per_sec": round(tokens_per_sec, 2),
+                    "model": model_name
+                }
+                yield f"event: metrics\ndata: {json.dumps(telemetry)}\n\n"
+                break
+```
+---
+
+### 6. Golden Dataset Batch Synthesizer (Preparing for Phase 4)
+To evaluate the 150-question golden dataset in Phase 4, Phase 2 includes an offline execution runner (`batch_generate.py`).
+This script iterates through the 150 questions, extracts the top-3 context chunks isolated during Sub-Part 1.3, builds the prompts, queries the local GPU instance sequentially, and records candidate answers with execution metadata:
+
+```python
+import json
+import time
+import httpx
+from pathlib import Path
+INPUT_DATASET = Path("data/processed/retrieved_contexts_150.json")
+OUTPUT_PAYLOADS = Path("data/processed/golden_evaluation_payloads_150.jsonl")
+def construct_full_prompt(query: str, retrieved_chunks: list[dict]) -> str:
+    context_str = ""
+    for chunk in retrieved_chunks:
+        context_str += (
+            f"---\n[CHUNK ID: {chunk['chunk_id']}]\n"
+            f"Source: {chunk['source_file']}\n"
+            f"Content: {chunk['content']}\n"
+        )
+    prompt = (
+        f"<|im_start|>system\n"
+        f"You are a specialized Cybersecurity Intelligence Engine. Answer using ONLY the retrieved context. "
+        f"If context is insufficient, respond 'INSUFFICIENT_CONTEXT'. Never round numbers. Preserve casing. "
+        f"Cite chunks using [chunk_id].<|im_end|>\n"
+        f"<|im_start|>user\n"
+        f"### RETRIEVED CONTEXT CHUNKS:\n{context_str}---\n\n"
+        f"### USER QUERY:\n{query}\n<|im_end|>\n"
+        f"<|im_start|>assistant\n"
+    )
+    return prompt
+
+def run_batch_generation():
+    with open(INPUT_DATASET, "r", encoding="utf-8") as f:
+        dataset = json.load(f)
+    OUTPU_PAYLOADS.parent.mkdir(parents=True, exist_ok=True)
+    with httpx.Client(timeout=120.0) as client, open(OUTPUT_PAYLOADS, "w", encoding="utf-8") as out_f:
+        for idx, item in enumerate(dataset):
+            test_id = item["test_id"]
+            query = item["query"]
+            ground_truth = item["ground_truth_answer"]
+            retrieved_chunks = item["retrieved_context_chunks"]
+            question_type = item["question_type"]
+            full_prompt = construct_full_prompt(query, retrieved_chunks)
+            t0 = time.perf_counter()
+            response = client.post(
+                "http://localhost:11434/api/generate",
+                json={
+                    "model": "qwen2.5-cyber-tier5:latest",
+                    "prompt": full_prompt,
+                    "stream": False,
+                    "options": {
+                        "num_ctx": 4096,
+                        "temperature": 0.0,
+                        "num_predict": 512
+                    }
+                }
+            )
+            elapsed = time.perf_counter() - t0
+            if response.status_code != 200:
+                print(f"[ERROR] Item {test_id} failed: {response.text}")
+                continue
+            generated_answer = response.json().get("response", "").strip()
+            record = {
+                "test_id": test_id,
+                "question_type": question_type,
+                "query": query,
+                "ground_truth": ground_truth,
+                "retrieved_context": "\n".join([f"[{c['chunk_id']}]: {c['content']}" for c in retrieved_chunks]),
+                "retrieved_chunk_ids": [c["chunk_id"] for c in retrieved_chunks],
+                "expected_chunk_ids": item["expected_source_chunk_ids"],
+                "generated_answer": generated_answer,
+                "latency_sec": round(elapsed, 3)
+            }
+            out_f.write(json.dumps(record) + "\n")
+            out_f.flush()
+            print(f"[{idx+1}/150] Completed {test_id} | Type: {question_type} | Latency: {elapsed:.2f}s")
+if __name__ == "__main__":
+    run_batch_generation()
+```
+---
+
+### 7. Phase 2 Validation & Acceptance Criteria
+Before proceeding to Phase 3 (Serving & Concurrency), the generation subsystem must pass four validation tests:
+1. **VRAM Safety Verification:** Under continuous batch generation, `nvidia-smi` confirms dedicated VRAM consumption stays below **5.35 GB** with no swap memory spikes.
+2. **Negative Constraint Test:** When an out-of-scope question (e.g., *"How do I bake bread?"*) is submitted with cybersecurity context, the model outputs `INSUFFICIENT_CONTEXT` as its initial token string.
+3. **Literal Decimal Test:** When querying CVSS base metrics, the model emits exact decimal strings (e.g., `10.0`, `9.8`, `5.3`) without rounding or converting values to integers.
+4. **Offline Batch Serialization:** All 150 items from `retrieved_contexts_150.json` complete generation and commit to `golden_evaluation_payloads_150.jsonl` with valid candidate answers and latency timestamps.

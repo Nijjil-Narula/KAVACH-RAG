@@ -1,0 +1,20 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0+cpu
+transformers>=4.51
+tokenizers
+safetensors
+huggingface_hub
+sentencepiece
+protobuf
+numpy
+pandas
+pyarrow
+faiss-cpu
+pydantic>=2.7
+pydantic-settings
+langchain-text-splitters
+httpx[http2]
+pyyaml
+psutil
+tqdm
+pytest

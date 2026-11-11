@@ -1,0 +1,106 @@
+#KAVACH-RAG:Production-Grade Cybersecurity RAG: Architecture, Concurrency Engineering & LLM-as-a-Judge Evaluation
+
+### Executive Overview & Purpose
+In mission-critical cybersecurity operations, generative AI pipelines cannot rely on unchecked internal parametric memory. When querying Common Vulnerabilities and Exposures (CVEs), MITRE ATT&CK enterprise tactics, or shifting compliance matrices like OWASP Top-10 (v1.1 vs. v2.0), hallucinated version boundaries, inverted logic operators, or fabricated Common Vulnerability Scoring System (CVSS) base metrics lead directly to unpatched exposures and compromised environments.
+The purpose of this project is to architect, benchmark, and evaluate a production-grade, zero-cost cybersecurity Retrieval-Augmented Generation (RAG) system capable of serving low-latency, strictly grounded intelligence under heavy concurrent loads.
+Engineered from the ground up to operate within strict physical hardware constraints (Intel Core i7-13620H, 16GB RAM, NVIDIA GeForce RTX 4050 6GB) and zero-cost cloud API tiers, the project resolves two core industry challenges:
+
+1. **Concurrency and Infrastructure Economics:** Serving high-throughput queries without triggering Out-Of-Memory (OOM) failures, thread starvation, or connection pool exhaustion under a 100-concurrent-user stress test.
+2. **Disentangled Offline Automated Auditing:** Rigorously isolating retrieval recall from synthesis faithfulness across a 150-question golden dataset using an impartial, multi-tiered LLM-as-a-Judge evaluation cascade.
+---
+
+### End-to-End System Architecture
+The core pipeline operates across a modular 6-tier architecture strategically partitioned between host CPU cores, dedicated GPU VRAM, and zero-cost managed cloud APIs to enforce absolute hardware isolation:
+```
+[Incoming User Query]
+         │
+         ▼
+┌───────────────────────────────────────────────────────┐
+│ HOST SUBSYSTEM: Intel Core i7-13620H (16 Threads) + 16GB DDR5 RAM      │
+│                                                                        │
+│  [Tier 1: AgentIntentRouter] (~66M Params, CPU / < 5 ms)               │
+│   └── Distinguishes fast-path metadata queries from semantic searches  │
+│                                                                        │
+│  [Tier 2: Dense Bi-Encoder] (codefuse-ai/F2LLM-v2-0.6B, CPU / ~35 ms)  │
+│   └── Generates 1,024-dimensional normalized vector representations    │
+│                                                                        │
+│  [Tier 3: Vector Store] (FAISS ScalarQuantizer SQ8, RAM / < 1 ms)      │
+│   └── SIMD-accelerated scanning; retrieves Top-8 candidate chunks      │
+│                                                                        │
+│  [Tier 4: Cross-Encoder Reranker] (ettin-reranker-150m-v1, CPU / 20ms) │
+│   └── Full cross-attention re-scoring; isolates Top-3 context blocks   │
+└───────────────────────────────────┬────────────────────┘
+                                    │ Top-3 Context Chunks (~1.8k Tokens)
+                                    ▼
+┌───────────────────────────────────────────────────────┐
+│ GENERATOR SUBSYSTEM: Dedicated NVIDIA RTX 4050 6GB VRAM                │
+│                                                                        │
+│  [Tier 5: Local Response Generator] (Qwen 2.5 7B Instruct Q4_K_M)      │
+│   └── Fully offloaded GPU execution (~4.6 GB peak VRAM footprint)      │
+│   └── Enforces strict negative constraints & grounded citations        │
+│   └── Direct synthesis (zero reasoning tokens) for minimal TTFT       │
+└───────────────────────────────────┬───────────────────┘
+                                    │ Final Answer Stream
+                                    ▼
+┌────────────────────────────────────────────────────────┐
+│ EVALUATION SUBSYSTEM: Two-Stage Cross-Family Judge Cascade ($0.00 API)  │
+│                                                                        │
+│  [Stage 1: Primary Baseline Pass] (gemini-3.5-flash-lite, AI Studio)   │
+│   └── Grades all 150 golden items (15 RPM pacing, Thinking=1024)       │
+│   └── Strict Pydantic JSON schema (CoT reasoning field first)          │
+│                                                                        │
+│  [Stage 2: 3-Model Jury Escalation] (Flagged / Borderline items only)  │
+│   └── gemini-3.8-flash (Google) + openai/gpt-oss-120b (Groq API)       │
+│   └── Enforces majority consensus verdict & strict minimum scores      │
+└────────────────────────────────────────────────────────┘```
+
+---
+
+### Core Engineering Safeguards & Production Hardening
+
+#### 1. Hardware Allocation & Memory Isolation
+Deploying a concurrent RAG architecture on a 6GB VRAM GPU presents an immediate risk of CUDA Out-Of-Memory crashes if embedding models, rerankers, and language models compete for device buffers:
+* **Host CPU Delegation (Tiers 1–4):** Query classification, bi-encoder embedding, FAISS similarity search, and ModernBERT reranking are confined to the host CPU and system RAM. Using strict thread allocation (`torch.set_num_threads(2)`), the entire retrieval pass completes in approximately 55 milliseconds without blocking the ASGI event loop or consuming video memory.
+* **Dedicated GPU Allocation (Tier 5):** CPU isolation preserves the 6GB VRAM space for `Qwen 2.5 7B Instruct` quantized in 4-bit (`Q4_K_M`). Because Qwen 2.5 uses Grouped Query Attention (GQA), its Key-Value (KV) cache for a 4,096-token context consumes only ~235 MB, allowing model weights and active attention buffers to reside natively in GPU memory at ~4.6 GB peak usage.
+
+#### 2. Generator Selection: Direct Synthesis over Latent Reasoning
+While hybrid reasoning models (such as IBM Granite 4.2 or DeepSeek-R1 variants) provide strong abstract logic, their generation of 200–500 internal "thinking" tokens severely inflates Time-To-First-Token (TTFT) and starves worker pools under concurrency. Because upstream retrieval tiers already locate and isolate ground-truth cybersecurity chunks, Tier 5 only requires **bounded context extraction and negative constraint compliance**. With a **75.85% IFEval** instruction-following score and **50.00% MATH** structured logic score, Qwen 2.5 7B synthesizes answers instantly without latency penalties.
+
+#### 3. Dual-Endpoint Concurrency & Stress Testing
+To benchmark real-world production viability, the serving layer (FastAPI) compares synchronous versus asynchronous execution across progressive concurrency tiers (1, 10, 50, and 100 simultaneous users) using Locust:
+* **Synchronous Baseline (`/rag/sync`):** Demonstrates the thread-starvation failure mode of blocking I/O calls where CPU-bound vector searches and synchronous LLM requests queue up, resulting in catastrophic latency spikes.
+* **Asynchronous Resilient Architecture (`/rag/async`):** Implements `asyncio.to_thread` for CPU-bound retrieval tasks, non-blocking HTTP streaming for token delivery, TTL memory query caching, and an explicit `asyncio.Semaphore(20)` boundary. This prevents thread thrashing, caps GPU memory pressure, and absorbs traffic surges without service degradation.
+
+#### 4. Connection Pooling & Transcontinental Latency Optimization
+When running inference or evaluation calls from clients located geographically distant from primary hyperscaler data centers (e.g., executing from India to US-East or European API clusters), raw fiber round-trip times introduce a baseline physical latency of 180ms to 240ms per round-trip.
+* **The Failure Mode:** Standard HTTP clients open a new TCP connection and execute a multi-step TLS handshake (TCP SYN/ACK + TLS 1.3 key exchange) for every discrete request, inflating the user-facing TTFT by an additional 300ms–450ms.
+* **The Safeguard:** The architecture mandates a single, application-wide `httpx.AsyncClient` utilizing persistent HTTP/2 connection pooling with keep-alive socket reuse (`http2=True`, `limits=httpx.Limits(max_keepalive_connections=50, keepalive_expiry=60.0)`). Sockets remain pre-warmed, reducing network overhead to the speed of the underlying physical fiber.
+
+#### 5. Anti-"Thundering Herd" Backoff Dynamics
+External free API tiers (Google AI Studio and Groq) enforce hard rate limits (RPM/TPM). Under a 100-user simulated load test or a burst evaluation run, a sudden burst can easily trigger an HTTP 429 (Too Many Requests) or upstream HTTP 500.
+* **The Failure Mode:** Standard retries that sleep for fixed intervals cause all queued worker threads to wake up and hammer the API at the exact same millisecond, creating a "thundering herd" that extends the quota block indefinitely.
+* **The Safeguard:** All asynchronous network dispatchers implement exponential backoff with randomized Full Jitter:
+$$T_{\text{sleep}} = \text{random\_uniform}\left(0, \, \min(T_{\text{max}}, \, T_{\text{base}} \times 2^c)\right)$$
+Where $T_{\text{base}} = 1.5\text{s}$, $T_{\text{max}} = 60.0\text{s}$, and $c$ represents the zero-indexed consecutive attempt counter. In addition, the dispatcher directly inspects and respects upstream `Retry-After` headers whenever provided.
+
+#### 6. Atomic Checkpoint Resumability
+Evaluating a 150-question golden dataset requires 11 to 15 minutes of paced execution to adhere to free rate limits.
+* **The Failure Mode:** Storing results in an in-memory dictionary or writing to an unbuffered CSV file means an unhandled exception, network drop, or mid-batch crash at item #140 destroys all prior evaluation artifacts, forcing a full restart that wastes daily token limits.
+* **The Safeguard:** The evaluation harness implements an Append-Only Atomic `.jsonl` logging engine. After every graded item, the JSON payload is committed to disk immediately followed by an explicit `file.flush()` and `os.fsync()`. On startup, the evaluation engine inspects existing line counts and hashes, skipping already completed records to allow immediate, zero-token resumption.
+
+#### 7. Disentangled Evaluation & Two-Stage Judge Cascade
+RAG failures originate from either missing context (retrieval failure) or fabricated output (generation failure). This project evaluates both components independently:
+* **Retrieval Evaluation:** Evaluated offline against labeled document IDs using classical ranking metrics: Recall@k, Precision@k, Mean Reciprocal Rank (MRR), and Normalized Discounted Cumulative Gain (nDCG@k)
+* **Generation Evaluation (Two-Stage Judge Cascade):** Evaluated against a 150-question golden dataset containing factual, multi-hop, out-of-scope, and ambiguous queries. To eliminate the documented 33.3% self-preference bias inherent in using Qwen 
+
+models to judge Qwen outputs, the Tier 6 evaluator utilizes a cross-family API cascade across Google DeepMind and OpenAI
+* **Stage 1 (Uniform Primary):** `gemini-3.5-flash-lite` evaluates all 150 questions in an ~11-minute pass at 15 RPM with an active thinking budget of 1,024 tokens and strict Pydantic JSON enforcement.
+* **Stage 2 (Jury Escalation):** Borderline items (faithfulness between 0.50 and 0.85, partial verdicts, or failed version conflict checks) automatically escalate to a 3-model consensus panel composed of Stage 1, `gemini-3.8-flash`, and Groq's `openai/gpt-oss-120b`.
+* **Human-in-the-Loop Calibration:** 30 test cases are hand-labeled to compute the empirical Human-to-Judge Agreement Rate (Cohen’s Kappa), validating the judge's scoring reliability before automated CI/CD gating.
+---
+
+### Phased Implementation Deliverables
+* **Phase 1 (Retrieval Subsystem):** Corpus ingestion, dense embedding (`F2LLM-v2-0.6B`), FAISS SQ8 vector indexing, and cross-encoder reranking (`ettin-reranker-150m-v1`) with offline retrieval metric computation (MRR, nDCG@k).
+* **Phase 2 (Generation Subsystem):** Local Ollama/`llama.cpp` deployment of `Qwen 2.5 7B Instruct` (`Q4_K_M`), strict system prompt guardrails, and streaming response generation tracking Time-To-First-Token (TTFT).
+* **Phase 3 (Serving & Concurrency):** FastAPI dual-endpoint service (`/rag/sync` vs. `/rag/async`), HTTP/2 connection pooling, exponential jitter retries, and Locust benchmark suites for 1, 10, 50, and 100 concurrent users.
+* **Phase 4 (Evaluation & CI Regression):** Two-Stage Judge Cascade harness, 30-item human calibration analysis, atomic checkpointing, and CI regression test suites that fail pipeline builds if faithfulness drops below 0.85.
