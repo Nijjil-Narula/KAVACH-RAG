@@ -5,9 +5,9 @@ Verifies:
   - ``logits_to_probs_and_raw`` / ``logits_to_probs`` on 1-logit and 2-logit heads.
   - Descending sorting strictly by ``rerank_raw_logit``, ``return_all`` & ``top_k`` cap,
     and zero mutation of caller candidate dicts.
-  - D2 passage-first pair construction at 576 tokens (query-only truncation with
-    warning + truncation_stats, ``RetrievalError`` on passage > 512 tokens, and
-    Contingency L 768 relaxation on queries > 96 tokens).
+  - D2 passage-first pair construction at 640 tokens (query-only truncation with
+    warning + truncation_stats, ``RetrievalError`` on passage > 600 tokens, and
+    Contingency L 1024 relaxation on queries > 96 tokens).
   - Real cross-encoder scoring on CPU (run during Stage 7 ``pytest -q``).
 """
 from __future__ import annotations
@@ -137,7 +137,7 @@ def test_reranker_d2_passage_first_construction_unit(
     """Verify D2 passage-first pair assembly, query truncation, overflow error, and Contingency L."""
     tok = _DummyWordTokenizer()
     rr = Reranker.__new__(Reranker)
-    rr._settings = Settings(rerank_max_length=576)
+    rr._settings = Settings(rerank_max_length=640)
     rr._tokenizer = tok
     rr._model = object()
     rr._pair_template = _detect_pair_template(tok)
@@ -151,7 +151,7 @@ def test_reranker_d2_passage_first_construction_unit(
         "contingency_l_pairs": 0,
     }
 
-    # 1. Untruncated pair matches tokenizer(query, passage)
+    # 1. Untruncated pair (including >582 token corpus passage) matches tokenizer(query, passage)
     q_short = " ".join(f"q{i}" for i in range(12))
     p_normal = " ".join(f"p{i}" for i in range(40))
     built = rr.build_pair_inputs(q_short, p_normal)
@@ -160,37 +160,43 @@ def test_reranker_d2_passage_first_construction_unit(
     assert rr.truncation_stats["queries_truncated"] == 0
     assert rr.truncation_stats["passages_truncated"] == 0
 
-    # 2. Long query + 500-token passage at 576 -> query truncated to 73 tokens, passage untouched
+    p_585 = " ".join(f"p{i}" for i in range(585))
+    built_585 = rr.build_pair_inputs(q_short, p_585)
+    assert len(built_585["input_ids"]) == 12 + 585 + 3
+    assert rr.truncation_stats["queries_truncated"] == 0
+    assert rr.truncation_stats["passages_truncated"] == 0
+
+    # 2. Long query + 590-token passage at 640 -> query truncated to 47 tokens, passage untouched
     q_long = " ".join(f"q{i}" for i in range(100))
-    p_500 = " ".join(f"p{i}" for i in range(500))
+    p_590 = " ".join(f"p{i}" for i in range(590))
     caplog.clear()
     with caplog.at_level(logging.WARNING):
-        trunc_pair = rr.build_pair_inputs(q_long, p_500)
-    assert len(trunc_pair["input_ids"]) == 576
-    p_expected_ids = tok.encode(p_500, add_special_tokens=False)
-    # Tail of [CLS] q_trunc [SEP] p_500 [SEP] must retain every passage token in full
+        trunc_pair = rr.build_pair_inputs(q_long, p_590)
+    assert len(trunc_pair["input_ids"]) == 640
+    p_expected_ids = tok.encode(p_590, add_special_tokens=False)
+    # Tail of [CLS] q_trunc [SEP] p_590 [SEP] must retain every passage token in full
     assert trunc_pair["input_ids"][-(len(p_expected_ids) + 1) : -1] == p_expected_ids
     assert rr.truncation_stats["queries_truncated"] == 1
     assert rr.truncation_stats["passages_truncated"] == 0
     assert any("Reranker D2 query truncation" in rec.message for rec in caplog.records)
 
-    # 3. Contingency L raises long-query pair budget to 768 when query > 96 tokens
+    # 3. Contingency L raises long-query pair budget to 1024 when query > 96 tokens
     rr._settings = Settings(
-        rerank_max_length=576,
-        rerank_long_query_max_length=768,
+        rerank_max_length=640,
+        rerank_long_query_max_length=1024,
         rerank_long_query_token_threshold=96,
         contingency_l_applied=True,
     )
     rr.reset_truncation_stats()
-    cont_pair = rr.build_pair_inputs(q_long, p_500)
-    assert len(cont_pair["input_ids"]) == 603
+    cont_pair = rr.build_pair_inputs(q_long, p_590)
+    assert len(cont_pair["input_ids"]) == 693
     assert rr.truncation_stats["queries_truncated"] == 0
     assert rr.truncation_stats["contingency_l_pairs"] == 1
 
-    # 4. Passage > 512 tokens must raise RetrievalError loudly
-    p_513 = " ".join(f"p{i}" for i in range(513))
-    with pytest.raises(RetrievalError, match="Passage token count 513"):
-        rr.build_pair_inputs(q_short, p_513)
+    # 4. Passage > 600 tokens must raise RetrievalError loudly
+    p_601 = " ".join(f"p{i}" for i in range(601))
+    with pytest.raises(RetrievalError, match="Passage token count 601"):
+        rr.build_pair_inputs(q_short, p_601)
 
 
 def test_reranker_real_model() -> None:

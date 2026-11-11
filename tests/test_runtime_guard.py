@@ -125,13 +125,19 @@ def test_pin_to_p_cores_modes_and_restore() -> None:
     import pytest
 
     import kavach  # noqa: F401
-    from kavach.runtime_guard import detect_core_topology, pin_to_p_cores
+    from kavach.runtime_guard import (
+        apply_hardware_guard,
+        detect_core_topology,
+        pin_to_p_cores,
+    )
 
     topo = detect_core_topology()
     assert topo["affinity_unavailable"] is False
 
     proc = psutil.Process()
-    original_affinity = sorted(proc.cpu_affinity())
+    # Clear any pinning already applied by import kavach -> apply_hardware_guard()
+    pin_to_p_cores("off")
+    unpinned_affinity = sorted(proc.cpu_affinity())
 
     try:
         distinct = pin_to_p_cores("p_core_distinct")
@@ -149,9 +155,10 @@ def test_pin_to_p_cores_modes_and_restore() -> None:
         cleared = pin_to_p_cores("off")
         assert cleared["mode"] == "off"
         assert cleared["applied"] is False
-        assert sorted(proc.cpu_affinity()) == original_affinity
+        assert sorted(proc.cpu_affinity()) == unpinned_affinity
 
         with pytest.raises(ValueError, match="Invalid cpu_affinity_mode"):
             pin_to_p_cores("invalid_mode")  # type: ignore[arg-type]
     finally:
         pin_to_p_cores("off")
+        apply_hardware_guard()

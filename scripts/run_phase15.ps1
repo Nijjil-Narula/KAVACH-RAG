@@ -31,7 +31,7 @@ try {
     $env:TOKENIZERS_PARALLELISM = "false"
     $env:KMP_DUPLICATE_LIB_OK = "TRUE"
     if (-not $env:HF_HOME) {
-        $env:HF_HOME = Join-Path $env:USERPROFILE ".cache\huggingface"
+        $env:HF_HOME = Join-Path $ProjectRoot "models\hf_cache"
     }
 
     Write-Host "==========================================================" -ForegroundColor Cyan
@@ -62,7 +62,7 @@ try {
     Invoke-KavachStep -StepName "Stage 2a: P-Core / E-Core Affinity Benchmark" -ModuleArgs @("-m", "kavach.retrieval.profiling", "--affinity")
     Invoke-KavachStep -StepName "Stage 2b: Precision Matrix Benchmark" -ModuleArgs @("-m", "kavach.retrieval.profiling", "--matrix")
     Invoke-KavachStep -StepName "Stage 3: Quality Gates & Precision Lock" -ModuleArgs @("-m", "kavach.retrieval.profiling", "--gates")
-    Invoke-KavachStep -StepName "Stage 4: Abstention Calibration (Dev Sets Only)" -ModuleArgs @("-m", "kavach.retrieval.calibration")
+    Invoke-KavachStep -StepName "Stage 4: Abstention Calibration (Dev Sets Only)" -ModuleArgs @("-m", "kavach.retrieval.calibration", "--collect", "--select", "--report")
     Invoke-KavachStep -StepName "Stage 5: Calibrated End-to-End Baseline" -ModuleArgs @("-m", "kavach.retrieval.profiling", "--baseline")
     Invoke-KavachStep -StepName "Stage 6: 6-Variant CPU-Only Ablation (Fresh)" -ModuleArgs @("-m", "kavach.retrieval.ablation", "--fresh")
     Invoke-KavachStep -StepName "Stage 7: Full Regression Test Suite" -ModuleArgs @("-m", "pytest", "-q")

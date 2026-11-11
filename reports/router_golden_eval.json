@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-11-11T11:36:13.301433+00:00",
+  "evaluated_at": "2026-11-11T19:02:16.408342+00:00",
   "total_queries": 150,
   "correct_count": 149,
   "overall_accuracy": 0.9933,
@@ -80,8 +80,9 @@
       "accuracy": 1.0
     }
   },
-  "mean_latency_ms": 606.189,
-  "p95_latency_ms": 1418.899,
+  "mean_latency_ms": 65.007,
+  "p50_latency_ms": 63.753,
+  "p95_latency_ms": 116.755,
   "misclassified": [
     {
       "test_id": "TEST_130",

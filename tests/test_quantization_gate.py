@@ -235,8 +235,8 @@ def test_reranker_gate_thresholds_strict_098_and_matrix_ranking() -> None:
             "bf16": {"latency_ms": {"mean": 220.0}},
         },
         "reranker": {
-            "fp32@576": {"latency_ms": {"mean": 950.0}},
-            "int8@576": {"latency_ms": {"mean": 620.0}},
+            "fp32@640": {"latency_ms": {"mean": 950.0}},
+            "int8@640": {"latency_ms": {"mean": 620.0}},
         },
         "router": {
             "fp32": {"latency_ms": {"mean": 42.0}},

@@ -1,0 +1,22 @@
+{
+  "embed_precision": "bf16",
+  "rerank_precision": "fp32",
+  "router_precision": "fp32",
+  "rerank_max_length": 640,
+  "rerank_long_query_max_length": null,
+  "rerank_long_query_token_threshold": 96,
+  "contingency_l_applied": false,
+  "cpu_affinity_mode": "p_core_distinct",
+  "quantized_engine": "onednn",
+  "torch_version": "2.15.0+cpu",
+  "locked_at": "2026-11-11T17:12:20.625102+00:00",
+  "gate_report_path": "reports/phase15_quality_gates.json",
+  "resident_rss_mb": 2953.3,
+  "rss_ceiling_mb": 4096.0,
+  "downgrades_applied": [],
+  "vram_probe": {
+    "torch_cuda_build": false,
+    "cuda_available": false,
+    "pid_in_nvidia_smi": false
+  }
+}

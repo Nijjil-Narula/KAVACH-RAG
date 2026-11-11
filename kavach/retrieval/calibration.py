@@ -369,10 +369,13 @@ def _collect_logits(cfg: Settings, fresh: bool = False) -> dict[str, Any]:
             with open(ckpt_path, "a", encoding="utf-8", newline="\n") as ckpt_fh:
                 for step_idx, item in enumerate(pending_items, start=1):
                     decision = router.route(item["query"])
+                    search_text = decision.normalized_query or item["query"]
 
                     t_e0 = time.perf_counter()
-                    ebatch = embedder.embed([item["query"]], kind="query", batch_size=1)
-                    raw_cands = index.search(ebatch.mrl512[0], cfg.candidate_k)
+                    ebatch = embedder.embed([search_text], kind="query", batch_size=1)
+                    qvec = ebatch.mrl512[0]
+                    embedder.clear_cache()
+                    raw_cands = index.search(qvec, cfg.candidate_k)
                     cands: list[dict[str, Any]] = []
                     for rank_idx, (cid, sim) in enumerate(raw_cands, start=1):
                         rec = store.get(cid)
@@ -385,7 +388,7 @@ def _collect_logits(cfg: Settings, fresh: bool = False) -> dict[str, Any]:
 
                     t_r0 = time.perf_counter()
                     scored = reranker.rerank(
-                        item["query"],
+                        search_text,
                         cands,
                         top_k=len(cands),
                         return_all=True,

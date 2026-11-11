@@ -61,7 +61,7 @@ from kavach.retrieval.quantization import (
     get_quantized_engine_info,
 )
 from kavach.retrieval.reranker import Reranker, _detect_pair_template
-from kavach.retrieval.router import AgentIntentRouter
+from kavach.retrieval.router import ROUTE_FAST_PATH, AgentIntentRouter
 from kavach.retrieval.schema import GoldenItem, QuestionType
 from kavach.retrieval.train_router import evaluate_router_precision
 from kavach.retrieval.vector_store import ChunkStore, SQ8Index
@@ -312,7 +312,7 @@ def _audit_model_worker(tier: str) -> dict[str, Any]:
         embed_precision="fp32",
         rerank_precision="fp32",
         router_precision="fp32",
-        rerank_max_length=576,
+        rerank_max_length=640,
         cpu_affinity_mode="off",
         abstention_enabled=False,
     )
@@ -450,10 +450,9 @@ def run_audit(settings: Settings) -> dict[str, Any]:
     ]
 
     pair_lens: list[int] = []
-    pairs_over_576 = 0
-    pairs_over_768 = 0
+    pairs_over_640 = 0
     pairs_over_1024 = 0
-    truncated_query_ids_at_576: list[str] = []
+    truncated_query_ids_at_640: list[str] = []
 
     for row in ckpt_rows:
         q_len = len(rerank_tok.encode(items[int(row["idx"])].query, add_special_tokens=False))
@@ -464,15 +463,13 @@ def run_audit(settings: Settings) -> dict[str, Any]:
             )
             tot = q_len + p_len + special_count
             pair_lens.append(tot)
-            if tot > 576:
-                pairs_over_576 += 1
+            if tot > 640:
+                pairs_over_640 += 1
                 any_trunc = True
-            if tot > 768:
-                pairs_over_768 += 1
             if tot > 1024:
                 pairs_over_1024 += 1
         if any_trunc:
-            truncated_query_ids_at_576.append(str(row["test_id"]))
+            truncated_query_ids_at_640.append(str(row["test_id"]))
 
     cold_vs_warm: dict[str, Any] = {}
     for tier in ("router", "embedder", "reranker"):
@@ -513,12 +510,12 @@ def run_audit(settings: Settings) -> dict[str, Any]:
             "golden_queries_over_96_tokens": sum(1 for x in q_tok_lens if x > 96),
             "golden_query_tokens": _stats_ms([float(x) for x in q_tok_lens]),
             "corpus_passages_over_512_tokens": sum(1 for x in p_tok_lens if x > 512),
+            "corpus_passages_over_600_tokens": sum(1 for x in p_tok_lens if x > 600),
             "corpus_passage_tokens": _stats_ms([float(x) for x in p_tok_lens]),
             "ckpt_pairs_total": len(pair_lens),
-            "ckpt_pairs_over_576": pairs_over_576,
-            "ckpt_pairs_over_768": pairs_over_768,
+            "ckpt_pairs_over_640": pairs_over_640,
             "ckpt_pairs_over_1024": pairs_over_1024,
-            "queries_with_truncation_at_576": truncated_query_ids_at_576,
+            "queries_with_truncation_at_640": truncated_query_ids_at_640,
             "ckpt_pair_tokens": _stats_ms([float(x) for x in pair_lens]),
         },
     }
@@ -538,7 +535,7 @@ def _affinity_worker(mode: str) -> dict[str, Any]:
         embed_precision="fp32",
         rerank_precision="fp32",
         router_precision="fp32",
-        rerank_max_length=576,
+        rerank_max_length=640,
         cpu_affinity_mode=mode,  # type: ignore[arg-type]
         abstention_enabled=False,
     )
@@ -714,7 +711,7 @@ def _matrix_worker(tier: str, precision: str, max_length: int) -> dict[str, Any]
             t0 = time.perf_counter()
             dec = router.route(q)
             latencies.append((time.perf_counter() - t0) * 1000.0)
-            if dec.fast_path:
+            if dec.route == ROUTE_FAST_PATH:
                 track_a_count += 1
             else:
                 track_b_count += 1
@@ -808,8 +805,8 @@ def run_matrix(settings: Settings) -> dict[str, Any]:
         ("embedder", "bf16", 512),
         ("embedder", "int8", 512),
         ("sq8_search", "sq8_mrl512", 512),
-        ("reranker", "fp32", 576),
-        ("reranker", "int8", 576),
+        ("reranker", "fp32", 640),
+        ("reranker", "int8", 640),
     ]
 
     matrix_results: dict[str, dict[str, Any]] = {
@@ -1160,7 +1157,7 @@ def _strip_raw_reranker_arrays(variant: dict[str, Any]) -> dict[str, Any]:
 
 
 def _evaluate_reranker_gate(settings: Settings) -> dict[str, Any]:
-    """Gate Tier 4 Reranker with full R_cur, fp32@1024, fp32@576, and int8@576 attribution."""
+    """Gate Tier 4 Reranker with full R_cur, fp32@1024, fp32@640, and int8@640 attribution."""
     items = _load_golden_items(settings)
     store = ChunkStore(settings.data_processed / "corpus_chunks.parquet")
     c2doc = store.chunk_to_doc_map()
@@ -1217,32 +1214,32 @@ def _evaluate_reranker_gate(settings: Settings) -> dict[str, Any]:
 
     variants_raw: dict[str, dict[str, Any]] = {}
 
-    log.info("Evaluating Reranker fp32@576 ...")
-    v_fp32_576 = _score_reranker_variant(
-        settings, items, store, c2doc, ckpt_rows, precision="fp32", max_length=576
+    log.info("Evaluating Reranker fp32@640 ...")
+    v_fp32_640 = _score_reranker_variant(
+        settings, items, store, c2doc, ckpt_rows, precision="fp32", max_length=640
     )
-    v_fp32_576["vs_ckpt"] = _build_reranker_comparison(v_fp32_576, ckpt_ref)
-    v_fp32_576["vs_fp32_1024"] = _build_reranker_comparison(v_fp32_576, ref_1024)
-    v_fp32_576["passed"] = bool(
-        _base_metrics_ok(v_fp32_576)
-        and _comparison_passes(v_fp32_576["vs_fp32_1024"])
-        and (baseline_drift_detected or _comparison_passes(v_fp32_576["vs_ckpt"]))
+    v_fp32_640["vs_ckpt"] = _build_reranker_comparison(v_fp32_640, ckpt_ref)
+    v_fp32_640["vs_fp32_1024"] = _build_reranker_comparison(v_fp32_640, ref_1024)
+    v_fp32_640["passed"] = bool(
+        _base_metrics_ok(v_fp32_640)
+        and _comparison_passes(v_fp32_640["vs_fp32_1024"])
+        and (baseline_drift_detected or _comparison_passes(v_fp32_640["vs_ckpt"]))
     )
-    variants_raw["fp32@576"] = v_fp32_576
+    variants_raw["fp32@640"] = v_fp32_640
 
     contingency_l_triggered = False
     contingency_l_latency_delta_ms: float | None = None
     contingency_l_latency_delta_pct: float | None = None
-    active_fp32_576 = v_fp32_576
+    active_fp32_640 = v_fp32_640
 
     if (
-        not v_fp32_576["passed"]
-        and v_fp32_576["truncation_stats"]["queries_truncated"] > 0
+        not v_fp32_640["passed"]
+        and v_fp32_640["truncation_stats"]["queries_truncated"] > 0
     ):
         contingency_l_triggered = True
         log.warning(
-            "fp32@576 failed with queries_truncated=%d; triggering Contingency L (768 for >96 q tokens)!",
-            v_fp32_576["truncation_stats"]["queries_truncated"],
+            "fp32@640 failed with queries_truncated=%d; triggering Contingency L (1024 for >96 q tokens)!",
+            v_fp32_640["truncation_stats"]["queries_truncated"],
         )
         v_fp32_cont = _score_reranker_variant(
             settings,
@@ -1251,13 +1248,13 @@ def _evaluate_reranker_gate(settings: Settings) -> dict[str, Any]:
             c2doc,
             ckpt_rows,
             precision="fp32",
-            max_length=576,
-            long_query_max_length=768,
+            max_length=640,
+            long_query_max_length=1024,
             contingency_l_applied=True,
         )
         v_fp32_cont["vs_ckpt"] = _build_reranker_comparison(v_fp32_cont, ckpt_ref)
         v_fp32_cont["vs_fp32_1024"] = _build_reranker_comparison(v_fp32_cont, ref_1024)
-        base_lat = float(v_fp32_576["latency_ms"]["mean"] or 0.0)
+        base_lat = float(v_fp32_640["latency_ms"]["mean"] or 0.0)
         cont_lat = float(v_fp32_cont["latency_ms"]["mean"] or 0.0)
         contingency_l_latency_delta_ms = round(cont_lat - base_lat, 3)
         contingency_l_latency_delta_pct = (
@@ -1270,35 +1267,35 @@ def _evaluate_reranker_gate(settings: Settings) -> dict[str, Any]:
             and _comparison_passes(v_fp32_cont["vs_fp32_1024"])
             and (baseline_drift_detected or _comparison_passes(v_fp32_cont["vs_ckpt"]))
         )
-        variants_raw["fp32@576_contingency_l_768"] = v_fp32_cont
-        active_fp32_576 = v_fp32_cont
+        variants_raw["fp32@640_contingency_l_1024"] = v_fp32_cont
+        active_fp32_640 = v_fp32_cont
 
-    log.info("Evaluating Reranker int8@576 ...")
-    v_int8_576 = _score_reranker_variant(
+    log.info("Evaluating Reranker int8@640 ...")
+    v_int8_640 = _score_reranker_variant(
         settings,
         items,
         store,
         c2doc,
         ckpt_rows,
         precision="int8",
-        max_length=576,
-        long_query_max_length=768 if contingency_l_triggered else None,
+        max_length=640,
+        long_query_max_length=1024 if contingency_l_triggered else None,
         contingency_l_applied=contingency_l_triggered,
     )
-    v_int8_576["vs_ckpt"] = _build_reranker_comparison(v_int8_576, ckpt_ref)
-    v_int8_576["vs_fp32_1024"] = _build_reranker_comparison(v_int8_576, ref_1024)
-    v_int8_576["vs_fp32_576"] = _build_reranker_comparison(v_int8_576, active_fp32_576)
+    v_int8_640["vs_ckpt"] = _build_reranker_comparison(v_int8_640, ckpt_ref)
+    v_int8_640["vs_fp32_1024"] = _build_reranker_comparison(v_int8_640, ref_1024)
+    v_int8_640["vs_fp32_640"] = _build_reranker_comparison(v_int8_640, active_fp32_640)
 
     int8_active_ref_cmp = (
-        v_int8_576["vs_fp32_1024"] if baseline_drift_detected else v_int8_576["vs_ckpt"]
+        v_int8_640["vs_fp32_1024"] if baseline_drift_detected else v_int8_640["vs_ckpt"]
     )
-    v_int8_576["passed"] = bool(
-        _base_metrics_ok(v_int8_576)
+    v_int8_640["passed"] = bool(
+        _base_metrics_ok(v_int8_640)
         and _comparison_passes(int8_active_ref_cmp)
-        and _comparison_passes(v_int8_576["vs_fp32_576"])
+        and _comparison_passes(v_int8_640["vs_fp32_640"])
     )
-    int8_key = "int8@576" + ("_contingency_l_768" if contingency_l_triggered else "")
-    variants_raw[int8_key] = v_int8_576
+    int8_key = "int8@640" + ("_contingency_l_1024" if contingency_l_triggered else "")
+    variants_raw[int8_key] = v_int8_640
 
     return {
         "baseline_drift": baseline_drift,
@@ -1415,7 +1412,7 @@ def _rank_passing_by_matrix_latency(
         )
     scored_items: list[tuple[float, str]] = []
     for prec in passing:
-        cell_key = f"{prec}@576" if tier == "reranker" else prec
+        cell_key = f"{prec}@640" if tier == "reranker" else prec
         cell = tier_cells.get(cell_key)
         mean_ms = (
             cell.get("latency_ms", {}).get("mean")
@@ -1456,9 +1453,9 @@ def run_gates(settings: Settings) -> dict[str, Any]:
     ]
 
     cont_l = bool(rerank_gate["contingency_l_triggered"])
-    long_max_len = 768 if cont_l else None
-    rr_fp32_key = "fp32@576_contingency_l_768" if cont_l else "fp32@576"
-    rr_int8_key = "int8@576_contingency_l_768" if cont_l else "int8@576"
+    long_max_len = 1024 if cont_l else None
+    rr_fp32_key = "fp32@640_contingency_l_1024" if cont_l else "fp32@640"
+    rr_int8_key = "int8@640_contingency_l_1024" if cont_l else "int8@640"
 
     passing_rerank: list[str] = []
     if rerank_gate["variants"].get(rr_fp32_key, {}).get("passed"):
@@ -1511,7 +1508,7 @@ def run_gates(settings: Settings) -> dict[str, Any]:
             embed_precision=sel_embed,
             rerank_precision=sel_rerank,
             router_precision=sel_router,
-            rerank_max_length=576,
+            rerank_max_length=640,
             rerank_long_query_max_length=long_max_len,
             contingency_l_applied=cont_l,
             cpu_affinity_mode=aff_mode,
@@ -1558,7 +1555,7 @@ def run_gates(settings: Settings) -> dict[str, Any]:
         "embed_precision": sel_embed,
         "rerank_precision": sel_rerank,
         "router_precision": sel_router,
-        "rerank_max_length": 576,
+        "rerank_max_length": 640,
         "rerank_long_query_max_length": long_max_len,
         "rerank_long_query_token_threshold": int(settings.rerank_long_query_token_threshold),
         "contingency_l_applied": cont_l,
@@ -1759,7 +1756,7 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--mode", default="off", help=argparse.SUPPRESS)
     parser.add_argument("--tier", default="", help=argparse.SUPPRESS)
     parser.add_argument("--precision", default="fp32", help=argparse.SUPPRESS)
-    parser.add_argument("--max-length", type=int, default=576, help=argparse.SUPPRESS)
+    parser.add_argument("--max-length", type=int, default=640, help=argparse.SUPPRESS)
     parser.add_argument("--long-max-length", type=int, default=None, help=argparse.SUPPRESS)
     parser.add_argument("--contingency-l", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--embed-precision", default="fp32", help=argparse.SUPPRESS)

@@ -1,0 +1,43 @@
+{
+  "threshold_T": 7.0,
+  "reranker_precision": "fp32",
+  "rerank_max_length": 640,
+  "reranker_model_id": "cross-encoder/ettin-reranker-150m-v1",
+  "selection_rule": "floor_to_0.25(min_in_scope_dev_logit - 0.5)",
+  "dev_in_scope_n": 100,
+  "dev_oos_n": 60,
+  "dev_false_abstain_rate": 0.0,
+  "dev_oos_abstain_rate": 0.966667,
+  "created_at": "2026-11-11T18:02:24.989481+00:00",
+  "min_in_scope_dev_logit": 7.525618,
+  "embed_precision": "bf16",
+  "router_precision": "fp32",
+  "contingency_l_applied": false,
+  "rerank_long_query_max_length": null,
+  "rerank_long_query_token_threshold": 96,
+  "candidate_k": 8,
+  "golden_excluded_count": 150,
+  "roc_auc": 0.999667,
+  "system_oos_abstain_rate": 0.966667,
+  "logits_sha256": "8d484aa642726bd1c94cba18c1c316531e7f0d5f45b41019217d82b74bb53ac7",
+  "inscope_logit_stats": {
+    "min": 7.525618,
+    "p05": 8.958076,
+    "p25": 10.214424,
+    "median": 10.753274,
+    "p75": 11.376553,
+    "p95": 11.924446,
+    "max": 12.397745,
+    "mean": 10.679231
+  },
+  "oos_logit_stats": {
+    "min": -2.631799,
+    "p05": -1.587574,
+    "p25": -0.589555,
+    "median": 0.915371,
+    "p75": 2.347824,
+    "p95": 6.022878,
+    "max": 7.99494,
+    "mean": 1.42766
+  }
+}

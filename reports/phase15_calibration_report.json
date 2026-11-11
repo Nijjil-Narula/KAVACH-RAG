@@ -1,0 +1,1147 @@
+{
+  "generated_at": "2026-11-11T18:02:29.704995+00:00",
+  "threshold_T": 7.0,
+  "selection_rule": "floor_to_0.25(min_in_scope_dev_logit - 0.5)",
+  "reranker_model_id": "cross-encoder/ettin-reranker-150m-v1",
+  "dev_in_scope_n": 100,
+  "dev_oos_n": 60,
+  "dev_false_abstain_rate": 0.0,
+  "dev_oos_abstain_rate": 0.966667,
+  "system_oos_abstain_rate": 0.966667,
+  "roc_auc_inscope_vs_oos": 0.999667,
+  "low_oos_abstain_diagnostic": {
+    "flagged": false,
+    "dev_oos_abstain_rate": 0.966667,
+    "threshold_T": 7.0,
+    "driving_low_inscope_outliers": [
+      {
+        "query_id": "DEV_IN_069",
+        "category": "owasp_version_agnostic",
+        "top1_logit": 7.525618,
+        "query_snippet": "What access-boundary mistakes cause multi-user RAG retrieval pipelines to leak confidential user records under OWASP?"
+      },
+      {
+        "query_id": "DEV_IN_097",
+        "category": "cluttered_context",
+        "top1_logit": 7.979546,
+        "query_snippet": "timestamp|sensor|src_ip|dst_port|signature\n2025-04-11T11:03:51Z|segw-mail-01|203.0.113.77|443|SPEARPHISH_HTML_LINK_CLICK"
+      },
+      {
+        "query_id": "DEV_IN_067",
+        "category": "owasp_version_agnostic",
+        "top1_logit": 8.72909,
+        "query_snippet": "Why must autonomous tool-calling agents enforce strict human approval under OWASP LLM agency controls?"
+      },
+      {
+        "query_id": "DEV_IN_058",
+        "category": "multi_hop",
+        "top1_logit": 8.743196,
+        "query_snippet": "Link Spring Framework class-loader manipulation in CVE-2022-22965 to initial access technique T1190."
+      },
+      {
+        "query_id": "DEV_IN_096",
+        "category": "cluttered_context",
+        "top1_logit": 8.917466,
+        "query_snippet": "timestamp|sensor|src_ip|dst_port|signature\n2025-04-11T09:44:22Z|ids-core-west|10.14.88.19|445|LATERAL_SMB_PROBE_MULTIHOS"
+      }
+    ],
+    "options_without_changing_T": []
+  },
+  "precision_config": {
+    "reranker_precision": "fp32",
+    "embed_precision": "bf16",
+    "router_precision": "fp32",
+    "rerank_max_length": 640,
+    "contingency_l_applied": false,
+    "rerank_long_query_max_length": null,
+    "rerank_long_query_token_threshold": 96
+  },
+  "threshold_grid": [
+    {
+      "T": -2.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.966667,
+      "oos_tnr": 0.033333,
+      "balanced_accuracy": 0.516667,
+      "system_oos_false_accept_rate": 0.483333
+    },
+    {
+      "T": -1.75,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.95,
+      "oos_tnr": 0.05,
+      "balanced_accuracy": 0.525,
+      "system_oos_false_accept_rate": 0.483333
+    },
+    {
+      "T": -1.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.933333,
+      "oos_tnr": 0.066667,
+      "balanced_accuracy": 0.533333,
+      "system_oos_false_accept_rate": 0.483333
+    },
+    {
+      "T": -1.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.883333,
+      "oos_tnr": 0.116667,
+      "balanced_accuracy": 0.558333,
+      "system_oos_false_accept_rate": 0.483333
+    },
+    {
+      "T": -1.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.85,
+      "oos_tnr": 0.15,
+      "balanced_accuracy": 0.575,
+      "system_oos_false_accept_rate": 0.466667
+    },
+    {
+      "T": -0.75,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.8,
+      "oos_tnr": 0.2,
+      "balanced_accuracy": 0.6,
+      "system_oos_false_accept_rate": 0.466667
+    },
+    {
+      "T": -0.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.716667,
+      "oos_tnr": 0.283333,
+      "balanced_accuracy": 0.641667,
+      "system_oos_false_accept_rate": 0.433333
+    },
+    {
+      "T": -0.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.683333,
+      "oos_tnr": 0.316667,
+      "balanced_accuracy": 0.658333,
+      "system_oos_false_accept_rate": 0.416667
+    },
+    {
+      "T": 0.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.65,
+      "oos_tnr": 0.35,
+      "balanced_accuracy": 0.675,
+      "system_oos_false_accept_rate": 0.4
+    },
+    {
+      "T": 0.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.6,
+      "oos_tnr": 0.4,
+      "balanced_accuracy": 0.7,
+      "system_oos_false_accept_rate": 0.4
+    },
+    {
+      "T": 0.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.566667,
+      "oos_tnr": 0.433333,
+      "balanced_accuracy": 0.716667,
+      "system_oos_false_accept_rate": 0.4
+    },
+    {
+      "T": 0.75,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.516667,
+      "oos_tnr": 0.483333,
+      "balanced_accuracy": 0.741667,
+      "system_oos_false_accept_rate": 0.4
+    },
+    {
+      "T": 1.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.466667,
+      "oos_tnr": 0.533333,
+      "balanced_accuracy": 0.766667,
+      "system_oos_false_accept_rate": 0.366667
+    },
+    {
+      "T": 1.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.416667,
+      "oos_tnr": 0.583333,
+      "balanced_accuracy": 0.791667,
+      "system_oos_false_accept_rate": 0.35
+    },
+    {
+      "T": 1.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.4,
+      "oos_tnr": 0.6,
+      "balanced_accuracy": 0.8,
+      "system_oos_false_accept_rate": 0.333333
+    },
+    {
+      "T": 1.75,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.366667,
+      "oos_tnr": 0.633333,
+      "balanced_accuracy": 0.816667,
+      "system_oos_false_accept_rate": 0.333333
+    },
+    {
+      "T": 2.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.316667,
+      "oos_tnr": 0.683333,
+      "balanced_accuracy": 0.841667,
+      "system_oos_false_accept_rate": 0.283333
+    },
+    {
+      "T": 2.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.3,
+      "oos_tnr": 0.7,
+      "balanced_accuracy": 0.85,
+      "system_oos_false_accept_rate": 0.266667
+    },
+    {
+      "T": 2.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.233333,
+      "oos_tnr": 0.766667,
+      "balanced_accuracy": 0.883333,
+      "system_oos_false_accept_rate": 0.2
+    },
+    {
+      "T": 2.75,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.216667,
+      "oos_tnr": 0.783333,
+      "balanced_accuracy": 0.891667,
+      "system_oos_false_accept_rate": 0.2
+    },
+    {
+      "T": 3.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.216667,
+      "oos_tnr": 0.783333,
+      "balanced_accuracy": 0.891667,
+      "system_oos_false_accept_rate": 0.2
+    },
+    {
+      "T": 3.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.216667,
+      "oos_tnr": 0.783333,
+      "balanced_accuracy": 0.891667,
+      "system_oos_false_accept_rate": 0.2
+    },
+    {
+      "T": 3.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.216667,
+      "oos_tnr": 0.783333,
+      "balanced_accuracy": 0.891667,
+      "system_oos_false_accept_rate": 0.2
+    },
+    {
+      "T": 3.75,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.2,
+      "oos_tnr": 0.8,
+      "balanced_accuracy": 0.9,
+      "system_oos_false_accept_rate": 0.2
+    },
+    {
+      "T": 4.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.2,
+      "oos_tnr": 0.8,
+      "balanced_accuracy": 0.9,
+      "system_oos_false_accept_rate": 0.2
+    },
+    {
+      "T": 4.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.2,
+      "oos_tnr": 0.8,
+      "balanced_accuracy": 0.9,
+      "system_oos_false_accept_rate": 0.2
+    },
+    {
+      "T": 4.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.183333,
+      "oos_tnr": 0.816667,
+      "balanced_accuracy": 0.908333,
+      "system_oos_false_accept_rate": 0.183333
+    },
+    {
+      "T": 4.75,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.15,
+      "oos_tnr": 0.85,
+      "balanced_accuracy": 0.925,
+      "system_oos_false_accept_rate": 0.15
+    },
+    {
+      "T": 5.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.133333,
+      "oos_tnr": 0.866667,
+      "balanced_accuracy": 0.933333,
+      "system_oos_false_accept_rate": 0.133333
+    },
+    {
+      "T": 5.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.133333,
+      "oos_tnr": 0.866667,
+      "balanced_accuracy": 0.933333,
+      "system_oos_false_accept_rate": 0.133333
+    },
+    {
+      "T": 5.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.116667,
+      "oos_tnr": 0.883333,
+      "balanced_accuracy": 0.941667,
+      "system_oos_false_accept_rate": 0.116667
+    },
+    {
+      "T": 5.75,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.116667,
+      "oos_tnr": 0.883333,
+      "balanced_accuracy": 0.941667,
+      "system_oos_false_accept_rate": 0.116667
+    },
+    {
+      "T": 6.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.066667,
+      "oos_tnr": 0.933333,
+      "balanced_accuracy": 0.966667,
+      "system_oos_false_accept_rate": 0.066667
+    },
+    {
+      "T": 6.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.033333,
+      "oos_tnr": 0.966667,
+      "balanced_accuracy": 0.983333,
+      "system_oos_false_accept_rate": 0.033333
+    },
+    {
+      "T": 6.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.033333,
+      "oos_tnr": 0.966667,
+      "balanced_accuracy": 0.983333,
+      "system_oos_false_accept_rate": 0.033333
+    },
+    {
+      "T": 6.75,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.033333,
+      "oos_tnr": 0.966667,
+      "balanced_accuracy": 0.983333,
+      "system_oos_false_accept_rate": 0.033333
+    },
+    {
+      "T": 7.0,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.033333,
+      "oos_tnr": 0.966667,
+      "balanced_accuracy": 0.983333,
+      "system_oos_false_accept_rate": 0.033333
+    },
+    {
+      "T": 7.25,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.033333,
+      "oos_tnr": 0.966667,
+      "balanced_accuracy": 0.983333,
+      "system_oos_false_accept_rate": 0.033333
+    },
+    {
+      "T": 7.5,
+      "inscope_false_abstain_rate": 0.0,
+      "inscope_tpr": 1.0,
+      "oos_false_accept_rate": 0.016667,
+      "oos_tnr": 0.983333,
+      "balanced_accuracy": 0.991667,
+      "system_oos_false_accept_rate": 0.016667
+    },
+    {
+      "T": 7.75,
+      "inscope_false_abstain_rate": 0.01,
+      "inscope_tpr": 0.99,
+      "oos_false_accept_rate": 0.016667,
+      "oos_tnr": 0.983333,
+      "balanced_accuracy": 0.986667,
+      "system_oos_false_accept_rate": 0.016667
+    },
+    {
+      "T": 8.0,
+      "inscope_false_abstain_rate": 0.02,
+      "inscope_tpr": 0.98,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.99,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 8.25,
+      "inscope_false_abstain_rate": 0.02,
+      "inscope_tpr": 0.98,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.99,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 8.5,
+      "inscope_false_abstain_rate": 0.02,
+      "inscope_tpr": 0.98,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.99,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 8.75,
+      "inscope_false_abstain_rate": 0.04,
+      "inscope_tpr": 0.96,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.98,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 9.0,
+      "inscope_false_abstain_rate": 0.06,
+      "inscope_tpr": 0.94,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.97,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 9.25,
+      "inscope_false_abstain_rate": 0.08,
+      "inscope_tpr": 0.92,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.96,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 9.5,
+      "inscope_false_abstain_rate": 0.11,
+      "inscope_tpr": 0.89,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.945,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 9.75,
+      "inscope_false_abstain_rate": 0.17,
+      "inscope_tpr": 0.83,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.915,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 10.0,
+      "inscope_false_abstain_rate": 0.22,
+      "inscope_tpr": 0.78,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.89,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 10.25,
+      "inscope_false_abstain_rate": 0.28,
+      "inscope_tpr": 0.72,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.86,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 10.5,
+      "inscope_false_abstain_rate": 0.38,
+      "inscope_tpr": 0.62,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.81,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 10.75,
+      "inscope_false_abstain_rate": 0.5,
+      "inscope_tpr": 0.5,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.75,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 11.0,
+      "inscope_false_abstain_rate": 0.58,
+      "inscope_tpr": 0.42,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.71,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 11.25,
+      "inscope_false_abstain_rate": 0.7,
+      "inscope_tpr": 0.3,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.65,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 11.5,
+      "inscope_false_abstain_rate": 0.81,
+      "inscope_tpr": 0.19,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.595,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 11.75,
+      "inscope_false_abstain_rate": 0.89,
+      "inscope_tpr": 0.11,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.555,
+      "system_oos_false_accept_rate": 0.0
+    },
+    {
+      "T": 12.0,
+      "inscope_false_abstain_rate": 0.95,
+      "inscope_tpr": 0.05,
+      "oos_false_accept_rate": 0.0,
+      "oos_tnr": 1.0,
+      "balanced_accuracy": 0.525,
+      "system_oos_false_accept_rate": 0.0
+    }
+  ],
+  "inscope_dev_summary": {
+    "min": 7.525618,
+    "p05": 8.958076,
+    "p25": 10.214424,
+    "median": 10.753274,
+    "p75": 11.376553,
+    "p95": 11.924446,
+    "max": 12.397745,
+    "mean": 10.679231
+  },
+  "oos_dev_summary": {
+    "min": -2.631799,
+    "p05": -1.587574,
+    "p25": -0.589555,
+    "median": 0.915371,
+    "p75": 2.347824,
+    "p95": 6.022878,
+    "max": 7.99494,
+    "mean": 1.42766
+  },
+  "inscope_dev_by_category": {
+    "cluttered_context": {
+      "count": 10,
+      "false_abstain_rate_at_T": 0.0,
+      "doc_recall_at_3": 1.0,
+      "doc_recall_at_8": 1.0,
+      "logit_stats": {
+        "min": 7.979546,
+        "p05": 8.40161,
+        "p25": 9.25954,
+        "median": 9.838222,
+        "p75": 10.546166,
+        "p95": 11.034577,
+        "max": 11.041546,
+        "mean": 9.82309
+      }
+    },
+    "factual": {
+      "count": 40,
+      "false_abstain_rate_at_T": 0.0,
+      "doc_recall_at_3": 0.975,
+      "doc_recall_at_8": 0.975,
+      "logit_stats": {
+        "min": 9.543481,
+        "p05": 10.185196,
+        "p25": 10.796626,
+        "median": 11.271946,
+        "p75": 11.73333,
+        "p95": 12.097593,
+        "max": 12.225043,
+        "mean": 11.227231
+      }
+    },
+    "malformed": {
+      "count": 10,
+      "false_abstain_rate_at_T": 0.0,
+      "doc_recall_at_3": 0.95,
+      "doc_recall_at_8": 0.95,
+      "logit_stats": {
+        "min": 9.121689,
+        "p05": 9.47756,
+        "p25": 10.54275,
+        "median": 10.659198,
+        "p75": 10.798798,
+        "p95": 11.315774,
+        "max": 11.374246,
+        "mean": 10.564091
+      }
+    },
+    "multi_hop": {
+      "count": 20,
+      "false_abstain_rate_at_T": 0.0,
+      "doc_recall_at_3": 0.85,
+      "doc_recall_at_8": 0.95,
+      "logit_stats": {
+        "min": 8.743196,
+        "p05": 8.949362,
+        "p25": 9.665733,
+        "median": 10.234922,
+        "p75": 10.667902,
+        "p95": 11.215935,
+        "max": 11.523414,
+        "mean": 10.138338
+      }
+    },
+    "owasp_version_agnostic": {
+      "count": 10,
+      "false_abstain_rate_at_T": 0.0,
+      "doc_recall_at_3": 0.85,
+      "doc_recall_at_8": 0.85,
+      "logit_stats": {
+        "min": 7.525618,
+        "p05": 8.06718,
+        "p25": 9.674456,
+        "median": 10.142335,
+        "p75": 10.392572,
+        "p95": 10.690614,
+        "max": 10.748507,
+        "mean": 9.822898
+      }
+    },
+    "short_keyword": {
+      "count": 10,
+      "false_abstain_rate_at_T": 0.0,
+      "doc_recall_at_3": 1.0,
+      "doc_recall_at_8": 1.0,
+      "logit_stats": {
+        "min": 10.48327,
+        "p05": 10.785097,
+        "p25": 11.20621,
+        "median": 11.396161,
+        "p75": 11.513246,
+        "p95": 12.060266,
+        "max": 12.397745,
+        "mean": 11.396634
+      }
+    }
+  },
+  "oos_dev_by_category": {
+    "general_off_topic": {
+      "count": 30,
+      "router_hard_refusal_rate": 0.8,
+      "reranker_abstain_rate_at_T": 1.0,
+      "system_refusal_or_abstain_rate": 1.0,
+      "false_accept_count_system": 0,
+      "logit_stats": {
+        "min": -2.119941,
+        "p05": -1.710216,
+        "p25": -0.830791,
+        "median": -0.127257,
+        "p75": 0.945569,
+        "p95": 2.289373,
+        "max": 3.556061,
+        "mean": 0.060667
+      }
+    },
+    "lexical_decoy": {
+      "count": 10,
+      "router_hard_refusal_rate": 0.6,
+      "reranker_abstain_rate_at_T": 1.0,
+      "system_refusal_or_abstain_rate": 1.0,
+      "false_accept_count_system": 0,
+      "logit_stats": {
+        "min": -2.631799,
+        "p05": -1.975347,
+        "p25": -0.757194,
+        "median": 0.248198,
+        "p75": 0.867306,
+        "p95": 2.259131,
+        "max": 2.704379,
+        "mean": 0.126869
+      }
+    },
+    "org_proprietary": {
+      "count": 10,
+      "router_hard_refusal_rate": 0.0,
+      "reranker_abstain_rate_at_T": 1.0,
+      "system_refusal_or_abstain_rate": 1.0,
+      "false_accept_count_system": 0,
+      "logit_stats": {
+        "min": -0.652048,
+        "p05": 0.316055,
+        "p25": 1.921773,
+        "median": 2.056386,
+        "p75": 2.393273,
+        "p95": 5.450059,
+        "max": 6.123832,
+        "mean": 2.430324
+      }
+    },
+    "unindexed_public_security": {
+      "count": 10,
+      "router_hard_refusal_rate": 0.0,
+      "reranker_abstain_rate_at_T": 0.8,
+      "system_refusal_or_abstain_rate": 0.8,
+      "false_accept_count_system": 2,
+      "logit_stats": {
+        "min": 4.429179,
+        "p05": 4.538045,
+        "p25": 5.062473,
+        "median": 5.803667,
+        "p75": 6.006772,
+        "p95": 7.66441,
+        "max": 7.99494,
+        "mean": 5.826767
+      }
+    }
+  },
+  "lowest_10_inscope_dev": [
+    {
+      "query_id": "DEV_IN_069",
+      "category": "owasp_version_agnostic",
+      "top1_logit": 7.525618,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "OWASP_v1.1_LLM06",
+        "OWASP_v2.0_LLM02"
+      ],
+      "top1_doc_id": "OWASP_v2.0_LLM08",
+      "query_snippet": "What access-boundary mistakes cause multi-user RAG retrieval pipelines to leak confidential user records under OWASP?"
+    },
+    {
+      "query_id": "DEV_IN_097",
+      "category": "cluttered_context",
+      "top1_logit": 7.979546,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "MITRE_T1566"
+      ],
+      "top1_doc_id": "MITRE_T1566",
+      "query_snippet": "timestamp|sensor|src_ip|dst_port|signature\n2025-04-11T11:03:51Z|segw-mail-01|203.0.113.77|443|SPEARPHISH_HTML_LINK_CLICK"
+    },
+    {
+      "query_id": "DEV_IN_067",
+      "category": "owasp_version_agnostic",
+      "top1_logit": 8.72909,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "OWASP_v1.1_LLM08",
+        "OWASP_v2.0_LLM06"
+      ],
+      "top1_doc_id": "OWASP_v2.0_LLM06",
+      "query_snippet": "Why must autonomous tool-calling agents enforce strict human approval under OWASP LLM agency controls?"
+    },
+    {
+      "query_id": "DEV_IN_058",
+      "category": "multi_hop",
+      "top1_logit": 8.743196,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "CVE-2022-22965",
+        "MITRE_T1190"
+      ],
+      "top1_doc_id": "CVE-2022-22965",
+      "query_snippet": "Link Spring Framework class-loader manipulation in CVE-2022-22965 to initial access technique T1190."
+    },
+    {
+      "query_id": "DEV_IN_096",
+      "category": "cluttered_context",
+      "top1_logit": 8.917466,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "MITRE_T1210"
+      ],
+      "top1_doc_id": "MITRE_T1210",
+      "query_snippet": "timestamp|sensor|src_ip|dst_port|signature\n2025-04-11T09:44:22Z|ids-core-west|10.14.88.19|445|LATERAL_SMB_PROBE_MULTIHOS"
+    },
+    {
+      "query_id": "DEV_IN_041",
+      "category": "multi_hop",
+      "top1_logit": 8.960213,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "CVE-2023-23397",
+        "MITRE_T1187"
+      ],
+      "top1_doc_id": "MITRE_T1187",
+      "query_snippet": "How does NTLM hash theft in CVE-2023-23397 operationalize ATT&CK Forced Authentication T1187?"
+    },
+    {
+      "query_id": "DEV_IN_083",
+      "category": "malformed",
+      "top1_logit": 9.121689,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "CVE-2023-23397"
+      ],
+      "top1_doc_id": "CVE-2023-23397",
+      "query_snippet": "summrize kredenshal thft fllowng CVE-2023-23397 ntlm relai"
+    },
+    {
+      "query_id": "DEV_IN_098",
+      "category": "cluttered_context",
+      "top1_logit": 9.199637,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "MITRE_T1195.002"
+      ],
+      "top1_doc_id": "MITRE_T1195.002",
+      "query_snippet": "From: secops-triage@enterprise.example\nTo: platform-security@enterprise.example\nSubject: FW: Build pipeline anomaly chec"
+    },
+    {
+      "query_id": "DEV_IN_048",
+      "category": "multi_hop",
+      "top1_logit": 9.437799,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "CVE-2020-1472",
+        "MITRE_T1210"
+      ],
+      "top1_doc_id": "CVE-2020-1472",
+      "query_snippet": "How do ZeroLogon Netlogon abuses in CVE-2020-1472 map onto remote service exploitation under T1210?"
+    },
+    {
+      "query_id": "DEV_IN_093",
+      "category": "cluttered_context",
+      "top1_logit": 9.439249,
+      "router_route": "SEMANTIC_RAG",
+      "expected_doc_ids": [
+        "CVE-2022-41040"
+      ],
+      "top1_doc_id": "CVE-2022-41040",
+      "query_snippet": "incident_ticket:\n  alert_id: INC-90501\n  host: mail-gw-03\n  request: /autodiscover/autodiscover.json?@evil.local/ews/exc"
+    }
+  ],
+  "highest_10_oos_dev": [
+    {
+      "query_id": "DEV_OOS_056",
+      "category": "unindexed_public_security",
+      "top1_logit": 7.99494,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "MITRE_T1078",
+      "query_snippet": "Describe adversary persistence via SSH authorized keys covered by ATT&CK T1098.004."
+    },
+    {
+      "query_id": "DEV_OOS_051",
+      "category": "unindexed_public_security",
+      "top1_logit": 7.26043,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "CVE-2023-4863",
+      "query_snippet": "Summarize the session token memory leakage vulnerability tracked as CVE-2023-4966."
+    },
+    {
+      "query_id": "DEV_OOS_048",
+      "category": "org_proprietary",
+      "top1_logit": 6.123832,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "CVE-2021-44228",
+      "query_snippet": "What internal pager alias escalates CrescentAir crew scheduling portal sign-in interruptions?"
+    },
+    {
+      "query_id": "DEV_OOS_060",
+      "category": "unindexed_public_security",
+      "top1_logit": 6.017565,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "MITRE_T1566",
+      "query_snippet": "Outline workforce phishing awareness review milestones recommended by CIS Control 14."
+    },
+    {
+      "query_id": "DEV_OOS_052",
+      "category": "unindexed_public_security",
+      "top1_logit": 5.974394,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "CVE-2019-0708",
+      "query_snippet": "How severe is the Windows Remote Desktop Licensing buffer flaw CVE-2024-38077?"
+    },
+    {
+      "query_id": "DEV_OOS_057",
+      "category": "unindexed_public_security",
+      "top1_logit": 5.832555,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "MITRE_T1659",
+      "query_snippet": "What telemetry reveals adversary cloud administration command execution under T1651?"
+    },
+    {
+      "query_id": "DEV_OOS_053",
+      "category": "unindexed_public_security",
+      "top1_logit": 5.774779,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "CVE-2019-11510",
+      "query_snippet": "What authentication bypass mechanism is documented for CVE-2023-46805 in Ivanti appliances?"
+    },
+    {
+      "query_id": "DEV_OOS_054",
+      "category": "unindexed_public_security",
+      "top1_logit": 5.344135,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "CVE-2019-2725",
+      "query_snippet": "Explain the HTTP parameter authentication bypass associated with CVE-2024-27198."
+    },
+    {
+      "query_id": "DEV_OOS_055",
+      "category": "unindexed_public_security",
+      "top1_logit": 4.968585,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "MITRE_T1210",
+      "query_snippet": "How do defenders detect Kerberoasting ticket requests under ATT&CK T1558.003?"
+    },
+    {
+      "query_id": "DEV_OOS_058",
+      "category": "unindexed_public_security",
+      "top1_logit": 4.671104,
+      "router_route": "SEMANTIC_RAG",
+      "top1_doc_id": "MITRE_T1199",
+      "query_snippet": "List the baseline account provisioning requirements in NIST SP 800-53 control AC-2."
+    }
+  ],
+  "golden_150_heldout_eval": {
+    "total": 150,
+    "system_overall_block_rate": 0.0667,
+    "oos_block_rate": 1.0,
+    "inscope_false_abstain_rate": 0.0,
+    "by_question_type": {
+      "CONFLICT_TRAP": {
+        "count": 15,
+        "router_hard_refusal_rate": 0.0,
+        "reranker_abstain_rate_non_refused": 0.0,
+        "combined_system_block_rate": 0.0,
+        "logit_stats": {
+          "min": 9.014514,
+          "p05": 9.119136,
+          "p25": 9.703781,
+          "median": 10.169208,
+          "p75": 10.815049,
+          "p95": 11.239487,
+          "max": 11.369103,
+          "mean": 10.202827
+        }
+      },
+      "CONTEXT_NOISE": {
+        "count": 10,
+        "router_hard_refusal_rate": 0.0,
+        "reranker_abstain_rate_non_refused": 0.0,
+        "combined_system_block_rate": 0.0,
+        "logit_stats": {
+          "min": 7.403697,
+          "p05": 7.610618,
+          "p25": 7.903004,
+          "median": 8.086932,
+          "p75": 8.373467,
+          "p95": 9.246499,
+          "max": 9.577899,
+          "mean": 8.228657
+        }
+      },
+      "FACTUAL": {
+        "count": 60,
+        "router_hard_refusal_rate": 0.0,
+        "reranker_abstain_rate_non_refused": 0.0,
+        "combined_system_block_rate": 0.0,
+        "logit_stats": {
+          "min": 8.403868,
+          "p05": 9.647624,
+          "p25": 10.229474,
+          "median": 11.001,
+          "p75": 11.551219,
+          "p95": 11.925833,
+          "max": 12.070338,
+          "mean": 10.909829
+        }
+      },
+      "MALFORMED": {
+        "count": 10,
+        "router_hard_refusal_rate": 0.0,
+        "reranker_abstain_rate_non_refused": 0.0,
+        "combined_system_block_rate": 0.0,
+        "logit_stats": {
+          "min": 9.498973,
+          "p05": 9.586324,
+          "p25": 9.786629,
+          "median": 10.135286,
+          "p75": 10.208835,
+          "p95": 10.587731,
+          "max": 10.620338,
+          "mean": 10.074919
+        }
+      },
+      "MULTI_HOP": {
+        "count": 45,
+        "router_hard_refusal_rate": 0.0,
+        "reranker_abstain_rate_non_refused": 0.0,
+        "combined_system_block_rate": 0.0,
+        "logit_stats": {
+          "min": 7.427783,
+          "p05": 8.266872,
+          "p25": 8.821184,
+          "median": 9.095065,
+          "p75": 9.379008,
+          "p95": 9.622232,
+          "max": 10.30647,
+          "mean": 9.052172
+        }
+      },
+      "OUT_OF_SCOPE": {
+        "count": 10,
+        "router_hard_refusal_rate": 0.9,
+        "reranker_abstain_rate_non_refused": 0.1,
+        "combined_system_block_rate": 1.0,
+        "logit_stats": {
+          "min": -2.277276,
+          "p05": -2.06225,
+          "p25": -0.615481,
+          "median": 0.790131,
+          "p75": 1.450462,
+          "p95": 4.74143,
+          "max": 5.621044,
+          "mean": 0.892452
+        }
+      }
+    },
+    "oos_items": [
+      {
+        "query_id": "TEST_121",
+        "query": "How do I bake a sourdough loaf?",
+        "router_route": "HARD_REFUSAL",
+        "top1_logit": -0.947551,
+        "gate_abstained": true,
+        "system_blocked": true
+      },
+      {
+        "query_id": "TEST_122",
+        "query": "Who won the 2022 FIFA World Cup final?",
+        "router_route": "HARD_REFUSAL",
+        "top1_logit": 1.550721,
+        "gate_abstained": true,
+        "system_blocked": true
+      },
+      {
+        "query_id": "TEST_123",
+        "query": "What is the best way to train for a marathon in six weeks?",
+        "router_route": "HARD_REFUSAL",
+        "top1_logit": 0.380728,
+        "gate_abstained": true,
+        "system_blocked": true
+      },
+      {
+        "query_id": "TEST_124",
+        "query": "Recommend a good sci-fi novel for a long flight.",
+        "router_route": "HARD_REFUSAL",
+        "top1_logit": 0.656556,
+        "gate_abstained": true,
+        "system_blocked": true
+      },
+      {
+        "query_id": "TEST_125",
+        "query": "What's the weather forecast for Delhi this weekend?",
+        "router_route": "HARD_REFUSAL",
+        "top1_logit": 0.923706,
+        "gate_abstained": true,
+        "system_blocked": true
+      },
+      {
+        "query_id": "TEST_126",
+        "query": "How do I fix a leaking kitchen faucet?",
+        "router_route": "HARD_REFUSAL",
+        "top1_logit": -2.277276,
+        "gate_abstained": true,
+        "system_blocked": true
+      },
+      {
+        "query_id": "TEST_127",
+        "query": "Explain how compound interest works on a savings account.",
+        "router_route": "HARD_REFUSAL",
+        "top1_logit": 1.149687,
+        "gate_abstained": true,
+        "system_blocked": true
+      },
+      {
+        "query_id": "TEST_128",
+        "query": "Translate 'good morning' into Japanese and French.",
+        "router_route": "HARD_REFUSAL",
+        "top1_logit": -1.799441,
+        "gate_abstained": true,
+        "system_blocked": true
+      },
+      {
+        "query_id": "TEST_129",
+        "query": "What are the internal firewall rules of Acme Corp's production network?",
+        "router_route": "SEMANTIC_RAG",
+        "top1_logit": 3.666347,
+        "gate_abstained": true,
+        "system_blocked": true
+      },
+      {
+        "query_id": "TEST_130",
+        "query": "What is the password policy of my company's HR portal?",
+        "router_route": "HARD_REFUSAL",
+        "top1_logit": 5.621044,
+        "gate_abstained": true,
+        "system_blocked": true
+      }
+    ]
+  }
+}

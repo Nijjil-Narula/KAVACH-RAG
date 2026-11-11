@@ -27,7 +27,7 @@ def _artifacts_ready(settings: Settings) -> bool:
         for path in (
             settings.data_processed / "corpus_chunks.parquet",
             settings.models_dir / "index_sq8_mrl512.faiss",
-            settings.models_dir / "index_idmap.json",
+            settings.models_dir / "index_sq8_mrl512.idmap.json",
             settings.models_dir / "router_deberta" / "model.safetensors",
         )
     )

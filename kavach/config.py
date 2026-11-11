@@ -80,7 +80,7 @@ class Settings(BaseSettings):
     candidate_k: int = 8
     rerank_top_k_default: int = 3
     rerank_top_k_max: int = 5
-    rerank_max_length: int = 576
+    rerank_max_length: int = 640
     rerank_long_query_max_length: int | None = None
     rerank_long_query_token_threshold: int = 96
     contingency_l_applied: bool = False

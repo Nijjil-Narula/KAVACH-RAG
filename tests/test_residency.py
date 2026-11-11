@@ -82,7 +82,7 @@ def test_settings_phase15_contract() -> None:
     defaults = Settings()
     assert defaults.rss_ceiling_mb == 4096.0
     assert defaults.candidate_k == 8
-    assert defaults.rerank_max_length == 576
+    assert defaults.rerank_max_length == 640
     assert defaults.embed_precision == "fp32"
     assert defaults.rerank_precision == "fp32"
     assert defaults.router_precision == "fp32"
@@ -96,9 +96,9 @@ def test_settings_phase15_contract() -> None:
     active = get_settings()
     assert active.rss_ceiling_mb == 4096.0
     assert active.candidate_k == 8
-    assert active.rerank_max_length == 576
+    assert active.rerank_max_length == 640
     if active.contingency_l_applied:
-        assert active.rerank_long_query_max_length == 768
+        assert active.rerank_long_query_max_length == 1024
 
 
 def test_load_runtime_locks_and_env_precedence(
@@ -124,16 +124,16 @@ def test_load_runtime_locks_and_env_precedence(
         "embed_precision": "int8",
         "rerank_precision": "fp32",
         "router_precision": "int8",
-        "rerank_max_length": 576,
+        "rerank_max_length": 640,
         "cpu_affinity_mode": "p_core_distinct",
-        "rerank_long_query_max_length": 768,
+        "rerank_long_query_max_length": 1024,
         "rerank_long_query_token_threshold": 96,
         "contingency_l_applied": True,
     }
     abstain_cal = {
         "threshold_T": -0.425,
         "reranker_precision": "fp32",
-        "rerank_max_length": 576,
+        "rerank_max_length": 640,
     }
     (tmp_path / "precision_lock.json").write_text(
         json.dumps(precision_lock), encoding="utf-8"
@@ -147,7 +147,7 @@ def test_load_runtime_locks_and_env_precedence(
     assert loaded.rerank_precision == "fp32"
     assert loaded.router_precision == "int8"
     assert loaded.cpu_affinity_mode == "p_core_distinct"
-    assert loaded.rerank_long_query_max_length == 768
+    assert loaded.rerank_long_query_max_length == 1024
     assert loaded.contingency_l_applied is True
     assert loaded.abstain_logit_threshold == pytest.approx(-0.425)
 
@@ -220,7 +220,7 @@ def test_pipeline_missing_or_stale_calibration_raises_config_error(tmp_path: Pat
     stale_cal: dict[str, Any] = {
         "threshold_T": -0.5,
         "reranker_precision": "int8",
-        "rerank_max_length": 576,
+        "rerank_max_length": 640,
     }
     (tmp_path / "abstain_calibration.json").write_text(
         json.dumps(stale_cal), encoding="utf-8"
@@ -228,7 +228,7 @@ def test_pipeline_missing_or_stale_calibration_raises_config_error(tmp_path: Pat
     fp32_settings = Settings(
         models_dir=tmp_path,
         rerank_precision="fp32",
-        rerank_max_length=576,
+        rerank_max_length=640,
         abstention_enabled=True,
     )
     with pytest.raises(ConfigError, match="reranker_precision"):
@@ -246,7 +246,7 @@ def test_pipeline_residency_real_model() -> None:
     required = [
         defaults.data_processed / "corpus_chunks.parquet",
         defaults.models_dir / "index_sq8_mrl512.faiss",
-        defaults.models_dir / "index_idmap.json",
+        defaults.models_dir / "index_sq8_mrl512.idmap.json",
         defaults.models_dir / "router_deberta" / "model.safetensors",
     ]
     if not all(p.exists() for p in required):

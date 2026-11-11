@@ -1,0 +1,672 @@
+{
+  "generated_at": "2026-11-11T17:10:13.694652+00:00",
+  "rss_ceiling_mb": 4096.0,
+  "embedder_gate": {
+    "baseline_run4_doc_recall_at_8": 0.775,
+    "variants": {
+      "fp32": {
+        "precision": "fp32",
+        "passed": false,
+        "rss_mb": 2765.44,
+        "cosine_full1024_min": 0.998345,
+        "cosine_full1024_mean": 0.999279,
+        "cosine_mrl512_min": 0.998045,
+        "cosine_mrl512_mean": 0.999258,
+        "failed_cosine_test_ids": [],
+        "sq8_top8_overlap_mean": 0.973333,
+        "sq8_top8_overlap_min": 0.875,
+        "run4_doc_recall_at_8": 0.775,
+        "baseline_run4_doc_recall_at_8": 0.775,
+        "run4_doc_recall_at_8_delta": 0.0
+      },
+      "int8": {
+        "precision": "int8",
+        "passed": false,
+        "rss_mb": 2919.45,
+        "cosine_full1024_min": 0.053376,
+        "cosine_full1024_mean": 0.165592,
+        "cosine_mrl512_min": 0.025045,
+        "cosine_mrl512_mean": 0.158876,
+        "failed_cosine_test_ids": [
+          "TEST_001",
+          "TEST_002",
+          "TEST_003",
+          "TEST_004",
+          "TEST_005",
+          "TEST_006",
+          "TEST_007",
+          "TEST_008",
+          "TEST_009",
+          "TEST_010",
+          "TEST_011",
+          "TEST_012",
+          "TEST_013",
+          "TEST_014",
+          "TEST_015",
+          "TEST_016",
+          "TEST_017",
+          "TEST_018",
+          "TEST_019",
+          "TEST_020",
+          "TEST_021",
+          "TEST_022",
+          "TEST_023",
+          "TEST_024",
+          "TEST_025",
+          "TEST_026",
+          "TEST_027",
+          "TEST_028",
+          "TEST_029",
+          "TEST_030",
+          "TEST_031",
+          "TEST_032",
+          "TEST_033",
+          "TEST_034",
+          "TEST_035",
+          "TEST_036",
+          "TEST_037",
+          "TEST_038",
+          "TEST_039",
+          "TEST_040",
+          "TEST_041",
+          "TEST_042",
+          "TEST_043",
+          "TEST_044",
+          "TEST_045",
+          "TEST_046",
+          "TEST_047",
+          "TEST_048",
+          "TEST_049",
+          "TEST_050",
+          "TEST_051",
+          "TEST_052",
+          "TEST_053",
+          "TEST_054",
+          "TEST_055",
+          "TEST_056",
+          "TEST_057",
+          "TEST_058",
+          "TEST_059",
+          "TEST_060",
+          "TEST_061",
+          "TEST_062",
+          "TEST_063",
+          "TEST_064",
+          "TEST_065",
+          "TEST_066",
+          "TEST_067",
+          "TEST_068",
+          "TEST_069",
+          "TEST_070",
+          "TEST_071",
+          "TEST_072",
+          "TEST_073",
+          "TEST_074",
+          "TEST_075",
+          "TEST_076",
+          "TEST_077",
+          "TEST_078",
+          "TEST_079",
+          "TEST_080",
+          "TEST_081",
+          "TEST_082",
+          "TEST_083",
+          "TEST_084",
+          "TEST_085",
+          "TEST_086",
+          "TEST_087",
+          "TEST_088",
+          "TEST_089",
+          "TEST_090",
+          "TEST_091",
+          "TEST_092",
+          "TEST_093",
+          "TEST_094",
+          "TEST_095",
+          "TEST_096",
+          "TEST_097",
+          "TEST_098",
+          "TEST_099",
+          "TEST_100",
+          "TEST_101",
+          "TEST_102",
+          "TEST_103",
+          "TEST_104",
+          "TEST_105",
+          "TEST_106",
+          "TEST_107",
+          "TEST_108",
+          "TEST_109",
+          "TEST_110",
+          "TEST_111",
+          "TEST_112",
+          "TEST_113",
+          "TEST_114",
+          "TEST_115",
+          "TEST_116",
+          "TEST_117",
+          "TEST_118",
+          "TEST_119",
+          "TEST_120",
+          "TEST_121",
+          "TEST_122",
+          "TEST_123",
+          "TEST_124",
+          "TEST_125",
+          "TEST_126",
+          "TEST_127",
+          "TEST_128",
+          "TEST_129",
+          "TEST_130",
+          "TEST_131",
+          "TEST_132",
+          "TEST_133",
+          "TEST_134",
+          "TEST_135",
+          "TEST_136",
+          "TEST_137",
+          "TEST_138",
+          "TEST_139",
+          "TEST_140",
+          "TEST_141",
+          "TEST_142",
+          "TEST_143",
+          "TEST_144",
+          "TEST_145",
+          "TEST_146",
+          "TEST_147",
+          "TEST_148",
+          "TEST_149",
+          "TEST_150"
+        ],
+        "sq8_top8_overlap_mean": 0.071667,
+        "sq8_top8_overlap_min": 0.0,
+        "run4_doc_recall_at_8": 0.2071,
+        "baseline_run4_doc_recall_at_8": 0.775,
+        "run4_doc_recall_at_8_delta": -0.5679
+      },
+      "bf16": {
+        "precision": "bf16",
+        "passed": true,
+        "rss_mb": 1696.08,
+        "cosine_full1024_min": 0.998346,
+        "cosine_full1024_mean": 0.999618,
+        "cosine_mrl512_min": 0.99836,
+        "cosine_mrl512_mean": 0.999609,
+        "failed_cosine_test_ids": [],
+        "sq8_top8_overlap_mean": 0.985833,
+        "sq8_top8_overlap_min": 0.75,
+        "run4_doc_recall_at_8": 0.775,
+        "baseline_run4_doc_recall_at_8": 0.775,
+        "run4_doc_recall_at_8_delta": 0.0
+      }
+    }
+  },
+  "reranker_gate": {
+    "baseline_drift": {
+      "ckpt_run5_doc_mrr": 0.8762,
+      "fp32_1024_run5_doc_mrr": 0.8762,
+      "doc_mrr_delta_vs_ckpt": 0.0,
+      "ckpt_run5_chunk_mrr": 0.6821,
+      "fp32_1024_run5_chunk_mrr": 0.681,
+      "chunk_mrr_delta_vs_ckpt": -0.0011,
+      "ckpt_run6_doc_mrr": 0.8875,
+      "fp32_1024_run6_doc_mrr": 0.8875,
+      "baseline_drift": false,
+      "active_reference": "R_cur",
+      "vs_ckpt": {
+        "doc_mrr_delta": 0.0,
+        "chunk_mrr_delta": -0.0011,
+        "top1_agreement": 0.9933,
+        "top3_overlap": 0.9867,
+        "top3_exact_match_rate": 0.96,
+        "logit_mae": 0.01617,
+        "logit_max_diff": 0.10773,
+        "logit_corr": 0.999977
+      }
+    },
+    "reference_ckpt": {
+      "run5_doc_mrr": 0.8762,
+      "run5_chunk_mrr": 0.6821,
+      "run6_doc_mrr": 0.8875,
+      "top1_logit_mean": 9.35752,
+      "top1_logit_median": 9.74712
+    },
+    "reference_fp32_1024": {
+      "precision": "fp32",
+      "max_length": 1024,
+      "rerank_long_query_max_length": null,
+      "contingency_l_applied": false,
+      "rss_mb": 1183.26,
+      "truncation_stats": {
+        "pairs_scored": 1200,
+        "queries_truncated": 0,
+        "passages_truncated": 0,
+        "contingency_l_pairs": 0
+      },
+      "latency_ms": {
+        "count": 150,
+        "min": 765.188,
+        "mean": 6270.34,
+        "median": 6032.999,
+        "p50": 6032.999,
+        "p95": 11831.26,
+        "max": 20362.99
+      },
+      "top1_logit_mean": 9.35375,
+      "top1_logit_median": 9.74221,
+      "run5_doc_mrr": 0.8762,
+      "run5_chunk_mrr": 0.681,
+      "run5_doc_recall_at_3": 0.7286,
+      "run5_doc_ndcg_at_3": 0.7592,
+      "run6_doc_mrr": 0.8875,
+      "run6_chunk_mrr": 0.6938,
+      "vs_ckpt": {
+        "doc_mrr_delta": 0.0,
+        "chunk_mrr_delta": -0.0011,
+        "top1_agreement": 0.9933,
+        "top3_overlap": 0.9867,
+        "top3_exact_match_rate": 0.96,
+        "logit_mae": 0.01617,
+        "logit_max_diff": 0.10773,
+        "logit_corr": 0.999977
+      }
+    },
+    "contingency_l_triggered": false,
+    "contingency_l_latency_delta_ms": null,
+    "contingency_l_latency_delta_pct": null,
+    "variants": {
+      "fp32@640": {
+        "precision": "fp32",
+        "max_length": 640,
+        "rerank_long_query_max_length": null,
+        "contingency_l_applied": false,
+        "rss_mb": 1086.33,
+        "truncation_stats": {
+          "pairs_scored": 1200,
+          "queries_truncated": 21,
+          "passages_truncated": 0,
+          "contingency_l_pairs": 0
+        },
+        "latency_ms": {
+          "count": 150,
+          "min": 1071.27,
+          "mean": 6467.198,
+          "median": 6461.622,
+          "p50": 6461.622,
+          "p95": 11511.876,
+          "max": 12359.076
+        },
+        "top1_logit_mean": 9.35472,
+        "top1_logit_median": 9.74221,
+        "run5_doc_mrr": 0.8726,
+        "run5_chunk_mrr": 0.6762,
+        "run5_doc_recall_at_3": 0.7286,
+        "run5_doc_ndcg_at_3": 0.7576,
+        "run6_doc_mrr": 0.8821,
+        "run6_chunk_mrr": 0.6876,
+        "vs_ckpt": {
+          "doc_mrr_delta": -0.0036,
+          "chunk_mrr_delta": -0.0059,
+          "top1_agreement": 0.9867,
+          "top3_overlap": 0.98,
+          "top3_exact_match_rate": 0.9467,
+          "logit_mae": 0.02677,
+          "logit_max_diff": 1.90989,
+          "logit_corr": 0.99929
+        },
+        "vs_fp32_1024": {
+          "doc_mrr_delta": -0.0036,
+          "chunk_mrr_delta": -0.0048,
+          "top1_agreement": 0.9933,
+          "top3_overlap": 0.9933,
+          "top3_exact_match_rate": 0.9867,
+          "logit_mae": 0.011,
+          "logit_max_diff": 1.91031,
+          "logit_corr": 0.999294
+        },
+        "passed": true
+      },
+      "int8@640": {
+        "precision": "int8",
+        "max_length": 640,
+        "rerank_long_query_max_length": null,
+        "contingency_l_applied": false,
+        "rss_mb": 1078.08,
+        "truncation_stats": {
+          "pairs_scored": 1200,
+          "queries_truncated": 21,
+          "passages_truncated": 0,
+          "contingency_l_pairs": 0
+        },
+        "latency_ms": {
+          "count": 150,
+          "min": 501.821,
+          "mean": 3911.781,
+          "median": 4278.897,
+          "p50": 4278.897,
+          "p95": 6346.242,
+          "max": 6722.008
+        },
+        "top1_logit_mean": 8.40186,
+        "top1_logit_median": 8.77048,
+        "run5_doc_mrr": 0.8571,
+        "run5_chunk_mrr": 0.544,
+        "run5_doc_recall_at_3": 0.725,
+        "run5_doc_ndcg_at_3": 0.7386,
+        "run6_doc_mrr": 0.8613,
+        "run6_chunk_mrr": 0.559,
+        "vs_ckpt": {
+          "doc_mrr_delta": -0.0191,
+          "chunk_mrr_delta": -0.1381,
+          "top1_agreement": 0.58,
+          "top3_overlap": 0.68,
+          "top3_exact_match_rate": 0.32,
+          "logit_mae": 1.18611,
+          "logit_max_diff": 7.50149,
+          "logit_corr": 0.922018
+        },
+        "vs_fp32_1024": {
+          "doc_mrr_delta": -0.0191,
+          "chunk_mrr_delta": -0.137,
+          "top1_agreement": 0.5867,
+          "top3_overlap": 0.68,
+          "top3_exact_match_rate": 0.32,
+          "logit_mae": 1.18895,
+          "logit_max_diff": 7.48041,
+          "logit_corr": 0.922079
+        },
+        "vs_fp32_640": {
+          "doc_mrr_delta": -0.0155,
+          "chunk_mrr_delta": -0.1322,
+          "top1_agreement": 0.58,
+          "top3_overlap": 0.6822,
+          "top3_exact_match_rate": 0.32,
+          "logit_mae": 1.18594,
+          "logit_max_diff": 7.48041,
+          "logit_corr": 0.923374
+        },
+        "passed": false
+      }
+    }
+  },
+  "router_gate": {
+    "baseline_held_out_accuracy": 1.0,
+    "variants": {
+      "fp32": {
+        "precision": "fp32",
+        "golden_total": 150,
+        "golden_correct": 149,
+        "golden_accuracy": 0.993333,
+        "golden_misclassified": [
+          {
+            "test_id": "TEST_130",
+            "query": "What is the password policy of my company's HR portal?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.997579
+          }
+        ],
+        "held_out_total": 153,
+        "held_out_correct": 153,
+        "held_out_accuracy": 1.0,
+        "held_out_confusion_matrix": [
+          [
+            92,
+            0,
+            0
+          ],
+          [
+            0,
+            41,
+            0
+          ],
+          [
+            0,
+            0,
+            20
+          ]
+        ],
+        "rss_mb": 1368.3,
+        "vram_probe": {
+          "torch_cuda_build": false,
+          "cuda_available": false,
+          "pid_in_nvidia_smi": false
+        },
+        "baseline_held_out_accuracy": 1.0,
+        "held_out_delta_pp": 0.0,
+        "passed": true
+      },
+      "int8": {
+        "precision": "int8",
+        "golden_total": 150,
+        "golden_correct": 139,
+        "golden_accuracy": 0.926667,
+        "golden_misclassified": [
+          {
+            "test_id": "TEST_106",
+            "query": "According to the OWASP Top 10 for LLM Applications, what risk is designated as LLM03?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.881026
+          },
+          {
+            "test_id": "TEST_109",
+            "query": "How does the OWASP LLM Top 10 define LLM03 and recommend defending against it?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.958473
+          },
+          {
+            "test_id": "TEST_110",
+            "query": "What threat is classified as OWASP LLM03 for large language model systems?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.870726
+          },
+          {
+            "test_id": "TEST_112",
+            "query": "What security risk and controls are described under OWASP LLM05?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.879992
+          },
+          {
+            "test_id": "TEST_113",
+            "query": "Define OWASP LLM05 and outline its primary mitigation strategies.",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.94504
+          },
+          {
+            "test_id": "TEST_114",
+            "query": "Which threat category is assigned to LLM05 in the OWASP LLM Top 10 guide?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.912637
+          },
+          {
+            "test_id": "TEST_115",
+            "query": "What does OWASP GenAI Top 10 entry LLM05 cover?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.941032
+          },
+          {
+            "test_id": "TEST_116",
+            "query": "In the OWASP Top 10 for LLM Applications, what vulnerability is listed as LLM02?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.976248
+          },
+          {
+            "test_id": "TEST_120",
+            "query": "What security risk is designated under OWASP LLM07?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.897396
+          },
+          {
+            "test_id": "TEST_129",
+            "query": "What are the internal firewall rules of Acme Corp's production network?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.998185
+          },
+          {
+            "test_id": "TEST_130",
+            "query": "What is the password policy of my company's HR portal?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.999209
+          }
+        ],
+        "held_out_total": 153,
+        "held_out_correct": 119,
+        "held_out_accuracy": 0.777778,
+        "held_out_confusion_matrix": [
+          [
+            59,
+            33,
+            0
+          ],
+          [
+            0,
+            41,
+            0
+          ],
+          [
+            1,
+            0,
+            19
+          ]
+        ],
+        "rss_mb": 1355.9,
+        "vram_probe": {
+          "torch_cuda_build": false,
+          "cuda_available": false,
+          "pid_in_nvidia_smi": false
+        },
+        "baseline_held_out_accuracy": 1.0,
+        "held_out_delta_pp": -22.2222,
+        "passed": false
+      },
+      "bf16": {
+        "precision": "bf16",
+        "golden_total": 150,
+        "golden_correct": 149,
+        "golden_accuracy": 0.993333,
+        "golden_misclassified": [
+          {
+            "test_id": "TEST_130",
+            "query": "What is the password policy of my company's HR portal?",
+            "expected_route": "SEMANTIC_RAG",
+            "predicted_route": "HARD_REFUSAL",
+            "confidence": 0.997599
+          }
+        ],
+        "held_out_total": 153,
+        "held_out_correct": 153,
+        "held_out_accuracy": 1.0,
+        "held_out_confusion_matrix": [
+          [
+            92,
+            0,
+            0
+          ],
+          [
+            0,
+            41,
+            0
+          ],
+          [
+            0,
+            0,
+            20
+          ]
+        ],
+        "rss_mb": 1077.35,
+        "vram_probe": {
+          "torch_cuda_build": false,
+          "cuda_available": false,
+          "pid_in_nvidia_smi": false
+        },
+        "baseline_held_out_accuracy": 1.0,
+        "held_out_delta_pp": 0.0,
+        "passed": true
+      }
+    }
+  },
+  "passing_candidates": {
+    "embedder": [
+      "bf16"
+    ],
+    "reranker": [
+      "fp32"
+    ],
+    "router": [
+      "fp32",
+      "bf16"
+    ]
+  },
+  "gate_passed": true,
+  "vram_probe": {
+    "torch_cuda_build": false,
+    "cuda_available": false,
+    "pid_in_nvidia_smi": false
+  },
+  "latency_ranked_passing_candidates": {
+    "embedder": [
+      "bf16"
+    ],
+    "reranker": [
+      "fp32"
+    ],
+    "router": [
+      "fp32",
+      "bf16"
+    ]
+  },
+  "rss_selection": {
+    "checks": [
+      {
+        "rss_after_load_mb": 2953.3,
+        "within_rss_ceiling": true,
+        "rss_ceiling_mb": 4096.0,
+        "vram_probe": {
+          "torch_cuda_build": false,
+          "cuda_available": false,
+          "pid_in_nvidia_smi": false
+        },
+        "config": {
+          "embed_precision": "bf16",
+          "rerank_precision": "fp32",
+          "router_precision": "fp32"
+        }
+      }
+    ],
+    "downgrades_applied": []
+  },
+  "precision_lock": {
+    "embed_precision": "bf16",
+    "rerank_precision": "fp32",
+    "router_precision": "fp32",
+    "rerank_max_length": 640,
+    "rerank_long_query_max_length": null,
+    "rerank_long_query_token_threshold": 96,
+    "contingency_l_applied": false,
+    "cpu_affinity_mode": "p_core_distinct",
+    "quantized_engine": "onednn",
+    "torch_version": "2.15.0+cpu",
+    "locked_at": "2026-11-11T17:12:20.625102+00:00",
+    "gate_report_path": "reports/phase15_quality_gates.json",
+    "resident_rss_mb": 2953.3,
+    "rss_ceiling_mb": 4096.0,
+    "downgrades_applied": [],
+    "vram_probe": {
+      "torch_cuda_build": false,
+      "cuda_available": false,
+      "pid_in_nvidia_smi": false
+    }
+  }
+}

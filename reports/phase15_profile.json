@@ -1,0 +1,926 @@
+{
+  "updated_at": "2026-11-11T16:10:13.163750+00:00",
+  "audit": {
+    "audited_at": "2026-11-11T15:41:25.742316+00:00",
+    "os_preflight": {
+      "battery": {
+        "available": true,
+        "power_plugged": true,
+        "percent": 79.0
+      },
+      "powercfg_active_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+      "initial_cpu_percent_1s": 12.1,
+      "competing_python_count": 0,
+      "competing_python_processes": [],
+      "competing_project_count": 3,
+      "competing_project_processes": [
+        {
+          "pid": 3496,
+          "name": "pwsh.exe",
+          "cmdline": "pwsh -Command $env:PYTHONUTF8=\"1\"; $env:PYTHONUNBUFFERED=\"1\"; $env:CUDA_VISIBLE_DEVICES=\"\"; $env:OMP_NUM_THREADS=\"2\"; $env:MKL_NUM_THREADS=\"2\"; $env:OPENBLAS_NUM_THREADS=\"2\"; $env:TOKENIZERS_PARALLELISM=\"false\"; .\\.venv\\Scripts\\python.exe -u -m kavach.retrieval.profiling --audit 2>&1"
+        },
+        {
+          "pid": 34952,
+          "name": "agy.exe",
+          "cmdline": "C:\\Users\\Nijjil Narula\\.gemini\\bin\\agy.exe --hub --hub-port=65392 --app_data_dir=antigravity --csrf_token=0207e352-6f0d-42c8-b2e6-140419398fe9 --add-dir=c:\\Users\\Nijjil Narula\\DOC\\PROJECTS\\KAVACH-RAG"
+        },
+        {
+          "pid": 35476,
+          "name": "Antigravity IDE.exe",
+          "cmdline": "C:\\Users\\Nijjil Narula\\AppData\\Local\\Programs\\Antigravity IDE\\Antigravity IDE.exe --open-url -- antigravity-ide://file/c%3A/Users/Nijjil%20Narula/DOC/PROJECTS/KAVACH-RAG"
+        }
+      ],
+      "cpu_idle_wait": {
+        "settled": true,
+        "idle_wait_s": 11.03,
+        "observed_cpu_pct": 13.8,
+        "threshold_pct": 15.0
+      }
+    },
+    "torch_version": "2.15.0+cpu",
+    "torch_num_threads": 2,
+    "torch_interop_threads": 1,
+    "venv_gpu_absent": true,
+    "vram_probe": {
+      "torch_cuda_build": false,
+      "cuda_available": false,
+      "pid_in_nvidia_smi": false
+    },
+    "rss_mb": 325.37,
+    "rss_ceiling_mb": 4096.0,
+    "core_topology": {
+      "affinity_unavailable": false,
+      "total_logical_cpus": 16,
+      "p_core_count": 6,
+      "e_core_count": 4,
+      "p_cores": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "e_cores": [
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ]
+      ],
+      "p_core_distinct_cpus": [
+        0,
+        2
+      ],
+      "p_core_smt_cpus": [
+        0,
+        1
+      ],
+      "cores": [
+        {
+          "core_index": 0,
+          "efficiency_class": 1,
+          "smt_flags": 1,
+          "logical_cpus": [
+            0,
+            1
+          ]
+        },
+        {
+          "core_index": 1,
+          "efficiency_class": 1,
+          "smt_flags": 1,
+          "logical_cpus": [
+            2,
+            3
+          ]
+        },
+        {
+          "core_index": 2,
+          "efficiency_class": 1,
+          "smt_flags": 1,
+          "logical_cpus": [
+            4,
+            5
+          ]
+        },
+        {
+          "core_index": 3,
+          "efficiency_class": 1,
+          "smt_flags": 1,
+          "logical_cpus": [
+            6,
+            7
+          ]
+        },
+        {
+          "core_index": 4,
+          "efficiency_class": 1,
+          "smt_flags": 1,
+          "logical_cpus": [
+            8,
+            9
+          ]
+        },
+        {
+          "core_index": 5,
+          "efficiency_class": 1,
+          "smt_flags": 1,
+          "logical_cpus": [
+            10,
+            11
+          ]
+        },
+        {
+          "core_index": 6,
+          "efficiency_class": 0,
+          "smt_flags": 0,
+          "logical_cpus": [
+            12
+          ]
+        },
+        {
+          "core_index": 7,
+          "efficiency_class": 0,
+          "smt_flags": 0,
+          "logical_cpus": [
+            13
+          ]
+        },
+        {
+          "core_index": 8,
+          "efficiency_class": 0,
+          "smt_flags": 0,
+          "logical_cpus": [
+            14
+          ]
+        },
+        {
+          "core_index": 9,
+          "efficiency_class": 0,
+          "smt_flags": 0,
+          "logical_cpus": [
+            15
+          ]
+        }
+      ]
+    },
+    "quantization_safety": {
+      "import_path": "torch.ao.quantization.quantize_dynamic",
+      "engine": "onednn",
+      "supported_engines": [
+        "onednn"
+      ],
+      "warnings": [
+        "DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. \nFor migrations of users: \n1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead \n2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) \n3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) \nsee https://github.com/pytorch/ao/issues/2259 for more details",
+        "UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\aten\\src\\ATen\\quantized\\Quantizer.cpp:116.)"
+      ],
+      "cosine_similarity": 0.999898,
+      "quantized_linear_count": 2,
+      "smoke_ok": true
+    },
+    "cold_vs_warm": {
+      "tiers": {
+        "router": {
+          "tier": "router",
+          "precision": "fp32",
+          "rss_before_mb": 284.57,
+          "rss_after_load_mb": 1029.12,
+          "rss_after_warm_mb": 1059.75,
+          "load_time_ms": 6856.871,
+          "first_call_ms": 313.095,
+          "warmup_3_passes_ms": 1083.421,
+          "warm_call_ms": 187.838,
+          "warm_calls_ms": {
+            "count": 5,
+            "min": 186.24,
+            "mean": 187.838,
+            "median": 188.338,
+            "p50": 188.338,
+            "p95": 189.451,
+            "max": 189.715
+          },
+          "first_to_warm_ratio": 1.67,
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          }
+        },
+        "embedder": {
+          "tier": "embedder",
+          "precision": "fp32",
+          "rss_before_mb": 284.09,
+          "rss_after_load_mb": 2726.47,
+          "rss_after_warm_mb": 2745.96,
+          "load_time_ms": 7048.843,
+          "first_call_ms": 1499.462,
+          "warmup_3_passes_ms": 21518.178,
+          "warm_call_ms": 470.836,
+          "warm_calls_ms": {
+            "count": 5,
+            "min": 432.694,
+            "mean": 470.836,
+            "median": 452.495,
+            "p50": 452.495,
+            "p95": 539.975,
+            "max": 559.074
+          },
+          "first_to_warm_ratio": 3.18,
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          }
+        },
+        "reranker": {
+          "tier": "reranker",
+          "precision": "fp32",
+          "rss_before_mb": 283.91,
+          "rss_after_load_mb": 965.52,
+          "rss_after_warm_mb": 1064.1,
+          "load_time_ms": 3533.832,
+          "first_call_ms": 11270.14,
+          "warmup_3_passes_ms": 30590.221,
+          "warm_call_ms": 7155.029,
+          "warm_calls_ms": {
+            "count": 5,
+            "min": 5073.218,
+            "mean": 7155.029,
+            "median": 5675.218,
+            "p50": 5675.218,
+            "p95": 11798.127,
+            "max": 13192.108
+          },
+          "first_to_warm_ratio": 1.58,
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          }
+        }
+      },
+      "summary": {
+        "sum_load_time_ms": 17439.546,
+        "sum_first_call_ms": 13082.697,
+        "sum_warm_call_ms": 7813.703,
+        "cold_load_plus_first_ms": 30522.243,
+        "cold_vs_warm_delta_ms": 22708.54
+      }
+    },
+    "token_audit": {
+      "rerank_special_tokens": 3,
+      "golden_queries_over_96_tokens": 10,
+      "golden_query_tokens": {
+        "count": 150,
+        "min": 3.0,
+        "mean": 45.847,
+        "median": 23.0,
+        "p50": 23.0,
+        "p95": 374.0,
+        "max": 384.0
+      },
+      "corpus_passages_over_512_tokens": 78,
+      "corpus_passages_over_600_tokens": 0,
+      "corpus_passage_tokens": {
+        "count": 505,
+        "min": 52.0,
+        "mean": 345.756,
+        "median": 409.0,
+        "p50": 409.0,
+        "p95": 540.8,
+        "max": 582.0
+      },
+      "ckpt_pairs_total": 1200,
+      "ckpt_pairs_over_640": 21,
+      "ckpt_pairs_over_1024": 0,
+      "queries_with_truncation_at_640": [
+        "TEST_141",
+        "TEST_142",
+        "TEST_143",
+        "TEST_145",
+        "TEST_146",
+        "TEST_147",
+        "TEST_148",
+        "TEST_149"
+      ],
+      "ckpt_pair_tokens": {
+        "count": 1200,
+        "min": 62.0,
+        "mean": 359.799,
+        "median": 448.0,
+        "p50": 448.0,
+        "p95": 582.05,
+        "max": 923.0
+      }
+    }
+  },
+  "affinity": {
+    "measured_at": "2026-11-11T15:50:25.016075+00:00",
+    "affinity_unavailable": false,
+    "modes": {
+      "off": {
+        "mode": "off",
+        "cpu_affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "rss_mb": 2837.58,
+        "vram_probe": {
+          "torch_cuda_build": false,
+          "cuda_available": false,
+          "pid_in_nvidia_smi": false
+        },
+        "router_ms": {
+          "count": 5,
+          "min": 0.59,
+          "mean": 317.728,
+          "median": 204.157,
+          "p50": 204.157,
+          "p95": 790.425,
+          "max": 914.96
+        },
+        "embed_ms": {
+          "count": 5,
+          "min": 868.269,
+          "mean": 1252.272,
+          "median": 1232.032,
+          "p50": 1232.032,
+          "p95": 1760.0,
+          "max": 1872.653
+        },
+        "rerank_8_ms": {
+          "count": 5,
+          "min": 12204.213,
+          "mean": 17607.454,
+          "median": 18006.908,
+          "p50": 18006.908,
+          "p95": 21157.806,
+          "max": 21374.998
+        },
+        "total_neural_ms": {
+          "count": 5,
+          "min": 14077.456,
+          "mean": 19177.454,
+          "median": 19900.887,
+          "p50": 19900.887,
+          "p95": 22298.603,
+          "max": 22419.916
+        },
+        "idle_check": {
+          "settled": true,
+          "idle_wait_s": 12.53,
+          "observed_cpu_pct": 9.7,
+          "threshold_pct": 15.0
+        }
+      },
+      "p_core_distinct": {
+        "mode": "p_core_distinct",
+        "cpu_affinity": [
+          0,
+          2
+        ],
+        "rss_mb": 4119.23,
+        "vram_probe": {
+          "torch_cuda_build": false,
+          "cuda_available": false,
+          "pid_in_nvidia_smi": false
+        },
+        "router_ms": {
+          "count": 5,
+          "min": 0.267,
+          "mean": 67.861,
+          "median": 83.994,
+          "p50": 83.994,
+          "p95": 87.018,
+          "max": 87.456
+        },
+        "embed_ms": {
+          "count": 5,
+          "min": 359.34,
+          "mean": 431.809,
+          "median": 449.79,
+          "p50": 449.79,
+          "p95": 465.255,
+          "max": 465.565
+        },
+        "rerank_8_ms": {
+          "count": 5,
+          "min": 4444.946,
+          "mean": 6970.709,
+          "median": 7566.398,
+          "p50": 7566.398,
+          "p95": 8430.463,
+          "max": 8548.625
+        },
+        "total_neural_ms": {
+          "count": 5,
+          "min": 4804.552,
+          "mean": 7470.378,
+          "median": 8112.732,
+          "p50": 8112.732,
+          "p95": 8968.419,
+          "max": 9083.68
+        },
+        "idle_check": {
+          "settled": true,
+          "idle_wait_s": 5.52,
+          "observed_cpu_pct": 7.4,
+          "threshold_pct": 15.0
+        }
+      },
+      "p_core_smt": {
+        "mode": "p_core_smt",
+        "cpu_affinity": [
+          0,
+          1
+        ],
+        "rss_mb": 4102.95,
+        "vram_probe": {
+          "torch_cuda_build": false,
+          "cuda_available": false,
+          "pid_in_nvidia_smi": false
+        },
+        "router_ms": {
+          "count": 5,
+          "min": 0.677,
+          "mean": 84.933,
+          "median": 99.628,
+          "p50": 99.628,
+          "p95": 120.05,
+          "max": 123.358
+        },
+        "embed_ms": {
+          "count": 5,
+          "min": 487.002,
+          "mean": 537.391,
+          "median": 516.528,
+          "p50": 516.528,
+          "p95": 603.982,
+          "max": 615.899
+        },
+        "rerank_8_ms": {
+          "count": 5,
+          "min": 5964.665,
+          "mean": 10033.054,
+          "median": 9787.404,
+          "p50": 9787.404,
+          "p95": 13667.852,
+          "max": 14558.882
+        },
+        "total_neural_ms": {
+          "count": 5,
+          "min": 6481.87,
+          "mean": 10655.378,
+          "median": 10405.437,
+          "p50": 10405.437,
+          "p95": 14390.445,
+          "max": 15298.139
+        },
+        "idle_check": {
+          "settled": true,
+          "idle_wait_s": 29.58,
+          "observed_cpu_pct": 6.7,
+          "threshold_pct": 15.0
+        }
+      }
+    },
+    "off_mean_total_ms": 19177.454,
+    "best_mean_total_ms": 7470.378,
+    "improvement_vs_off_pct": 61.05,
+    "recommended_affinity_mode": "p_core_distinct"
+  },
+  "matrix": {
+    "measured_at": "2026-11-11T16:10:13.163223+00:00",
+    "affinity_mode_used": "p_core_distinct",
+    "query_count": 40,
+    "warmup_passes": 5,
+    "strata_counts": {
+      "FACTUAL": 10,
+      "MULTI_HOP": 10,
+      "CONTEXT_NOISE": 10,
+      "CONFLICT_TRAP": 5,
+      "MALFORMED": 3,
+      "OUT_OF_SCOPE": 2
+    },
+    "reranker_bf16_status": "Excluded per Decision D5 (ModernBERT bfloat16 CPU excluded; candidates: fp32, int8)",
+    "tiers": {
+      "router": {
+        "fp32": {
+          "tier": "router",
+          "precision": "fp32",
+          "max_length": 128,
+          "rss_before_mb": 283.67,
+          "rss_after_mb": 1060.09,
+          "delta_rss_mb": 776.41,
+          "latency_ms": {
+            "count": 40,
+            "min": 0.038,
+            "mean": 70.925,
+            "median": 59.968,
+            "p50": 59.968,
+            "p95": 116.015,
+            "max": 116.847
+          },
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          },
+          "query_count": 40,
+          "warmup_passes": 5,
+          "strata_counts": {
+            "FACTUAL": 10,
+            "MULTI_HOP": 10,
+            "CONTEXT_NOISE": 10,
+            "CONFLICT_TRAP": 5,
+            "MALFORMED": 3,
+            "OUT_OF_SCOPE": 2
+          },
+          "track_a_count": 1,
+          "track_b_count": 39,
+          "idle_check": {
+            "settled": true,
+            "idle_wait_s": 5.5,
+            "observed_cpu_pct": 13.7,
+            "threshold_pct": 15.0
+          }
+        },
+        "bf16": {
+          "tier": "router",
+          "precision": "bf16",
+          "max_length": 128,
+          "rss_before_mb": 283.81,
+          "rss_after_mb": 773.79,
+          "delta_rss_mb": 489.97,
+          "latency_ms": {
+            "count": 40,
+            "min": 0.038,
+            "mean": 810.329,
+            "median": 623.774,
+            "p50": 623.774,
+            "p95": 1533.015,
+            "max": 1549.062
+          },
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          },
+          "query_count": 40,
+          "warmup_passes": 5,
+          "strata_counts": {
+            "FACTUAL": 10,
+            "MULTI_HOP": 10,
+            "CONTEXT_NOISE": 10,
+            "CONFLICT_TRAP": 5,
+            "MALFORMED": 3,
+            "OUT_OF_SCOPE": 2
+          },
+          "track_a_count": 1,
+          "track_b_count": 39,
+          "idle_check": {
+            "settled": true,
+            "idle_wait_s": 20.03,
+            "observed_cpu_pct": 10.9,
+            "threshold_pct": 15.0
+          }
+        },
+        "int8": {
+          "tier": "router",
+          "precision": "int8",
+          "max_length": 128,
+          "rss_before_mb": 284.38,
+          "rss_after_mb": 1440.38,
+          "delta_rss_mb": 1156.0,
+          "latency_ms": {
+            "count": 40,
+            "min": 0.042,
+            "mean": 52.486,
+            "median": 45.58,
+            "p50": 45.58,
+            "p95": 84.7,
+            "max": 112.422
+          },
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          },
+          "query_count": 40,
+          "warmup_passes": 5,
+          "strata_counts": {
+            "FACTUAL": 10,
+            "MULTI_HOP": 10,
+            "CONTEXT_NOISE": 10,
+            "CONFLICT_TRAP": 5,
+            "MALFORMED": 3,
+            "OUT_OF_SCOPE": 2
+          },
+          "track_a_count": 1,
+          "track_b_count": 39,
+          "idle_check": {
+            "settled": true,
+            "idle_wait_s": 34.53,
+            "observed_cpu_pct": 5.8,
+            "threshold_pct": 15.0
+          }
+        }
+      },
+      "embedder": {
+        "fp32": {
+          "tier": "embedder",
+          "precision": "fp32",
+          "max_length": 512,
+          "rss_before_mb": 284.23,
+          "rss_after_mb": 2745.97,
+          "delta_rss_mb": 2461.74,
+          "latency_ms": {
+            "count": 40,
+            "min": 285.022,
+            "mean": 963.349,
+            "median": 496.682,
+            "p50": 496.682,
+            "p95": 3055.613,
+            "max": 3178.843
+          },
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          },
+          "query_count": 40,
+          "warmup_passes": 5,
+          "strata_counts": {
+            "FACTUAL": 10,
+            "MULTI_HOP": 10,
+            "CONTEXT_NOISE": 10,
+            "CONFLICT_TRAP": 5,
+            "MALFORMED": 3,
+            "OUT_OF_SCOPE": 2
+          },
+          "idle_check": {
+            "settled": true,
+            "idle_wait_s": 3.52,
+            "observed_cpu_pct": 13.8,
+            "threshold_pct": 15.0
+          }
+        },
+        "bf16": {
+          "tier": "embedder",
+          "precision": "bf16",
+          "max_length": 512,
+          "rss_before_mb": 283.67,
+          "rss_after_mb": 1601.22,
+          "delta_rss_mb": 1317.55,
+          "latency_ms": {
+            "count": 40,
+            "min": 998.428,
+            "mean": 5521.392,
+            "median": 1856.308,
+            "p50": 1856.308,
+            "p95": 17224.049,
+            "max": 17881.01
+          },
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          },
+          "query_count": 40,
+          "warmup_passes": 5,
+          "strata_counts": {
+            "FACTUAL": 10,
+            "MULTI_HOP": 10,
+            "CONTEXT_NOISE": 10,
+            "CONFLICT_TRAP": 5,
+            "MALFORMED": 3,
+            "OUT_OF_SCOPE": 2
+          },
+          "idle_check": {
+            "settled": true,
+            "idle_wait_s": 8.02,
+            "observed_cpu_pct": 13.0,
+            "threshold_pct": 15.0
+          }
+        },
+        "int8": {
+          "tier": "embedder",
+          "precision": "int8",
+          "max_length": 512,
+          "rss_before_mb": 283.81,
+          "rss_after_mb": 2768.38,
+          "delta_rss_mb": 2484.57,
+          "latency_ms": {
+            "count": 40,
+            "min": 182.804,
+            "mean": 445.192,
+            "median": 223.783,
+            "p50": 223.783,
+            "p95": 1153.986,
+            "max": 1178.868
+          },
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          },
+          "query_count": 40,
+          "warmup_passes": 5,
+          "strata_counts": {
+            "FACTUAL": 10,
+            "MULTI_HOP": 10,
+            "CONTEXT_NOISE": 10,
+            "CONFLICT_TRAP": 5,
+            "MALFORMED": 3,
+            "OUT_OF_SCOPE": 2
+          },
+          "idle_check": {
+            "settled": true,
+            "idle_wait_s": 8.0,
+            "observed_cpu_pct": 13.3,
+            "threshold_pct": 15.0
+          }
+        }
+      },
+      "sq8_search": {
+        "sq8_mrl512": {
+          "tier": "sq8_search",
+          "precision": "sq8_mrl512",
+          "max_length": 512,
+          "rss_before_mb": 283.46,
+          "rss_after_mb": 299.71,
+          "delta_rss_mb": 16.26,
+          "latency_ms": {
+            "count": 40,
+            "min": 0.202,
+            "mean": 0.268,
+            "median": 0.209,
+            "p50": 0.209,
+            "p95": 0.591,
+            "max": 1.183
+          },
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          },
+          "query_count": 40,
+          "warmup_passes": 5,
+          "strata_counts": {
+            "FACTUAL": 10,
+            "MULTI_HOP": 10,
+            "CONTEXT_NOISE": 10,
+            "CONFLICT_TRAP": 5,
+            "MALFORMED": 3,
+            "OUT_OF_SCOPE": 2
+          },
+          "search_only_ms": {
+            "count": 40,
+            "min": 0.2,
+            "mean": 0.264,
+            "median": 0.205,
+            "p50": 0.205,
+            "p95": 0.585,
+            "max": 1.176
+          },
+          "idle_check": {
+            "settled": true,
+            "idle_wait_s": 5.5,
+            "observed_cpu_pct": 11.6,
+            "threshold_pct": 15.0
+          }
+        }
+      },
+      "reranker": {
+        "fp32@640": {
+          "tier": "reranker",
+          "precision": "fp32",
+          "max_length": 640,
+          "rss_before_mb": 283.51,
+          "rss_after_mb": 1061.91,
+          "delta_rss_mb": 778.4,
+          "latency_ms": {
+            "count": 40,
+            "min": 812.869,
+            "mean": 5343.92,
+            "median": 5807.173,
+            "p50": 5807.173,
+            "p95": 7021.012,
+            "max": 7734.194
+          },
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          },
+          "query_count": 40,
+          "warmup_passes": 5,
+          "strata_counts": {
+            "FACTUAL": 10,
+            "MULTI_HOP": 10,
+            "CONTEXT_NOISE": 10,
+            "CONFLICT_TRAP": 5,
+            "MALFORMED": 3,
+            "OUT_OF_SCOPE": 2
+          },
+          "truncation_stats": {
+            "pairs_scored": 320,
+            "queries_truncated": 21,
+            "passages_truncated": 0,
+            "contingency_l_pairs": 0
+          },
+          "idle_check": {
+            "settled": true,
+            "idle_wait_s": 3.01,
+            "observed_cpu_pct": 10.9,
+            "threshold_pct": 15.0
+          }
+        },
+        "int8@640": {
+          "tier": "reranker",
+          "precision": "int8",
+          "max_length": 640,
+          "rss_before_mb": 283.73,
+          "rss_after_mb": 994.03,
+          "delta_rss_mb": 710.3,
+          "latency_ms": {
+            "count": 40,
+            "min": 406.906,
+            "mean": 3014.117,
+            "median": 3263.136,
+            "p50": 3263.136,
+            "p95": 4037.411,
+            "max": 4528.808
+          },
+          "vram_probe": {
+            "torch_cuda_build": false,
+            "cuda_available": false,
+            "pid_in_nvidia_smi": false
+          },
+          "query_count": 40,
+          "warmup_passes": 5,
+          "strata_counts": {
+            "FACTUAL": 10,
+            "MULTI_HOP": 10,
+            "CONTEXT_NOISE": 10,
+            "CONFLICT_TRAP": 5,
+            "MALFORMED": 3,
+            "OUT_OF_SCOPE": 2
+          },
+          "truncation_stats": {
+            "pairs_scored": 320,
+            "queries_truncated": 21,
+            "passages_truncated": 0,
+            "contingency_l_pairs": 0
+          },
+          "idle_check": {
+            "settled": true,
+            "idle_wait_s": 14.52,
+            "observed_cpu_pct": 12.7,
+            "threshold_pct": 15.0
+          }
+        }
+      }
+    }
+  }
+}

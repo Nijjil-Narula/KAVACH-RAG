@@ -59,7 +59,7 @@ log = logging.getLogger(__name__)
 
 _FALLBACK_RERANKER_ID = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 _RERANK_BATCH_SIZE = 4
-_PASSAGE_MAX_TOKENS = 512
+_PASSAGE_MAX_TOKENS = 600
 
 _ACTIVATION_MAP: dict[str, type[nn.Module]] = {
     "torch.nn.modules.activation.GELU": nn.GELU,
@@ -579,7 +579,7 @@ class Reranker:
     def build_pair_inputs(self, query: str, passage: str) -> dict[str, Any]:
         """Construct D2 passage-first pair token IDs and attention mask.
 
-        Enforces ``len(p_ids) <= 512`` and never truncates the passage. Only
+        Enforces ``len(p_ids) <= _PASSAGE_MAX_TOKENS`` (600) and never truncates the passage. Only
         query tokens exceeding ``max_pair_len - len(p_ids) - special_tokens``
         are truncated, with every truncation logged and tracked.
         """
