@@ -1,0 +1,763 @@
+{"query": "What is the attack complexity of CVE-2021-26855?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the top European cities to visit in winter?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What firewalling rules block exploitation of CVE-2024-23897?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do automated scanners identify instances of CWE-78?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2023 44487 http2 rapid rst dos", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How did threat actors exploit CVE-2023-27997 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between AI and machine learning?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "xss dom base reflctd store persistnt", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What are the best universities for studying economics?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Which MITRE mitigation technique addresses TA0002 Execution?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which languages are most susceptible to CWE-416?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide detection rules for TA0001 Initial Access in SIEM.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Is CVE-2020-1472 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List the CPE identifiers affected by CVE-2017-0144.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What testing methods identify LLM04 in LLM deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does network segmentation reduce exposure to T1071 Application Layer Protocol?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What software components does CVE-2023-23397 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How can CWE-416 be exploited by an attacker?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the best skincare routine for oily skin?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What coding practices prevent CWE-125?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does network segmentation reduce exposure to T1200?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM05?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How was CVE-2022-22965 first publicly disclosed?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CWE-119 and memory safety?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does T1199 use legitimate system binaries to avoid detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What ingredients go into a classic tiramisu?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What open-source tools detect exploitation of CVE-2023-23376?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Tell me about effective parenting strategies for teenagers.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the best way to study for exams?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the attack complexity of CVE-2024-3400?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does adversarial robustness testing relate to LLM02 Insecure Output Handling?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make authentic ramen broth at home? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Which systems are affected by CVE-2023-42115?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I write a business plan?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What software components does CVE-2017-11882 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which threat actors use T1059 Command and Scripting Interpreter?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the EPSS score for CVE-2023-27997?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Give me a recipe for homemade pasta dough.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What MITRE ATT&CK technique does the CVE-2023-27997 attack chain use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What vendor advisories exist for CVE-2024-1086?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make a classic French omelette? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Explain how LLM02 Insecure Output Handling can be used to exfiltrate training data.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the best way to teach my child to read?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I write a good poem?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does T1611 use legitimate system binaries to avoid detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between direct and indirect LLM04 Model Denial of Service?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Explain the OWASP risk LLM10 Model Theft and provide mitigation guidance.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide a timeline of CVE-2014-0160 from disclosure to patch availability.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the temporal CVSS score change for CVE-2022-22965 after patch release?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CWE-20 and memory safety?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What network traffic signatures indicate T1105 Ingress Tool Transfer activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What authentication bypass does CVE-2020-5902 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Has CVE-2019-11510 been exploited in the wild?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What national parks are worth visiting in the USA? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "cve 2020 1472 zerologon priv escalt", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "cve 2024 1709 connectwis screenconn auth byps", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM08?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How was CVE-2024-1086 first publicly disclosed?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make espresso without a machine? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do cloud provider security groups mitigate CVE-2023-2868 exposure?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Is CVE-2023-28252 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Explain the technical details of the CVE-2023-23376 vulnerability.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the patch or workaround for CVE-2019-2725?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does patch management reduce exposure to critical CVEs like CVE-2021-41773?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Describe the memory corruption caused by CWE-787 in C/C++ code.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2024-3400?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the patch or workaround for CVE-2019-19781?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What privilege escalation does CVE-2021-41773 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CVE-2024-21626 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Give me tips for growing tomatoes in a small garden.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the attack complexity of CVE-2023-2868?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "owasp llm04 mdl denial svc dos resrc", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Tell me about the history of the Roman Empire.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does LLM04 differ from traditional injection vulnerabilities?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "ldap injctn log4shll jndi lookp", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the best way to clean a cast iron pan?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Who won the most recent FIFA World Cup?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "vuln xz util liblzma backdor", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How does LLM06 Sensitive Information Disclosure differ from traditional injection vulnerabilities?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List indicators of compromise associated with CVE-2024-1709 exploitation.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2021 21985 vcntr servr rce plugin", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What network traffic signatures indicate TA0005 Defense Evasion activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How did threat actors exploit CVE-2023-23376 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How is CWE-22 categorised in the CWE Top 25?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS score for CVE-2019-11510?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the best way to learn Spanish quickly? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What red team tooling simulates TA0005 Defense Evasion?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does LLM03 Training Data Poisoning differ from traditional injection vulnerabilities?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I start a small business from scratch?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the attack complexity of CVE-2023-23376?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do adversaries chain T1566 with lateral movement?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CVE-2024-21338 and supply chain security?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How did threat actors exploit CVE-2024-26169 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What governance controls address LLM10 risk in enterprise LLM use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What films won the Palme d'Or in 2023? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the benefits of intermittent fasting?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Explain the technical details of the CVE-2018-13379 vulnerability.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CWE-20 manifest differently in interpreted versus compiled languages?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "phishin spearphish malicous email atak", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How does MITRE T1003 OS Credential Dumping relate to ransomware kill chains?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do automated scanners identify instances of CWE-476?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What MITRE ATT&CK technique does the CVE-2024-1086 attack chain use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I invest in cryptocurrency responsibly? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the relationship between CVE-2023-36025 and supply chain security?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the best way to preserve seasonal vegetables?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the rules of cricket?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the capital of Brazil? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What network traffic signatures indicate T1190 Exploit Public-Facing Application activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the healthiest superfoods to add to my diet?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM09 Overreliance?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2022 30190 follina msdt msoffic", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Explain how LLM05 can be used to exfiltrate training data.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS score for CVE-2023-42115?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List indicators of compromise associated with CVE-2023-46604 exploitation.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What coding practices prevent CWE-20?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I refinance my home mortgage?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I write a cover letter for a marketing job? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How did threat actors exploit CVE-2024-1709 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What network traffic signatures indicate T1195 activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the healthiest superfoods to add to my diet? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the relationship between CVE-2023-4863 and supply chain security?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make sourdough starter from scratch?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does CVE-2024-20353 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Explain the OWASP risk LLM06 and provide mitigation guidance.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the best football team in the Premier League? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Explain how LLM03 can be used to exfiltrate training data.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does T1078 Valid Accounts facilitate credential theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "log4shll rce exploi patc", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the EPSS score for CVE-2020-5902?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What NVD enrichment data is available for CVE-2023-2868?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What privilege escalation does CVE-2023-28252 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which languages are most susceptible to CWE-78?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does T1078 Valid Accounts evade traditional antivirus detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I produce a music album on a low budget? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does network segmentation reduce exposure to T1140 Deobfuscate/Decode Files or Information?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM10 Model Theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do automated scanners identify instances of CWE-79?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the top travel destinations in South America?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Compare the CVSS scores of CVE-2017-5638 and other critical CVEs from 2024.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List the CPE identifiers affected by CVE-2024-21626.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the best beaches in Thailand? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I create a capsule wardrobe?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the EPSS score for CVE-2019-19781?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM04 Model Denial of Service?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What endpoint detection capabilities catch T1499.002 in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I train for a 5K run as a beginner? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the signs of vitamin D deficiency?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does TA0005 Defense Evasion evade traditional antivirus detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the capital of Brazil?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does T1210 use legitimate system binaries to avoid detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I fall asleep faster?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What mitigations are recommended for CVE-2022-0847?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What container security controls mitigate LLM09 Overreliance?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2024 21762 fortios sslvpn rce", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What endpoint detection capabilities catch T1669 in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CVE-2021-40444 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2017-11882.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does T1190 facilitate credential theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How was CVE-2023-2868 first publicly disclosed?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What security tools detect CWE-416 in source code?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What static analysis rules flag potential CWE-78 in Java code?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What endpoint detection capabilities catch T1059 Command and Scripting Interpreter in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2022 22965 spring4shll spring frmwk", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "cve2024-3094 xz util liblzma bckdoor explain", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How does CWE-416 manifest differently in interpreted versus compiled languages?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How did threat actors exploit CVE-2020-1472 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between whisky and whiskey?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I learn to draw portraits?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the best beaches in Thailand?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the CVSS score for CVE-2018-11776?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "owasp llm08 excsive agncy toool use", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How is CVE-2024-3094 remediated in containerised environments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CVE-2024-6387 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How can CWE-79 be exploited by an attacker?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Tell me how volcanoes form.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the temporal CVSS score change for CVE-2020-0601 after patch release?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What defences counter T1669?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Tell me how photosynthesis works.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What firewalling rules block exploitation of CVE-2024-26169?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2024 6387 openssh regressn rce", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "owasp llm05 supplychn vulnrablt modl", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Tell me how photosynthesis works. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "cve 2023 36025 windws smartscren byps", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "cve 2023 42115 exim smtp rce authentitn", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Tell me about the life of Leonardo da Vinci. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "owasp llm10 mdl theft model extrctn", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What red team tooling simulates T1133?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CVE-2024-26169 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make my garden more wildlife-friendly?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What coding practices prevent CWE-89?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "sqli xss csrf owasp top10 preventn", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2024-3094?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What MITRE ATT&CK technique does the CVE-2021-41773 attack chain use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I fix a dripping tap at home? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What software components does CVE-2024-26169 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How is CVE-2017-5638 remediated in containerised environments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the best diet for weight loss?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "cve2022-26134 confluenc ognl injctn", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the proper way to taste wine?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Is CVE-2014-0160 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2024 1086 linux krnl use aftr fre", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What security tools detect CWE-22 in source code?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Compare the CVSS scores of CVE-2017-0144 and other critical CVEs from 2024.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which MITRE mitigation technique addresses T1133?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "deberta smll routr 3clas classifr", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "xss dom base reflctd store persistnt ???", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "vulnrability disclsr patc 0day crtical", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Explain the OWASP risk LLM02 Insecure Output Handling and provide mitigation guidance.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What MITRE ATT&CK technique does the CVE-2024-3400 attack chain use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does T1195 evade traditional antivirus detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What mitigations are recommended for CVE-2021-41773?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CVE-2014-0160 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the best productivity techniques for remote work?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does TA0002 Execution use legitimate system binaries to avoid detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What governance controls address LLM06 Sensitive Information Disclosure risk in enterprise LLM use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the temporal CVSS score change for CVE-2018-11776 after patch release?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What authentication bypass does CVE-2014-0160 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2021-44228?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2024 30088 windws krnl priv escalt", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "heap spraying rce brwsr exploitaton", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Give me tips for taking better travel photos. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does T1195.002 evade traditional antivirus detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the EPSS score for CVE-2023-28252?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between direct and indirect LLM08?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What firewalling rules block exploitation of CVE-2023-20198?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does adversarial robustness testing relate to LLM08 Excessive Agency?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the top programming languages for data science?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How was CVE-2024-20353 first publicly disclosed?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the safest countries for solo female travel?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the best app for learning a new language?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2021-21972.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do cloud provider security groups mitigate CVE-2021-21972 exposure?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the benefits of cold water swimming? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "bufr ovflw stck smsh rce explot", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2024-38112.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Describe the vulnerability in CVE-2017-0144 and its attack vector.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Describe the vulnerability in CVE-2018-11776 and its attack vector.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List indicators of compromise associated with CVE-2024-3400 exploitation.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What vendor advisories exist for CVE-2023-3519?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I learn to meditate for stress relief? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the plot of Romeo and Juliet?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the relationship between CVE-2024-21338 and zero-day exploitation?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which MITRE mitigation technique addresses T1195.002?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide detection rules for T1140 Deobfuscate/Decode Files or Information in SIEM.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What defences counter T1200?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Explain the OWASP risk LLM04 and provide mitigation guidance.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What authentication bypass does CVE-2021-26855 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide a timeline of CVE-2023-28252 from disclosure to patch availability.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Summarise the incident response steps following exploitation of CVE-2019-19781.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List the CPE identifiers affected by CVE-2022-26134.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What mitigations are recommended for CVE-2023-36025?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide detection rules for TA0003 Persistence in SIEM.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the patch or workaround for CVE-2020-0601?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between direct and indirect LLM02 Insecure Output Handling?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cpe identfr affctd softwr nvd databas", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How do I train for a 5K run as a beginner?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I learn to knit from scratch?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I get a visa for visiting the United States?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the signs of burnout and how do I recover?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How did threat actors exploit CVE-2021-21972 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2023 28252 windws clfs priv escalt", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the EPSS score for CVE-2019-11510?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does network segmentation reduce exposure to T1199?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Compare the CVSS scores of CVE-2024-20353 and other critical CVEs from 2024.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List the CPE identifiers affected by CVE-2022-3786.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How did threat actors exploit CVE-2022-30190 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does LLM04 Model Denial of Service affect agentic LLM systems with tool access?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What vendor advisories exist for CVE-2024-30088?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I produce a music album on a low budget?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does network segmentation reduce exposure to T1566 Phishing?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How is CWE-787 categorised in the CWE Top 25?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Tell me about the history of jazz music.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What governance controls address LLM04 risk in enterprise LLM use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How was CVE-2023-20198 first publicly disclosed?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cwe 476 null pointr derrefernc crash", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What governance controls address LLM07 risk in enterprise LLM use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make sourdough starter from scratch? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "mtre t1486 dat encryptd rnsmwr impct", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "reansomware encryptd data impct mitigat", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "csrf tokn validtn prevnt mitigat explain", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How does network segmentation reduce exposure to T1190 Exploit Public-Facing Application?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS environmental score adjustment for CVE-2020-0601 in cloud deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM03 Training Data Poisoning?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between direct and indirect LLM09 Overreliance?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What NVD enrichment data is available for CVE-2023-34362?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which languages are most susceptible to CWE-119?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Describe the memory corruption caused by CWE-22 in C/C++ code.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "sql injecton cww 89 prevnt sanitiz", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What are the best universities for studying economics? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Tell me about the life cycle of a butterfly.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Summarise the incident response steps following exploitation of CVE-2020-0601.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "mtre t1055 procs injctn code exec", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Describe the MITRE technique T1046 Network Service Discovery and its sub-techniques.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CVE-2017-0144 and zero-day exploitation?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I invest in index funds for retirement? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What software components does CVE-2023-44487 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does network segmentation reduce exposure to T1082 System Information Discovery?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Is CVE-2022-0847 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS v3 severity rating for CVE-2023-23376?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List real-world examples of LLM03 Training Data Poisoning exploitation.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide a timeline of CVE-2020-0601 from disclosure to patch availability.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What defences counter T1091?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which MITRE mitigation technique addresses T1199?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Is CVE-2024-21626 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2024-3094.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Give me a vegetarian lasagne recipe.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Describe the MITRE technique TA0001 Initial Access and its sub-techniques.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does patch management reduce exposure to critical CVEs like CVE-2022-26134?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does network segmentation reduce exposure to T1078 Valid Accounts?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between direct and indirect LLM06?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "reachbl code anaysis sast dast iast", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "cve 2021 40444 activex mshtml rce offc", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the best way to learn chess strategy? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What container security controls mitigate LLM01?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM06?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What open-source tools detect exploitation of CVE-2021-41773?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the best board games for a family game night?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I score a perfect cricket century? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Explain the OWASP risk LLM08 Excessive Agency and provide mitigation guidance.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Explain the OWASP risk LLM08 and provide mitigation guidance.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "mitgation cve rce exploi", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "List real-world examples of LLM02 Insecure Output Handling exploitation.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What vendor advisories exist for CVE-2014-0160?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CVE-2022-3786 and zero-day exploitation?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2023 23397 outlook ntlm hash credntl", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What testing methods identify LLM10 Model Theft in LLM deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cwe 20 improppr inpt validtn sanitizn", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How does T1669 evade traditional antivirus detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CWE-79 manifest differently in interpreted versus compiled languages?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What static analysis rules flag potential CWE-20 in Java code?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does adversarial robustness testing relate to LLM10 Model Theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2023-22515?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Describe the memory corruption caused by CWE-125 in C/C++ code.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CWE-125 and memory safety?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make kombucha at home?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "mitre t1190 exploi pub facin app defen", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Explain how LLM10 Model Theft can be used to exfiltrate training data.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between whisky and whiskey? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does T1190 Exploit Public-Facing Application use legitimate system binaries to avoid detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2022-0847.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Give me a recipe for homemade pasta dough. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What mitigations are recommended for CVE-2020-1472?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What defences counter T1210?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How can CWE-89 be exploited by an attacker?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "privlge escaltn tok impersonatn windws", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "cwe22 path travsal fil inlcusion", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What container security controls mitigate LLM04?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which languages are most susceptible to CWE-79?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Compare the CVSS scores of CVE-2021-21985 and other critical CVEs from 2024.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What NVD enrichment data is available for CVE-2024-4577?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CVE-2020-1472 and supply chain security?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Explain the technical details of the CVE-2024-6387 vulnerability.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CVE-2023-23397 and zero-day exploitation?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make a classic French omelette?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Has CVE-2020-5902 been exploited in the wild?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "mtre t1566 phisin spearphsh link attchmnt", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the CVSS environmental score adjustment for CVE-2024-3400 in cloud deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What red team tooling simulates TA0003 Persistence?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How is CWE-416 categorised in the CWE Top 25?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the classic novels everyone should read?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does TA0006 Credential Access facilitate credential theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does TA0002 Execution evade traditional antivirus detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which systems are affected by CVE-2019-19781?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does TA0006 Credential Access evade traditional antivirus detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What open-source tools detect exploitation of CVE-2022-47966?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cwe 78 improppr os cmd injectn shell", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What software components does CVE-2022-30190 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cwe 787 out of bound write mtigtion", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How do I make a perfect margarita?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "crtical vuln cvss 10.0 patch immeditly", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Tell me how to bake chocolate chip cookies. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the relationship between CWE-89 and memory safety?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I invest in cryptocurrency responsibly?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the best board games for two players?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the most popular sports in Australia?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What governance controls address LLM04 Model Denial of Service risk in enterprise LLM use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM07 Insecure Plugin Design?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which MITRE mitigation technique addresses TA0006 Credential Access?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CVE-2024-1086 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Is CVE-2018-13379 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS v3 severity rating for CVE-2021-44228?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does T1133 facilitate credential theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Tell me about the history of the Olympics.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Describe the memory corruption caused by CWE-119 in C/C++ code.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between vegan and vegetarian diets?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Tell me about the best novels published in 2024.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the CVSS score for CVE-2017-0144?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How is CWE-89 categorised in the CWE Top 25?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make my own sushi at home?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Which MITRE mitigation technique addresses T1078 Valid Accounts?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Summarise the incident response steps following exploitation of CVE-2023-2868.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS score for CVE-2017-5638?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What films won the Palme d'Or in 2023?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does patch management reduce exposure to critical CVEs like CVE-2017-5638?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve2024-3094 xz util liblzma bckdoor", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How do I learn to surf?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the best smartphone to buy in 2024? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What privilege escalation does CVE-2024-23897 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What endpoint detection capabilities catch T1105 Ingress Tool Transfer in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List indicators of compromise associated with CVE-2019-19781 exploitation.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I build muscle mass at home without equipment? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What privilege escalation does CVE-2022-26134 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Compare the CVSS scores of CVE-2019-0708 and other critical CVEs from 2024.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make my own bread at home?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I start a podcast? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What firewalling rules block exploitation of CVE-2024-1709?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Summarise the incident response steps following exploitation of CVE-2024-6387.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CVE-2020-5902 and zero-day exploitation?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CWE-125 manifest differently in interpreted versus compiled languages?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Compare the CVSS scores of CVE-2024-4577 and other critical CVEs from 2024.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "nvd cvss v3 basescre cvssvctr", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the relationship between CVE-2024-3400 and supply chain security?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I write a short story with a twist ending? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "cve 2019 0708 bluekep rdp worm", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "heapspry jit spray exploitatin", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Give me tips for taking better travel photos.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2023-44487?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS v3 severity rating for CVE-2018-13379?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Describe the memory corruption caused by CWE-416 in C/C++ code.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the weakness described in CWE-20?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Explain the OWASP risk LLM05 and provide mitigation guidance.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Tell me how to care for indoor succulents.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the attack complexity of CVE-2021-3156?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS score for CVE-2022-41040?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CWE-22 manifest differently in interpreted versus compiled languages?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does T1105 Ingress Tool Transfer facilitate credential theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What privilege escalation does CVE-2024-3400 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM07?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What authentication bypass does CVE-2023-27350 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does patch management reduce exposure to critical CVEs like CVE-2022-41040?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the top tourist attractions in Japan? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What endpoint detection capabilities catch T1071 Application Layer Protocol in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2024 20353 ciscio asa ftd dos crtcl", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Who won the most recent FIFA World Cup? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the signs of vitamin D deficiency? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I start journaling for mental health?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the weakness described in CWE-125?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Tell me how to bake chocolate chip cookies.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I make authentic ramen broth at home?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Tell me how to care for a rescue dog.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What NVD enrichment data is available for CVE-2024-20353?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I write a short story with a twist ending?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the relationship between CWE-787 and memory safety?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make a traditional Mexican guacamole?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does CVE-2023-46604 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What security tools detect CWE-125 in source code?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2024-21762.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does CVE-2023-3519 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "smb eternalblue ms17-010 exploiton", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2021-21985.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Who is the highest paid actor in Hollywood?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I cook the perfect steak?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Best hiking trails in the Swiss Alps?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I make a perfect margarita? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does LLM08 Excessive Agency affect agentic LLM systems with tool access?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What MITRE ATT&CK technique does the CVE-2021-26855 attack chain use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the history of the Beatles?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Describe the MITRE technique T1199 and its sub-techniques.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Is CVE-2023-27997 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What endpoint detection capabilities catch T1055 Process Injection in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide detection rules for T1562 Impair Defenses in SIEM.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS environmental score adjustment for CVE-2023-27350 in cloud deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide detection rules for T1190 in SIEM.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What software components does CVE-2023-20198 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Give me a simple curry recipe for a weeknight dinner.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the best diet for weight loss? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Best hiking trails in the Swiss Alps? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "owasp llm03 poisnin traning data mniplte", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How do adversaries chain T1071 Application Layer Protocol with lateral movement?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the best way to learn Spanish quickly?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I fix a dripping tap at home?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "cve 2024 38112 windws mshtml rce 0day", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What vendor advisories exist for CVE-2020-5902?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "log4j log4shll jndi ldap rce critcal", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Tell me about the history of coffee.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Compare the CVSS scores of CVE-2021-42013 and other critical CVEs from 2024.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I learn to play the guitar from scratch? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What endpoint detection capabilities catch T1187 in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2023-46604.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "mtre t1021 remte srvcs rdp ssh smb", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How do I refinance my home mortgage? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "cwe 125 out of bound red buffer", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What vendor advisories exist for CVE-2023-46604?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What firewalling rules block exploitation of CVE-2023-28252?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cwe 416 use aftr fre memry corpt", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What open-source tools detect exploitation of CVE-2021-40444?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CVE-2023-20198 and supply chain security?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What container security controls mitigate LLM09?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How did threat actors exploit CVE-2014-0160 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does LLM05 affect agentic LLM systems with tool access?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What testing methods identify LLM07 in LLM deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I get started with oil painting?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "devsecops shift lft secrity pipline ci", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the weakness described in CWE-119?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the difference between a supply chain attack and LLM05 Supply Chain Vulnerabilities?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2021-22205?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does MITRE T1046 Network Service Discovery relate to ransomware kill chains?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make my own cheese at home?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What ingredients go into a classic tiramisu? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the benefits of cold water swimming?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does the stock market work?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the temporal CVSS score change for CVE-2023-20198 after patch release?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the EPSS score for CVE-2019-2725?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What national parks are worth visiting in the USA?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I audition for a theatre production?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How is CWE-476 categorised in the CWE Top 25?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What network traffic signatures indicate T1499 activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "zerodayy exploit publicfacng appication rce", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the weakness described in CWE-78?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "xz utils backdor sshd rsauthentication disble", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Tell me about the life cycle of a butterfly. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Give me tips for growing tomatoes in a small garden. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What network traffic signatures indicate T1082 System Information Discovery activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does adversarial robustness testing relate to LLM10?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does MITRE T1078 Valid Accounts relate to ransomware kill chains?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make a classic beef burger?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does the stock market work? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do adversaries chain T1082 System Information Discovery with lateral movement?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What red team tooling simulates T1078?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What NVD enrichment data is available for CVE-2023-23376?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What privilege escalation does CVE-2023-23397 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Explain the OWASP risk LLM04 Model Denial of Service and provide mitigation guidance.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "ldap injctn activdir autheticatn bypass", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How is T1486 Data Encrypted for Impact detected in network logs?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What endpoint detection capabilities catch T1082 System Information Discovery in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What coding practices prevent CWE-787?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2023-4863?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What are the top programming languages for data science? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do cloud provider security groups mitigate CVE-2024-21762 exposure?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the best way to learn chess strategy?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What governance controls address LLM08 risk in enterprise LLM use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "owasp llm prompt injctn directt indirct", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How does T1082 System Information Discovery evade traditional antivirus detection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2024 26169 winfws certsvc priv esc", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "cisa kev knwn exploitd vulnrblts catlog", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What yoga poses help with lower back pain?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What is the attack complexity of CVE-2014-0160?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What container security controls mitigate LLM07 Insecure Plugin Design?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the relationship between CVE-2024-1709 and zero-day exploitation?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I learn to play the guitar from scratch?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "cve 2023 20198 ios xe unauth accss", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Tell me about the history of the Roman Empire. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What NVD enrichment data is available for CVE-2019-19781?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Is CVE-2024-1086 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2021 44228 log4j log4shll rmve fix", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "How does CVE-2019-0708 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which systems are affected by CVE-2023-36025?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Is CVE-2023-2868 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What open-source tools detect exploitation of CVE-2023-4863?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does LLM10 affect agentic LLM systems with tool access?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How is T1140 Deobfuscate/Decode Files or Information detected in network logs?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2023-38831?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How is CWE-20 categorised in the CWE Top 25?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Describe the memory corruption caused by CWE-79 in C/C++ code.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I make a traditional paella?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Is CVE-2021-41773 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the proper way to taste wine? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do I start a podcast?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "owasp llm0 injctn mitigte", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Provide detection rules for T1133 in SIEM.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide a timeline of CVE-2021-34527 from disclosure to patch availability.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "List indicators of compromise associated with CVE-2023-23397 exploitation.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the plot of the novel 1984 by George Orwell?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How do automated scanners identify instances of CWE-119?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the CVSS v3 severity rating for CVE-2024-23897?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What MITRE ATT&CK technique does the CVE-2014-0160 attack chain use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2022 3786 openssl pufferfish ovfl", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the relationship between CVE-2024-23897 and zero-day exploitation?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which languages are most susceptible to CWE-125?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "csrf tokn validtn prevnt mitigat", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Tell me about the life of Winston Churchill.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Give me a vegetarian lasagne recipe. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "epss exploitabity prdictn scre cve", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "Which systems are affected by CVE-2021-26855?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does adversarial robustness testing relate to LLM01 Prompt Injection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the patch or workaround for CVE-2023-46604?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What static analysis rules flag potential CWE-416 in Java code?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which systems are affected by CVE-2022-22965?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the best hiking gear for beginners?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What are the best streaming services right now?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "How does adversarial robustness testing relate to LLM04 Model Denial of Service?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What container security controls mitigate LLM05?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "cve 2021 40444 activex mshtml rce offc pls help", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the difference between direct and indirect LLM03?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the plot of the novel 1984 by George Orwell? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "What network traffic signatures indicate TA0006 Credential Access activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How did threat actors exploit CVE-2019-11510 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Explain the technical details of the CVE-2022-1388 vulnerability.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What vendor advisories exist for CVE-2023-23376?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2023-46604?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Which threat actors use T1199?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What software components does CVE-2022-1388 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "vulnerblity scannr nessus openvas sast", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "cve 2022 3786 openssl buffr overun puny", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What MITRE ATT&CK technique does the CVE-2022-3786 attack chain use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does network segmentation reduce exposure to T1068?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Tell me about the history of democracy.", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "Provide detection rules for T1195 in SIEM.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2023-4863.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How does T1059 Command and Scripting Interpreter facilitate credential theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What is the attack complexity of CVE-2021-41773?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How can CWE-125 be exploited by an attacker?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "xz util backdor systemd liblzm brkdoor", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What is the temporal CVSS score change for CVE-2019-11510 after patch release?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How was CVE-2022-3786 first publicly disclosed?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "How do I score a perfect cricket century?", "label": "HARD_REFUSAL", "label_id": 1, "split": "train"}
+{"query": "owasp llm supplychan vul dpndncy", "label": "MALFORMED_INPUT", "label_id": 2, "split": "train"}
+{"query": "What software components does CVE-2024-20353 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "Provide detection rules for T1499 in SIEM.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "What network traffic signatures indicate T1140 Deobfuscate/Decode Files or Information activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "train"}
+{"query": "mtre t1562 impair defns log del", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "How does CWE-89 manifest differently in interpreted versus compiled languages?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What are the best board games for a family game night? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "cve 2023 34362 moveit sql inj", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "mtre t1140 deobfsc decode fil info", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "Has CVE-2023-46604 been exploited in the wild?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do adversaries chain TA0003 Persistence with lateral movement?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "cve 2022 41040 proxynotshell exchng", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "What firewalling rules block exploitation of CVE-2023-23397?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Describe the vulnerability in CVE-2023-46604 and its attack vector.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "owasp llm07 insecr plugn desig api", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "What is the relationship between CVE-2020-0601 and supply chain security?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How did threat actors exploit CVE-2024-6387 in documented campaigns?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What are the top tourist attractions in Japan?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "How do I write a compelling novel opening chapter?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Which systems are affected by CVE-2014-0160?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What governance controls address LLM01 risk in enterprise LLM use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What endpoint detection capabilities catch T1566 in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do cloud provider security groups mitigate CVE-2018-13379 exposure?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the best way to volunteer abroad?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What is the EPSS score for CVE-2022-47966?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the patch or workaround for CVE-2023-2868?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Explain how LLM04 Model Denial of Service can be used to exfiltrate training data.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "mtre m1051 updte softwr patchg", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "Which languages are most susceptible to CWE-89?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do I become a freelance graphic designer?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Summarise the incident response steps following exploitation of CVE-2020-5902.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Has CVE-2021-34527 been exploited in the wild?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the CVSS environmental score adjustment for CVE-2021-34527 in cloud deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the best way to plan a road trip across Europe?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Which MITRE mitigation technique addresses T1140 Deobfuscate/Decode Files or Information?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What container security controls mitigate LLM05 Supply Chain Vulnerabilities?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2024-21338?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What endpoint detection capabilities catch T1078 in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the temporal CVSS score change for CVE-2021-40444 after patch release?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "mitre ta001 inital acces techniqs", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "What NVD enrichment data is available for CVE-2021-26855?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do I start journaling for mental health? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Which systems are affected by CVE-2023-34362?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What network traffic signatures indicate T1562 Impair Defenses activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What logging and monitoring controls detect exploitation of CVE-2021-26855?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "cve 2024 21338 windws applocker byps priv", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "How do I make my own candles at home?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "How does adversarial robustness testing relate to LLM07?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Tell me about the life of Albert Einstein.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "How do automated scanners identify instances of CWE-20?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "mtre attck chain inital accs persistnce", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "cvss 9.8 vuln xz util mitgation", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "What is the best football team in the Premier League?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "mtre t1105 ingrss tool trnsfr malwr downld", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "What is the weakness described in CWE-476?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Which systems are affected by CVE-2024-4577?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How does LLM03 affect agentic LLM systems with tool access?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the CVSS score for CVE-2020-5902?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the difference between direct and indirect LLM03 Training Data Poisoning?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the difference between direct and indirect LLM05?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the CVSS environmental score adjustment for CVE-2023-36025 in cloud deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What testing methods identify LLM08 in LLM deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How can CWE-22 be exploited by an attacker?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the relationship between CWE-78 and memory safety?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What network traffic signatures indicate T1499.002 activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the patch or workaround for CVE-2024-38112?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the EPSS score for CVE-2017-0144?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What mitigations are recommended for CVE-2017-11882?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Tell me about the discovery of penicillin.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What is the CVSS environmental score adjustment for CVE-2021-40444 in cloud deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "aslr dep nx bit mitigatin byps", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "cve 2021 26855 proxylogon exchng", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "What privilege escalation does CVE-2022-47966 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do I grow herbs on my windowsill?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Tell me about the life of Leonardo da Vinci.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What red team tooling simulates T1055 Process Injection?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do I make espresso without a machine?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "How does T1199 facilitate credential theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the best app for learning a new language? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "owasp llm overrelnc overrely hallucnat", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "pentest recon enum exploi post-exploi", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "How do I negotiate a higher salary?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What is the patch or workaround for CVE-2021-21985?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What authentication bypass does CVE-2017-5638 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Tell me interesting facts about black holes. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Give me a simple curry recipe for a weeknight dinner. Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What network traffic signatures indicate T1078 activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What software components does CVE-2023-28252 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What governance controls address LLM09 Overreliance risk in enterprise LLM use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do I invest in index funds for retirement?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What is the best way to plan a road trip across Europe? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What security tools detect CWE-89 in source code?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What security tools detect CWE-476 in source code?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Summarise the incident response steps following exploitation of CVE-2018-11776.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do I build muscle mass at home without equipment?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What is the weather forecast for Mumbai this weekend?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What red team tooling simulates T1105 Ingress Tool Transfer?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What firewalling rules block exploitation of CVE-2022-41040?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What software components does CVE-2023-4863 affect?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "cve 2023 23397 outlook ntlm hash credntl ???", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "Tell me about the life of Marie Curie.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What is the weakness described in CWE-89?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How does CVE-2020-1472 impact network-facing services?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Provide YARA rules that detect artefacts associated with CVE-2023-38831.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do I develop a morning routine for productivity?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What is the best way to plan a wedding on a budget?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What authentication bypass does CVE-2021-42013 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do I grow my social media following? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "revrs shell webshll persistnce backdor", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "What coding practices prevent CWE-78?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Describe the vulnerability in CVE-2021-40444 and its attack vector.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Describe the MITRE technique T1562 Impair Defenses and its sub-techniques.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Describe the vulnerability in CVE-2023-22515 and its attack vector.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Is CVE-2019-2725 listed in the CISA Known Exploited Vulnerabilities catalog?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What privilege escalation does CVE-2023-3519 enable?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Provide a timeline of CVE-2021-44228 from disclosure to patch availability.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What yoga poses help with lower back pain? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Who is the highest paid actor in Hollywood? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "How do I write a cover letter for a marketing job?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Compare the CVSS scores of CVE-2021-41773 and other critical CVEs from 2024.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How is CVE-2022-41040 remediated in containerised environments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "owasp llm02 insecur ouput handlg xss", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "What is the relationship between CVE-2023-28252 and zero-day exploitation?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Summarise the incident response steps following exploitation of CVE-2023-44487.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Which systems are affected by CVE-2024-38112?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What are the best ways to reduce household energy bills?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What exercises help reduce belly fat?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What security tools detect CWE-79 in source code?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "mtre t1003 oscrednl dmpng lsass", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "What is the CVSS score for CVE-2022-47966?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do automated scanners identify instances of CWE-22?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do cloud provider security groups mitigate CVE-2020-0601 exposure?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "List indicators of compromise associated with CVE-2023-42115 exploitation.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What governance controls address LLM06 risk in enterprise LLM use?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What are the best podcasts about history?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What is the relationship between CVE-2017-5638 and supply chain security?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Tell me interesting facts about black holes.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Describe the vulnerability in CVE-2023-27350 and its attack vector.", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What endpoint detection capabilities catch T1003 OS Credential Dumping in real time?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "Tell me about ancient Egyptian civilization.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "How do I invest in real estate with little money?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What defences counter T1071 Application Layer Protocol?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the difference between direct and indirect LLM07 Insecure Plugin Design?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "mtre t1046 ntwrk svc discvry nmap", "label": "MALFORMED_INPUT", "label_id": 2, "split": "eval"}
+{"query": "How do I grow my social media following?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "How do I negotiate a higher salary? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What network traffic signatures indicate T1190 activity?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How do I create a successful budget for my household?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "What is the best smartphone to buy in 2024?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "How do I learn to meditate for stress relief?", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "Which languages are most susceptible to CWE-476?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the weather forecast for Mumbai this weekend? Please give detailed advice.", "label": "HARD_REFUSAL", "label_id": 1, "split": "eval"}
+{"query": "How does T1046 Network Service Discovery facilitate credential theft?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the CVSS environmental score adjustment for CVE-2024-38112 in cloud deployments?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What open-source tools detect exploitation of CVE-2020-0601?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "How does patch management reduce exposure to critical CVEs like CVE-2023-36025?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
+{"query": "What is the relationship between CWE-79 and memory safety?", "label": "SEMANTIC_RAG", "label_id": 0, "split": "eval"}
