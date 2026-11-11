@@ -1,0 +1,96 @@
+{
+  "window": 256,
+  "overlap": 32,
+  "output_file": "data/processed/corpus_chunks_w256.parquet",
+  "tokenizer_model_id": "codefuse-ai/F2LLM-v2-0.6B",
+  "total_chunks": 1028,
+  "total_docs": 90,
+  "avg_tokens": 183.9,
+  "max_tokens": 256,
+  "chunks_over_window": 0,
+  "per_source_chunk_counts": {
+    "CVE_RECORD": 688,
+    "MITRE_TECHNIQUE": 136,
+    "OWASP_LLM": 204
+  },
+  "per_source_doc_counts": {
+    "CVE_RECORD": 49,
+    "MITRE_TECHNIQUE": 21,
+    "OWASP_LLM": 20
+  },
+  "generated_at": "2026-11-11T09:45:40.354227+00:00",
+  "provenance": {
+    "nvd_cve": {
+      "url": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+      "sha256": "74db63a72754a4ad34580bd4a5bf4287d67b2fce277f2c21c9b1cde842a2b15a",
+      "fetched_at": "2026-11-11T09:44:07.582722+00:00",
+      "record_count": 49
+    },
+    "mitre_attack": {
+      "url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack.json",
+      "sha256": "539a843a7b53ed9749740b2123dddae3726b1a4831841c32aca740b011b910b5",
+      "fetched_at": "2026-11-11T09:44:18.631600+00:00",
+      "record_count": 21
+    },
+    "owasp_llm_v1.1": {
+      "url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications/git/trees/main?recursive=1",
+      "sha256": "3367aff8e9de8e9a10fba2b2fcabf02a0a70b60b3971ea18eb15adf7da40f98b",
+      "fetched_at": "2026-11-11T09:44:25.203232+00:00",
+      "record_count": 10,
+      "source_provenance": "github_upstream"
+    },
+    "owasp_llm_v2.0": {
+      "url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications/git/trees/main?recursive=1",
+      "sha256": "b7ad5f3a52da5c4fd6848f9bd6ae004cef5d16826c6876223f6ac8f01f8df5d9",
+      "fetched_at": "2026-11-11T09:44:29.179916+00:00",
+      "record_count": 10,
+      "source_provenance": "github_upstream"
+    }
+  },
+  "runs": {
+    "w512": {
+      "window": 512,
+      "overlap": 64,
+      "output_file": "data/processed/corpus_chunks.parquet",
+      "tokenizer_model_id": "codefuse-ai/F2LLM-v2-0.6B",
+      "total_chunks": 505,
+      "total_docs": 90,
+      "avg_tokens": 326.26,
+      "max_tokens": 512,
+      "chunks_over_window": 0,
+      "per_source_chunk_counts": {
+        "CVE_RECORD": 268,
+        "MITRE_TECHNIQUE": 114,
+        "OWASP_LLM": 123
+      },
+      "per_source_doc_counts": {
+        "CVE_RECORD": 49,
+        "MITRE_TECHNIQUE": 21,
+        "OWASP_LLM": 20
+      },
+      "generated_at": "2026-11-11T09:45:23.496262+00:00"
+    },
+    "w256": {
+      "window": 256,
+      "overlap": 32,
+      "output_file": "data/processed/corpus_chunks_w256.parquet",
+      "tokenizer_model_id": "codefuse-ai/F2LLM-v2-0.6B",
+      "total_chunks": 1028,
+      "total_docs": 90,
+      "avg_tokens": 183.9,
+      "max_tokens": 256,
+      "chunks_over_window": 0,
+      "per_source_chunk_counts": {
+        "CVE_RECORD": 688,
+        "MITRE_TECHNIQUE": 136,
+        "OWASP_LLM": 204
+      },
+      "per_source_doc_counts": {
+        "CVE_RECORD": 49,
+        "MITRE_TECHNIQUE": 21,
+        "OWASP_LLM": 20
+      },
+      "generated_at": "2026-11-11T09:45:40.354227+00:00"
+    }
+  }
+}

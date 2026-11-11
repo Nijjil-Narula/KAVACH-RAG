@@ -1,0 +1,157 @@
+{
+  "held_out_accuracy": 1.0,
+  "confusion_matrix": [
+    [
+      92,
+      0,
+      0
+    ],
+    [
+      0,
+      41,
+      0
+    ],
+    [
+      0,
+      0,
+      20
+    ]
+  ],
+  "class_names": [
+    "SEMANTIC_RAG",
+    "HARD_REFUSAL",
+    "MALFORMED_INPUT"
+  ],
+  "train_examples": 610,
+  "eval_examples": 153,
+  "verify_disjoint_run": true,
+  "overlap_found": true,
+  "overlap_pairs": [
+    {
+      "train": "mtre t1548 abse elev ctrl mec uac byps",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "Which MITRE mitigation technique addresses T1548 Abuse Elevation Control Mechanism?",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What privilege escalation does CVE-2014-6271 enable?",
+      "golden": "CVE-2014-6271",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "How does MITRE T1548 Abuse Elevation Control Mechanism relate to ransomware kill chains?",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What open-source tools detect exploitation of CVE-2014-6271?",
+      "golden": "CVE-2014-6271",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "Provide detection rules for T1548 Abuse Elevation Control Mechanism in SIEM.",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "Which MITRE mitigation technique addresses T1548.003?",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "Which systems are affected by CVE-2014-6271?",
+      "golden": "CVE-2014-6271",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What red team tooling simulates T1548.003?",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "Which MITRE mitigation technique addresses T1548?",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What is the relationship between CVE-2014-6271 and zero-day exploitation?",
+      "golden": "CVE-2014-6271",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What authentication bypass does CVE-2014-6271 enable?",
+      "golden": "CVE-2014-6271",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "How does T1548.003 use legitimate system binaries to avoid detection?",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What is the temporal CVSS score change for CVE-2021-4034 after patch release?",
+      "golden": "CVE-2021-4034",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What MITRE ATT&CK technique does the CVE-2014-6271 attack chain use?",
+      "golden": "CVE-2014-6271",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "Describe the MITRE technique T1548.003 and its sub-techniques.",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What logging and monitoring controls detect exploitation of CVE-2014-6271?",
+      "golden": "CVE-2014-6271",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "Provide a timeline of CVE-2014-6271 from disclosure to patch availability.",
+      "golden": "CVE-2014-6271",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What defences counter T1548?",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "Has CVE-2021-4034 been exploited in the wild?",
+      "golden": "CVE-2021-4034",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What network traffic signatures indicate T1548 Abuse Elevation Control Mechanism activity?",
+      "golden": "T1548",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "What red team tooling simulates T1203?",
+      "golden": "T1203",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "How does MITRE T1203 relate to ransomware kill chains?",
+      "golden": "T1203",
+      "overlap_type": "substring"
+    },
+    {
+      "train": "Provide YARA rules that detect artefacts associated with CVE-2021-4034.",
+      "golden": "CVE-2021-4034",
+      "overlap_type": "substring"
+    }
+  ],
+  "peak_rss_mb": 861.4,
+  "vram_probe": {
+    "torch_cuda_build": false,
+    "cuda_available": false,
+    "pid_in_nvidia_smi": false
+  }
+}

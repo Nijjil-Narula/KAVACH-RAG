@@ -1,0 +1,49 @@
+{
+  "embed_model_id": "codefuse-ai/F2LLM-v2-0.6B",
+  "embed_fallback": false,
+  "rerank_model_id": "cross-encoder/ettin-reranker-150m-v1",
+  "reranker_is_fallback": false,
+  "router_model_id": "microsoft/deberta-v3-small",
+  "hf_home": "C:\\Users\\Nijjil Narula\\DOC\\PROJECTS\\KAVACH-RAG\\models\\hf_cache",
+  "pooling_method": "last_token",
+  "padding_side": "right",
+  "embed_dim": 1024,
+  "mrl_dim": 512,
+  "tokens_per_sec": 14.97,
+  "projected_eta_w512_seconds": 35070.1,
+  "projected_eta_w256_seconds": 33400.1,
+  "tiers": {
+    "tier1_router": {
+      "tokens_per_sec": 26.22,
+      "chunk_mean_ms": 1499.36,
+      "query_mean_ms": 1812.07,
+      "total_tokens": 1389,
+      "rss_mb": 750.4
+    },
+    "tier2_embedder": {
+      "pooling_method": "last_token",
+      "padding_side": "right",
+      "metadata_source": "1_Pooling/config.json, tokenizer.padding_side=right, ModelCard",
+      "tokens_per_sec": 14.97,
+      "chunk_mean_ms": 5915.41,
+      "query_mean_ms": 1163.07,
+      "total_tokens": 1696,
+      "rss_mb": 1566.7
+    },
+    "tier4_reranker": {
+      "tokens_per_sec": 81.14,
+      "pair_mean_ms": 1145.38,
+      "batch8_ms": 11580.84,
+      "num_labels": 1,
+      "total_tokens": 1487,
+      "rss_mb": 711.2
+    }
+  },
+  "bench_date": "2026-11-11T09:48:00.185420+00:00",
+  "peak_rss_mb": 1566.7,
+  "vram_probe": {
+    "torch_cuda_build": false,
+    "cuda_available": false,
+    "pid_in_nvidia_smi": false
+  }
+}
