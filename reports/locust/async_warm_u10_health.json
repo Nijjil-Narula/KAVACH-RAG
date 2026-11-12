@@ -1,0 +1,34 @@
+{
+  "status": "ok",
+  "pipeline_ready": true,
+  "generator_ready": true,
+  "circuit_state": "closed",
+  "circuit": {
+    "state": "closed",
+    "consecutive_failures": 0,
+    "trips": 0,
+    "failure_threshold": 5,
+    "open_seconds": 30.0
+  },
+  "cache": {
+    "size": 8,
+    "max_entries": 512,
+    "ttl_s": 900.0,
+    "hits": 1136,
+    "misses": 8,
+    "coalesced": 0,
+    "evictions": 0,
+    "lock_timeouts": 0
+  },
+  "vram_used_mib": 5445,
+  "vram_total_mib": 6141,
+  "vram_peak_mib": 5458,
+  "vram_hard_limit_mib": 5478,
+  "vram_breached": false,
+  "rss_mb": 3025.5,
+  "retrieval_waiting": 0,
+  "gpu_waiting": 0,
+  "gpu_inflight": 0,
+  "generator_calls": 7,
+  "uptime_s": 151.0
+}

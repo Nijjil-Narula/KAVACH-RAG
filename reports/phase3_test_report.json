@@ -1,0 +1,225 @@
+{
+  "phase": "phase3",
+  "stage": "stage2_unit_and_chaos",
+  "command": "PYTHONUTF8=1 .\\.venv\\Scripts\\python.exe -m pytest -v -rs tests/test_serving.py tests/test_fault_injection.py",
+  "timestamp_utc": "2026-11-12T01:07:46Z",
+  "run_started_utc": "2026-11-12T01:07:33Z",
+  "exit_code": 0,
+  "collected": 24,
+  "total_passed": 24,
+  "total_failed": 0,
+  "total_skipped": 0,
+  "duration_s": 8.68,
+  "files": {
+    "tests/test_serving.py": {
+      "collected": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "tests": [
+        {
+          "nodeid": "tests/test_serving.py::test_health_shape_and_speed",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_async_served_contract_and_headers",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_cache_hit_is_fast_and_makes_no_upstream_call",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_use_cache_false_bypasses_cache",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_refusal_and_abstention_bypass_gpu",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_sse_event_order_and_headers",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_stream_replay_from_cache_matches_answer",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_sync_endpoint_contract_has_no_cache",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_pipeline_calls_are_serialized",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_gpu_semaphore_bounds_inflight_generation",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_cache_stampede_coalesces_identical_misses",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_stream_stampede_generates_once",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_ingest_task_lifecycle",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_serving.py::test_schema_rejects_bad_requests",
+          "outcome": "passed"
+        }
+      ]
+    },
+    "tests/test_fault_injection.py": {
+      "collected": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "tests": [
+        {
+          "nodeid": "tests/test_fault_injection.py::test_breaker_state_machine_with_fake_clock",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_fault_injection.py::test_upstream_failures_trip_breaker_then_503_without_calls[http500]",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_fault_injection.py::test_upstream_failures_trip_breaker_then_503_without_calls[http429]",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_fault_injection.py::test_upstream_failures_trip_breaker_then_503_without_calls[connect_error]",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_fault_injection.py::test_recovery_after_open_window",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_fault_injection.py::test_refusals_still_served_while_circuit_open",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_fault_injection.py::test_health_stays_responsive_while_retrieval_is_blocked",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_fault_injection.py::test_key_lock_acquire_times_out_and_recovers",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_fault_injection.py::test_vram_hard_limit_blocks_generation_but_not_refusals",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "tests/test_fault_injection.py::test_prompt_budget_error_is_500_and_makes_no_upstream_call",
+          "outcome": "passed"
+        }
+      ]
+    }
+  },
+  "tests": [
+    {
+      "nodeid": "tests/test_serving.py::test_health_shape_and_speed",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_async_served_contract_and_headers",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_cache_hit_is_fast_and_makes_no_upstream_call",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_use_cache_false_bypasses_cache",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_refusal_and_abstention_bypass_gpu",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_sse_event_order_and_headers",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_stream_replay_from_cache_matches_answer",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_sync_endpoint_contract_has_no_cache",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_pipeline_calls_are_serialized",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_gpu_semaphore_bounds_inflight_generation",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_cache_stampede_coalesces_identical_misses",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_stream_stampede_generates_once",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_ingest_task_lifecycle",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_serving.py::test_schema_rejects_bad_requests",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_breaker_state_machine_with_fake_clock",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_upstream_failures_trip_breaker_then_503_without_calls[http500]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_upstream_failures_trip_breaker_then_503_without_calls[http429]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_upstream_failures_trip_breaker_then_503_without_calls[connect_error]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_recovery_after_open_window",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_refusals_still_served_while_circuit_open",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_health_stays_responsive_while_retrieval_is_blocked",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_key_lock_acquire_times_out_and_recovers",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_vram_hard_limit_blocks_generation_but_not_refusals",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/test_fault_injection.py::test_prompt_budget_error_is_500_and_makes_no_upstream_call",
+      "outcome": "passed"
+    }
+  ]
+}

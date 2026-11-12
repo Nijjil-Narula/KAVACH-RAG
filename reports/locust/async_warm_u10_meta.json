@@ -1,0 +1,21 @@
+{
+    "slug":  "async_warm_u10",
+    "label":  "async-warm",
+    "endpoint":  "async",
+    "mode":  "warm",
+    "users":  10,
+    "spawn_rate":  10,
+    "run_seconds":  60,
+    "started_at_utc":  "2026-11-12T03:13:47Z",
+    "finished_at_utc":  "2026-11-12T03:14:48Z",
+    "duration_s":  60.689,
+    "locust_exit_code":  0,
+    "gpu_idle_timed_out":  false,
+    "gpu_idle_wait_s":  3.23,
+    "gpu_idle_samples":  4,
+    "gpu_idle_last_util_pct":  8,
+    "prewarm_performed":  true,
+    "post_prewarm_gpu_idle_timeout":  false,
+    "health_http_status":  200,
+    "log_file":  "logs/phase3_locust_async_warm_u10.log"
+}

@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.0",
+  "stage": "phase3_server_preflight",
+  "created_at_utc": "2026-11-12T01:37:15Z",
+  "passed": true,
+  "gates": {
+    "gate1_router_lfs": {
+      "path": "models/router_deberta/model.safetensors",
+      "exists": true,
+      "bytes": 283807294,
+      "size_mb": 270.66,
+      "min_required_bytes": 104857600,
+      "passed": true
+    },
+    "gate2_ollama_gpu": {
+      "restarted_ollama": false,
+      "version": "0.40.16",
+      "matched_model": "kavach-tier5:latest",
+      "warm_chat_ms": 1628.39,
+      "size": 4755397016,
+      "size_vram": 4755397016,
+      "vram_ratio": 1.0,
+      "nvidia_smi": {
+        "gpu_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+        "driver_version": "617.42",
+        "memory_used_mib": 5333,
+        "memory_total_mib": 6141
+      },
+      "vram_hard_limit_mib": 5478,
+      "passed": true
+    },
+    "gate3_server_start": {
+      "startup_s": 156.304,
+      "rss_mb": 3002.9,
+      "rss_limit_mb": 4096.0,
+      "health": {
+        "status": "ok",
+        "pipeline_ready": true,
+        "generator_ready": true,
+        "circuit_state": "closed",
+        "circuit": {
+          "state": "closed",
+          "consecutive_failures": 0,
+          "trips": 0,
+          "failure_threshold": 5,
+          "open_seconds": 30.0
+        },
+        "cache": {
+          "size": 0,
+          "max_entries": 512,
+          "ttl_s": 900.0,
+          "hits": 0,
+          "misses": 0,
+          "coalesced": 0,
+          "evictions": 0,
+          "lock_timeouts": 0
+        },
+        "vram_used_mib": 5340,
+        "vram_total_mib": 6141,
+        "vram_peak_mib": 5370,
+        "vram_hard_limit_mib": 5478,
+        "vram_breached": false,
+        "rss_mb": 3002.9,
+        "retrieval_waiting": 0,
+        "gpu_waiting": 0,
+        "gpu_inflight": 0,
+        "generator_calls": 1,
+        "uptime_s": 1.0
+      },
+      "passed": true
+    },
+    "gate4_live_smoke": {
+      "4a_fast_path_cve": {
+        "route": "FAST_PATH_EXACT_LOOKUP",
+        "answer_chars": 511,
+        "total_ms": 3745.711,
+        "passed": true
+      },
+      "4b_semantic_cache": {
+        "dev_id": "DEV_IN_001",
+        "cold": {
+          "retrieval_latency_ms": 9311.206,
+          "ttft_ms": 10283.134,
+          "total_ms": 11743.615,
+          "cache_hit": false,
+          "retrieved_chunk_ids": [
+            "CVE-2014-0160_chunk_001",
+            "CVE-2014-0160_chunk_003"
+          ]
+        },
+        "warm": {
+          "total_ms": 0.019,
+          "cache_hit": true,
+          "answer_matches_cold": true
+        },
+        "passed": true
+      },
+      "4c_refusal_bypass": {
+        "bypassed_llm": true,
+        "refused": true,
+        "generator_calls_before": 3,
+        "generator_calls_after": 3,
+        "total_ms": 92.947,
+        "passed": true
+      },
+      "4d_sse_streaming": {
+        "dev_id": "DEV_IN_002",
+        "event_sequence_valid": true,
+        "token_events": 92,
+        "streamed_chars": 470,
+        "ttft_ms": 11865.779,
+        "total_ms": 14291.013,
+        "passed": true
+      },
+      "4e_sync_vs_async_parity": {
+        "dev_id": "DEV_IN_001",
+        "sync_total_ms": 12246.342,
+        "sync_ttft_ms": 10836.173,
+        "async_cold_total_ms": 11743.615,
+        "exact_answer_match": false,
+        "sequence_similarity": 0.9372,
+        "token_jaccard": 0.5882,
+        "retrieved_chunks_identical": true,
+        "passed": true
+      },
+      "4f_concurrent_health_probe": {
+        "dev_id": "DEV_IN_003",
+        "query_total_ms": 11431.677,
+        "cache_hit": false,
+        "health_samples_count": 103,
+        "health_min_ms": 1.309,
+        "health_p50_ms": 1.594,
+        "health_p95_ms": 6.582,
+        "health_max_ms": 18.294,
+        "passed": true
+      },
+      "4g_verify_corpus_task": {
+        "job_id": "c7d823717680",
+        "status": "succeeded",
+        "verified_files": {
+          "corpus_chunks.parquet": {
+            "sha256": "5c247f653c054a6713809f7e514a3cd20058f11a61bb27f2803fe4ab7e1b4306",
+            "bytes": 199073,
+            "matches_stage0": true
+          },
+          "index_sq8_mrl512.faiss": {
+            "sha256": "fdf6018d1182af67f3b43099fbe3afe69ff1eb6b9f0e4c890264fcf085304273",
+            "bytes": 262737,
+            "matches_stage0": true
+          },
+          "index_sq8_mrl512.idmap.json": {
+            "sha256": "7fbc43db5a50e1c1bf78772bf8ffd562cbef4c4f87451d19db1563f2cce1665b",
+            "bytes": 16538,
+            "matches_stage0": true
+          }
+        },
+        "passed": true
+      },
+      "passed": true
+    },
+    "gate5_server_stop": {
+      "stop_exit_code": 0,
+      "pid_file_removed": true,
+      "health_unreachable": true,
+      "gpu_compute_apps": [
+        {
+          "pid": 10276,
+          "process_name": "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe"
+        },
+        {
+          "pid": 5788,
+          "process_name": "C:\\Windows\\explorer.exe"
+        },
+        {
+          "pid": 11312,
+          "process_name": "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe"
+        },
+        {
+          "pid": 11620,
+          "process_name": "C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe"
+        },
+        {
+          "pid": 13184,
+          "process_name": "C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe"
+        },
+        {
+          "pid": 13592,
+          "process_name": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe"
+        },
+        {
+          "pid": 16176,
+          "process_name": "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe"
+        },
+        {
+          "pid": 2504,
+          "process_name": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe"
+        },
+        {
+          "pid": 2328,
+          "process_name": "C:\\Users\\Nijjil Narula\\AppData\\Local\\Programs\\Antigravity\\Antigravity.exe"
+        },
+        {
+          "pid": 13896,
+          "process_name": "C:\\Users\\Nijjil Narula\\AppData\\Local\\Programs\\Antigravity\\Antigravity.exe"
+        },
+        {
+          "pid": 16760,
+          "process_name": "C:\\Windows\\System32\\ApplicationFrameHost.exe"
+        },
+        {
+          "pid": 15364,
+          "process_name": "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe"
+        },
+        {
+          "pid": 14736,
+          "process_name": "C:\\Program Files\\WindowsApps\\Microsoft.YourPhone_1.26092.119.0_x64__8wekyb3d8bbwe\\PhoneExperienceHost.exe"
+        },
+        {
+          "pid": 3216,
+          "process_name": "C:\\Windows\\System32\\ShellHost.exe"
+        },
+        {
+          "pid": 20384,
+          "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+        },
+        {
+          "pid": 8780,
+          "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+        },
+        {
+          "pid": 12176,
+          "process_name": "C:\\Users\\Nijjil Narula\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe"
+        },
+        {
+          "pid": 13040,
+          "process_name": "C:\\Windows\\SystemApps\\Microsoft.LockApp_cw5n1h2txyewy\\LockApp.exe"
+        }
+      ],
+      "python_gpu_apps": [],
+      "passed": true
+    }
+  },
+  "error": null
+}
