@@ -1,0 +1,844 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-11-11T23:47:25Z",
+  "banner": {
+    "judge_backend": "gemini",
+    "judge_model": "gemini-3.5-flash-lite",
+    "cross_family": true,
+    "thinking_applied": true,
+    "gemini_api_key_present": true,
+    "prompt_version": "tier5-v1-965a46c8fae9",
+    "model_digest": "0a5dc38a6caac1e2e4941bc87d7f0f6f8ed710e62a6ed8ad24f60a6d5c73aa4e",
+    "num_ctx": 4096,
+    "repeat_penalty": 1.0
+  },
+  "engineering_gates": [
+    {
+      "gate": "Quantization Q4_K_M",
+      "observed": "Q4_K_M",
+      "target": "Q4_K_M",
+      "status": "PASS"
+    },
+    {
+      "gate": "Full GPU offload (>= 99% VRAM)",
+      "observed": "1.0000",
+      "target": ">= 0.9900",
+      "status": "PASS"
+    },
+    {
+      "gate": "Peak VRAM <= hard limit",
+      "observed": "5343.0 MiB",
+      "target": "<= 5478 MiB (target <= 4710 MiB)",
+      "status": "PASS"
+    },
+    {
+      "gate": "CPU/GPU isolation & no forbidden retrieval imports",
+      "observed": "torch_cuda=False, venv_gpu=False, gemini_api_key_present=True",
+      "target": "ok == True",
+      "status": "PASS"
+    },
+    {
+      "gate": "Context window & decoding contract",
+      "observed": "num_ctx=4096, repeat_penalty=1.0, digest=0a5dc38a6caac1e2e4941bc87d7f0f6f8ed710e62a6ed8ad24f60a6d5c73aa4e",
+      "target": "num_ctx<=4096, repeat_penalty=1.0, digest present",
+      "status": "PASS"
+    },
+    {
+      "gate": "Refusal bypass sub-ms & zero LLM calls",
+      "observed": "max=3.600 us (n=10)",
+      "target": "< 1000 us, 0 LLM calls",
+      "status": "PASS"
+    },
+    {
+      "gate": "Batch generation 150/150 completion",
+      "observed": "total=150, errors=0",
+      "target": "150 items, 0 errors",
+      "status": "PASS"
+    }
+  ],
+  "vram": {
+    "initial_baseline_mib": 528,
+    "loaded_idle_mib": 5156,
+    "run_peak_mib": 5343.0,
+    "delta_mib": 4815.0,
+    "loaded_delta_mib": 4628.0,
+    "target_mib": 4710,
+    "hard_limit_mib": 5478,
+    "within_target": false,
+    "within_hard_limit": true
+  },
+  "latency_and_throughput": {
+    "served_count": 140,
+    "bypassed_count": 10,
+    "overall": {
+      "count": 140,
+      "ttft_ms": {
+        "count": 140,
+        "min": 105.313,
+        "p50": 575.33,
+        "mean": 587.31,
+        "p95": 820.481,
+        "max": 5876.347
+      },
+      "decode_tps": {
+        "count": 140,
+        "min": 37.094,
+        "p50": 38.844,
+        "mean": 38.823,
+        "p95": 40.207,
+        "max": 40.915
+      },
+      "total_ms": {
+        "count": 140,
+        "min": 1019.743,
+        "p50": 2809.847,
+        "mean": 3477.392,
+        "p95": 8684.993,
+        "max": 14513.128
+      }
+    },
+    "by_question_type": {
+      "CONFLICT_TRAP": {
+        "count": 15,
+        "ttft_ms": {
+          "count": 15,
+          "min": 371.316,
+          "p50": 444.097,
+          "mean": 483.174,
+          "p95": 673.975,
+          "max": 751.707
+        },
+        "decode_tps": {
+          "count": 15,
+          "min": 38.062,
+          "p50": 39.834,
+          "mean": 39.67,
+          "p95": 40.577,
+          "max": 40.587
+        },
+        "total_ms": {
+          "count": 15,
+          "min": 1272.752,
+          "p50": 2086.42,
+          "mean": 5286.59,
+          "p95": 13750.119,
+          "max": 14206.035
+        }
+      },
+      "CONTEXT_NOISE": {
+        "count": 10,
+        "ttft_ms": {
+          "count": 10,
+          "min": 404.135,
+          "p50": 510.838,
+          "mean": 579.632,
+          "p95": 880.844,
+          "max": 926.213
+        },
+        "decode_tps": {
+          "count": 10,
+          "min": 39.079,
+          "p50": 39.77,
+          "mean": 39.704,
+          "p95": 40.077,
+          "max": 40.199
+        },
+        "total_ms": {
+          "count": 10,
+          "min": 2319.614,
+          "p50": 3383.994,
+          "mean": 3599.011,
+          "p95": 4942.191,
+          "max": 4995.255
+        }
+      },
+      "FACTUAL": {
+        "count": 60,
+        "ttft_ms": {
+          "count": 60,
+          "min": 105.313,
+          "p50": 644.488,
+          "mean": 611.22,
+          "p95": 822.419,
+          "max": 867.35
+        },
+        "decode_tps": {
+          "count": 60,
+          "min": 37.094,
+          "p50": 38.139,
+          "mean": 38.227,
+          "p95": 39.226,
+          "max": 39.45
+        },
+        "total_ms": {
+          "count": 60,
+          "min": 1053.262,
+          "p50": 2104.819,
+          "mean": 2935.567,
+          "p95": 7313.72,
+          "max": 14513.128
+        }
+      },
+      "MALFORMED": {
+        "count": 10,
+        "ttft_ms": {
+          "count": 10,
+          "min": 118.767,
+          "p50": 469.161,
+          "mean": 492.434,
+          "p95": 802.318,
+          "max": 812.682
+        },
+        "decode_tps": {
+          "count": 10,
+          "min": 39.314,
+          "p50": 39.688,
+          "mean": 39.92,
+          "p95": 40.707,
+          "max": 40.915
+        },
+        "total_ms": {
+          "count": 10,
+          "min": 1019.743,
+          "p50": 1995.946,
+          "mean": 2106.07,
+          "p95": 3099.46,
+          "max": 3231.765
+        }
+      },
+      "MULTI_HOP": {
+        "count": 45,
+        "ttft_ms": {
+          "count": 45,
+          "min": 179.896,
+          "p50": 516.564,
+          "mean": 612.933,
+          "p95": 780.132,
+          "max": 5876.347
+        },
+        "decode_tps": {
+          "count": 45,
+          "min": 38.357,
+          "p50": 38.878,
+          "mean": 38.895,
+          "p95": 39.578,
+          "max": 39.729
+        },
+        "total_ms": {
+          "count": 45,
+          "min": 2015.592,
+          "p50": 3412.821,
+          "mean": 3874.472,
+          "p95": 7497.444,
+          "max": 8608.433
+        }
+      }
+    },
+    "bypass_latency_us": {
+      "count": 10,
+      "min": 0.8,
+      "p50": 1.0,
+      "mean": 1.35,
+      "p95": 2.88,
+      "max": 3.6
+    },
+    "all_150_generation_mean_ms": 3245.566,
+    "targets": {
+      "ttft_target_ms": 300.0,
+      "ttft_mean_meets_target": false,
+      "ttft_p95_meets_target": false,
+      "decode_tps_target_range": [
+        35.0,
+        45.0
+      ],
+      "decode_tps_mean_within_target": true,
+      "decode_tps_mean_meets_floor": true
+    }
+  },
+  "quality": {
+    "n_served": 140,
+    "faithfulness_mean": 0.8627799736495388,
+    "relevance_mean": 0.5678571428571428,
+    "relevance_mean_context_sufficient": 0.9236111111111112,
+    "n_context_sufficient": 72,
+    "faithfulness_by_type": {
+      "CONFLICT_TRAP": 0.9857142857142858,
+      "CONTEXT_NOISE": 0.5,
+      "FACTUAL": 0.9307239057239057,
+      "MALFORMED": 0.9166666666666667,
+      "MULTI_HOP": 0.5266666666666666
+    },
+    "citation_validity_mean": 1.0,
+    "citation_precision_mean": 0.7091836734693877,
+    "citation_recall_mean": 0.806930693069307,
+    "citation_precision_doc_mean": 0.8299319727891156,
+    "citation_recall_doc_mean": 0.8168316831683168,
+    "entity_recall_mean": 0.8403100775193799,
+    "model_refusal_items": 48,
+    "over_refusal_items": 3,
+    "hallucinated_citation_items": 0,
+    "ungrounded_decimal_items": 0,
+    "refusal_correct": {
+      "true": 102,
+      "false": 48
+    }
+  },
+  "quality_gates": {
+    "q1_faithfulness_threshold": 0.85,
+    "q1_passed": true,
+    "q2_relevance_threshold": 0.8,
+    "q2_passed": false,
+    "q3_citation_validity_threshold": 0.95,
+    "q3_passed": true,
+    "all_passed": false
+  },
+  "conflict_and_noise": {
+    "conflict_trap": {
+      "count": 15,
+      "both_versions_in_context_count": 12,
+      "both_versions_in_answer_count": 5,
+      "both_versions_preserved_when_in_context": 5,
+      "context_conditional_rate": 0.4167
+    },
+    "context_noise": {
+      "count": 10,
+      "echo_ratio_stats": {
+        "count": 10,
+        "min": 0.0,
+        "p50": 0.0,
+        "mean": 0.005,
+        "p95": 0.026,
+        "max": 0.029
+      },
+      "nonzero_echo_items": [
+        {
+          "test_id": "TEST_145",
+          "echo_ratio": 0.022222222222222223
+        },
+        {
+          "test_id": "TEST_146",
+          "echo_ratio": 0.028985507246376812
+        }
+      ],
+      "injection_leakage_detected": true
+    }
+  },
+  "failure_inventory": {
+    "lowest_faithfulness_10": [
+      {
+        "test_id": "TEST_045",
+        "type": "FACTUAL",
+        "faithfulness": 0.0,
+        "relevance_score": 0.5,
+        "retrieval_miss": false,
+        "context_sufficient": true,
+        "entities_missing": [],
+        "hallucinated_citations": [],
+        "tag": "generation-limited"
+      },
+      {
+        "test_id": "TEST_072",
+        "type": "MULTI_HOP",
+        "faithfulness": 0.0,
+        "relevance_score": 0.5,
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "entities_missing": [],
+        "hallucinated_citations": [],
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_098",
+        "type": "MULTI_HOP",
+        "faithfulness": 0.0,
+        "relevance_score": 0.0,
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "entities_missing": [],
+        "hallucinated_citations": [],
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_048",
+        "type": "FACTUAL",
+        "faithfulness": 0.2,
+        "relevance_score": 0.5,
+        "retrieval_miss": false,
+        "context_sufficient": true,
+        "entities_missing": [
+          "1.2.9"
+        ],
+        "hallucinated_citations": [],
+        "tag": "generation-limited"
+      },
+      {
+        "test_id": "TEST_073",
+        "type": "MULTI_HOP",
+        "faithfulness": 0.3333333333333333,
+        "relevance_score": 0.0,
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "entities_missing": [
+          "M1019"
+        ],
+        "hallucinated_citations": [],
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_086",
+        "type": "MULTI_HOP",
+        "faithfulness": 0.3333333333333333,
+        "relevance_score": 0.5,
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "entities_missing": [],
+        "hallucinated_citations": [],
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_044",
+        "type": "FACTUAL",
+        "faithfulness": 0.5,
+        "relevance_score": 0.5,
+        "retrieval_miss": false,
+        "context_sufficient": true,
+        "entities_missing": [
+          "10.0.10240.18969"
+        ],
+        "hallucinated_citations": [],
+        "tag": "generation-limited"
+      },
+      {
+        "test_id": "TEST_046",
+        "type": "FACTUAL",
+        "faithfulness": 0.5,
+        "relevance_score": 1.0,
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "entities_missing": [],
+        "hallucinated_citations": [],
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_078",
+        "type": "MULTI_HOP",
+        "faithfulness": 0.5,
+        "relevance_score": 1.0,
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "entities_missing": [
+          "M1016"
+        ],
+        "hallucinated_citations": [],
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_104",
+        "type": "MULTI_HOP",
+        "faithfulness": 0.5,
+        "relevance_score": 0.0,
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "entities_missing": [],
+        "hallucinated_citations": [],
+        "tag": "retrieval-limited"
+      }
+    ],
+    "hallucinated_citation_items": [],
+    "false_refusal_items": [
+      {
+        "test_id": "TEST_007",
+        "type": "FACTUAL",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_017",
+        "type": "FACTUAL",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_019",
+        "type": "FACTUAL",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_024",
+        "type": "FACTUAL",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_049",
+        "type": "FACTUAL",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_056",
+        "type": "FACTUAL",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_061",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_063",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_064",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_065",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_066",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_067",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_068",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_069",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_070",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_071",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_074",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_075",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_076",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_077",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_079",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_081",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_083",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_085",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_087",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_088",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_089",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_090",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_091",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_094",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_095",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_096",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_097",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_100",
+        "type": "MULTI_HOP",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_103",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_105",
+        "type": "MULTI_HOP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_109",
+        "type": "CONFLICT_TRAP",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_131",
+        "type": "MALFORMED",
+        "retrieval_miss": false,
+        "context_sufficient": true,
+        "error": null,
+        "tag": "generation-limited"
+      },
+      {
+        "test_id": "TEST_132",
+        "type": "MALFORMED",
+        "retrieval_miss": false,
+        "context_sufficient": true,
+        "error": null,
+        "tag": "generation-limited"
+      },
+      {
+        "test_id": "TEST_138",
+        "type": "MALFORMED",
+        "retrieval_miss": false,
+        "context_sufficient": true,
+        "error": null,
+        "tag": "generation-limited"
+      },
+      {
+        "test_id": "TEST_141",
+        "type": "CONTEXT_NOISE",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_142",
+        "type": "CONTEXT_NOISE",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_143",
+        "type": "CONTEXT_NOISE",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_144",
+        "type": "CONTEXT_NOISE",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_147",
+        "type": "CONTEXT_NOISE",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_148",
+        "type": "CONTEXT_NOISE",
+        "retrieval_miss": false,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_149",
+        "type": "CONTEXT_NOISE",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      },
+      {
+        "test_id": "TEST_150",
+        "type": "CONTEXT_NOISE",
+        "retrieval_miss": true,
+        "context_sufficient": false,
+        "error": null,
+        "tag": "retrieval-limited"
+      }
+    ]
+  },
+  "arithmetic_e2e_latency_estimate": {
+    "label": "computed from separate runs, not an end-to-end measurement",
+    "phase15_retrieval_all150_mean_ms": 9449.964,
+    "phase2_generation_all150_mean_ms": 3245.566,
+    "arithmetic_e2e_all150_mean_ms": 12695.53,
+    "phase15_semantic_rag_mean_ms": 10496.397,
+    "phase2_generation_served_mean_ms": 3477.392,
+    "arithmetic_e2e_served_mean_ms": 13973.789
+  }
+}

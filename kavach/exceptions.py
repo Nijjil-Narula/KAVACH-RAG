@@ -73,3 +73,38 @@ class GoldenDatasetValidationError(KavachError):
 
     Details typically include ``test_id``, ``field``, and ``reason``.
     """
+
+
+class GenerationError(KavachError):
+    """Raised when Tier 5 generation fails or receives an invalid Ollama response.
+
+    Details typically include ``model``, ``status_code``, and ``attempt``.
+    """
+
+
+class OllamaUnavailableError(GenerationError):
+    """Raised when the local Ollama server is unreachable or fails health checks.
+
+    Details typically include ``base_url`` and the underlying connection error.
+    """
+
+
+class VRAMBudgetExceededError(GenerationError):
+    """Raised when GPU VRAM usage exceeds the configured hard limit.
+
+    Details typically include ``vram_used_mib``, ``vram_hard_limit_mib``, and ``stage``.
+    """
+
+
+class PromptBudgetError(GenerationError):
+    """Raised when prompt assembly cannot fit the user query within the context budget.
+
+    Details typically include ``prompt_tokens``, ``budget_tokens``, and ``test_id``.
+    """
+
+
+class JudgeError(KavachError):
+    """Raised when automated Tier 6 judge evaluation fails or returns malformed output.
+
+    Details typically include ``backend``, ``test_id``, and ``reason``.
+    """

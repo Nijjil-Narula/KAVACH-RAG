@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "timestamp_utc": "2026-11-11T22:34:16Z",
+  "status": "PASS",
+  "model": "kavach-tier5",
+  "base_model": "qwen2.5:7b-instruct-q4_K_M",
+  "ollama_base_url": "http://127.0.0.1:11434",
+  "vram_target_mib": 4710,
+  "vram_hard_limit_mib": 5478,
+  "baseline_vram_limit_mib": 700,
+  "ladder_steps": [],
+  "step1_cli": {
+    "ollama_version": "ollama version is 0.40.16",
+    "installed_models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "matched_base_model": "qwen2.5:7b-instruct-q4_K_M"
+  },
+  "step2_connectivity": {
+    "reachable": true,
+    "restarted": false,
+    "api_version": {
+      "version": "0.40.16"
+    }
+  },
+  "step3_baseline_gpu": {
+    "evicted_models": [],
+    "gpu_snapshot": {
+      "gpu_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver_version": "617.42",
+      "memory_used_mib": 528,
+      "memory_total_mib": 6141
+    }
+  },
+  "step4_model": {
+    "model": "kavach-tier5",
+    "quantization_level": "Q4_K_M",
+    "digest": "0a5dc38a6caac1e2e4941bc87d7f0f6f8ed710e62a6ed8ad24f60a6d5c73aa4e",
+    "tag_size_bytes": 4683087063
+  },
+  "step5_warm_load": {
+    "server_load_ms": 30515.661,
+    "total_ms": 56113.824,
+    "completion_tokens": 2,
+    "finish_reason": "stop",
+    "vram_peak_mib": 5156,
+    "loaded_vram_mib": 5156,
+    "ps_size_bytes": 4755397016,
+    "ps_size_vram_bytes": 4755397016,
+    "vram_offload_ratio": 1.0,
+    "full_gpu_offload_ok": true
+  },
+  "effective_num_ctx": 4096,
+  "final_loaded_vram_mib": 5156,
+  "step7_prompt_budget": {
+    "serveable_checked": 140,
+    "effective_num_ctx": 4096,
+    "max_prompt_tokens": 2288,
+    "chunk_drop_count": 11,
+    "dropped_test_ids": [
+      "TEST_010",
+      "TEST_014",
+      "TEST_015",
+      "TEST_020",
+      "TEST_035",
+      "TEST_038",
+      "TEST_040",
+      "TEST_043",
+      "TEST_045",
+      "TEST_090",
+      "TEST_134"
+    ],
+    "budget_errors": []
+  },
+  "step8_isolation": {
+    "ok": true,
+    "torch_version": "2.15.0+cpu",
+    "torch_cuda_build": false,
+    "cuda_available": false,
+    "venv_gpu_exists": false,
+    "forbidden_retrieval_modules_imported": [],
+    "gemini_api_key_present": false
+  }
+}

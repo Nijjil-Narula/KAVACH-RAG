@@ -1,0 +1,8 @@
+FROM qwen2.5:7b-instruct-q4_K_M
+PARAMETER num_ctx 4096
+PARAMETER num_predict 512
+PARAMETER temperature 0
+PARAMETER top_p 1
+PARAMETER repeat_penalty 1.0
+PARAMETER seed 0
+PARAMETER num_gpu 999

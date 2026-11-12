@@ -31,6 +31,8 @@ _ALLOWED_SLEEP_PATHS = frozenset(
         (_ROOT / "kavach" / "retrieval" / "acquire.py").resolve(),
         (_ROOT / "kavach" / "retrieval" / "benchlock.py").resolve(),
         (_ROOT / "kavach" / "retrieval" / "profiling.py").resolve(),
+        (_ROOT / "kavach" / "generation" / "generator.py").resolve(),
+        (_ROOT / "kavach" / "generation" / "judge.py").resolve(),
     }
 )
 _SELF_PATH = Path(__file__).resolve()

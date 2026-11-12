@@ -1,0 +1,275 @@
+{
+  "generated_at": "2026-11-11T23:03:12.604783+00:00",
+  "prompt_version": "tier5-v1-965a46c8fae9",
+  "system_prompt_sha256": "965a46c8fae98d634af2e91ad8b60179e65edddb17d6bd3934878e8af89d84fe",
+  "model": "kavach-tier5",
+  "num_ctx": 4096,
+  "num_predict": 512,
+  "repeat_penalty": 1.0,
+  "resumed": true,
+  "limit": null,
+  "counts": {
+    "total_items": 150,
+    "served_items": 140,
+    "bypassed_items": 10,
+    "succeeded_items": 150,
+    "served_succeeded_items": 140,
+    "error_items": 0,
+    "chunk_drop_items": 11
+  },
+  "served_latency_ms": {
+    "overall": {
+      "count": 140,
+      "ttft_ms": {
+        "count": 140,
+        "min": 105.313,
+        "p50": 575.33,
+        "mean": 587.31,
+        "p95": 820.481,
+        "max": 5876.347
+      },
+      "total_ms": {
+        "count": 140,
+        "min": 1019.743,
+        "p50": 2809.847,
+        "mean": 3477.392,
+        "p95": 8684.993,
+        "max": 14513.128
+      },
+      "server_load_ms": {
+        "count": 140,
+        "min": 2.402,
+        "p50": 3.49,
+        "mean": 3.975,
+        "p95": 6.978,
+        "max": 13.117
+      },
+      "server_prefill_ms": {
+        "count": 140,
+        "min": 37.237,
+        "p50": 501.573,
+        "mean": 514.01,
+        "p95": 740.248,
+        "max": 5769.388
+      }
+    },
+    "by_question_type": {
+      "CONFLICT_TRAP": {
+        "count": 15,
+        "ttft_ms": {
+          "count": 15,
+          "min": 371.316,
+          "p50": 444.097,
+          "mean": 483.174,
+          "p95": 673.975,
+          "max": 751.707
+        },
+        "total_ms": {
+          "count": 15,
+          "min": 1272.752,
+          "p50": 2086.42,
+          "mean": 5286.59,
+          "p95": 13750.119,
+          "max": 14206.035
+        },
+        "server_load_ms": {
+          "count": 15,
+          "min": 2.616,
+          "p50": 3.427,
+          "mean": 3.407,
+          "p95": 4.369,
+          "max": 5.367
+        },
+        "server_prefill_ms": {
+          "count": 15,
+          "min": 280.397,
+          "p50": 385.648,
+          "mean": 419.61,
+          "p95": 600.8,
+          "max": 691.028
+        }
+      },
+      "CONTEXT_NOISE": {
+        "count": 10,
+        "ttft_ms": {
+          "count": 10,
+          "min": 404.135,
+          "p50": 510.838,
+          "mean": 579.632,
+          "p95": 880.844,
+          "max": 926.213
+        },
+        "total_ms": {
+          "count": 10,
+          "min": 2319.614,
+          "p50": 3383.994,
+          "mean": 3599.011,
+          "p95": 4942.191,
+          "max": 4995.255
+        },
+        "server_load_ms": {
+          "count": 10,
+          "min": 2.637,
+          "p50": 3.343,
+          "mean": 3.362,
+          "p95": 4.272,
+          "max": 4.65
+        },
+        "server_prefill_ms": {
+          "count": 10,
+          "min": 320.792,
+          "p50": 426.649,
+          "mean": 510.086,
+          "p95": 822.279,
+          "max": 889.399
+        }
+      },
+      "FACTUAL": {
+        "count": 60,
+        "ttft_ms": {
+          "count": 60,
+          "min": 105.313,
+          "p50": 644.488,
+          "mean": 611.22,
+          "p95": 822.419,
+          "max": 867.35
+        },
+        "total_ms": {
+          "count": 60,
+          "min": 1053.262,
+          "p50": 2104.819,
+          "mean": 2935.567,
+          "p95": 7313.72,
+          "max": 14513.128
+        },
+        "server_load_ms": {
+          "count": 60,
+          "min": 2.747,
+          "p50": 3.671,
+          "mean": 4.307,
+          "p95": 7.104,
+          "max": 13.117
+        },
+        "server_prefill_ms": {
+          "count": 60,
+          "min": 37.237,
+          "p50": 588.486,
+          "mean": 537.106,
+          "p95": 744.13,
+          "max": 776.175
+        }
+      },
+      "MALFORMED": {
+        "count": 10,
+        "ttft_ms": {
+          "count": 10,
+          "min": 118.767,
+          "p50": 469.161,
+          "mean": 492.434,
+          "p95": 802.318,
+          "max": 812.682
+        },
+        "total_ms": {
+          "count": 10,
+          "min": 1019.743,
+          "p50": 1995.946,
+          "mean": 2106.07,
+          "p95": 3099.46,
+          "max": 3231.765
+        },
+        "server_load_ms": {
+          "count": 10,
+          "min": 2.402,
+          "p50": 2.848,
+          "mean": 2.93,
+          "p95": 3.376,
+          "max": 3.414
+        },
+        "server_prefill_ms": {
+          "count": 10,
+          "min": 38.331,
+          "p50": 396.856,
+          "mean": 412.681,
+          "p95": 705.028,
+          "max": 706.715
+        }
+      },
+      "MULTI_HOP": {
+        "count": 45,
+        "ttft_ms": {
+          "count": 45,
+          "min": 179.896,
+          "p50": 516.564,
+          "mean": 612.933,
+          "p95": 780.132,
+          "max": 5876.347
+        },
+        "total_ms": {
+          "count": 45,
+          "min": 2015.592,
+          "p50": 3412.821,
+          "mean": 3874.472,
+          "p95": 7497.444,
+          "max": 8608.433
+        },
+        "server_load_ms": {
+          "count": 45,
+          "min": 2.499,
+          "p50": 3.65,
+          "mean": 4.089,
+          "p95": 7.069,
+          "max": 7.824
+        },
+        "server_prefill_ms": {
+          "count": 45,
+          "min": 103.104,
+          "p50": 447.854,
+          "mean": 538.072,
+          "p95": 716.664,
+          "max": 5769.388
+        }
+      }
+    }
+  },
+  "decode_tps": {
+    "count": 140,
+    "min": 37.094,
+    "p50": 38.844,
+    "mean": 38.823,
+    "p95": 40.207,
+    "max": 40.915
+  },
+  "vram_mib": {
+    "target_mib": 4710.0,
+    "hard_limit_mib": 5478.0,
+    "session_baseline_mib": 5261.0,
+    "session_loaded_mib": 5297.0,
+    "session_peak_mib": 5343.0,
+    "watchdog_samples": 910,
+    "watchdog_mean_mib": 5242.52,
+    "within_target": false,
+    "within_hard_limit": true
+  },
+  "finish_reason_counts": {
+    "stop": 137,
+    "length": 3
+  },
+  "bypass": {
+    "count": 10,
+    "reason_counts": {
+      "HARD_REFUSAL": 9,
+      "LOW_RETRIEVAL_CONFIDENCE": 1
+    },
+    "worst_us": 3.6,
+    "mean_us": 1.35,
+    "p50_us": 1.0,
+    "p95_us": 2.88
+  },
+  "generator_calls": {
+    "this_run_calls": 140,
+    "this_run_served_items": 140,
+    "this_run_bypassed_items": 10,
+    "total_attempts_across_records": 140,
+    "served_items_total": 140
+  }
+}

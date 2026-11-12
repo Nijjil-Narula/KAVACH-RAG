@@ -1,0 +1,10 @@
+{
+  "prompt_version": "tier5-v1-965a46c8fae9",
+  "system_prompt_sha256": "965a46c8fae98d634af2e91ad8b60179e65edddb17d6bd3934878e8af89d84fe",
+  "model": "kavach-tier5",
+  "num_ctx": 4096,
+  "num_predict": 512,
+  "repeat_penalty": 1.0,
+  "model_digest": "0a5dc38a6caac1e2e4941bc87d7f0f6f8ed710e62a6ed8ad24f60a6d5c73aa4e",
+  "frozen_at": "2026-11-11T22:53:25.654696+00:00"
+}
