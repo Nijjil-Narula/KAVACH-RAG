@@ -1,0 +1,186 @@
+{
+  "status": "SCORED",
+  "n": 30,
+  "observed_agreement": 0.933333,
+  "expected_agreement": 0.377778,
+  "cohen_kappa": 0.892857,
+  "kappa_ci95_bootstrap": [
+    0.7207,
+    1.0
+  ],
+  "threshold": 0.7,
+  "passed": true,
+  "contingency_human_rows_judge_cols": {
+    "PASS": {
+      "PASS": 14,
+      "PARTIAL": 0,
+      "FAIL": 0
+    },
+    "PARTIAL": {
+      "PASS": 1,
+      "PARTIAL": 9,
+      "FAIL": 0
+    },
+    "FAIL": {
+      "PASS": 0,
+      "PARTIAL": 1,
+      "FAIL": 5
+    }
+  },
+  "pairs": [
+    {
+      "test_id": "TEST_008",
+      "human": "PARTIAL",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_016",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_028",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_039",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_043",
+      "human": "FAIL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_045",
+      "human": "FAIL",
+      "judge": "FAIL"
+    },
+    {
+      "test_id": "TEST_048",
+      "human": "PARTIAL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_050",
+      "human": "PARTIAL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_052",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_056",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_057",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_060",
+      "human": "PARTIAL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_073",
+      "human": "FAIL",
+      "judge": "FAIL"
+    },
+    {
+      "test_id": "TEST_075",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_076",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_082",
+      "human": "PARTIAL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_090",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_093",
+      "human": "FAIL",
+      "judge": "FAIL"
+    },
+    {
+      "test_id": "TEST_094",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_097",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_101",
+      "human": "FAIL",
+      "judge": "FAIL"
+    },
+    {
+      "test_id": "TEST_106",
+      "human": "PARTIAL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_114",
+      "human": "PARTIAL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_115",
+      "human": "PARTIAL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_122",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_125",
+      "human": "PASS",
+      "judge": "PASS"
+    },
+    {
+      "test_id": "TEST_132",
+      "human": "PARTIAL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_133",
+      "human": "PARTIAL",
+      "judge": "PARTIAL"
+    },
+    {
+      "test_id": "TEST_146",
+      "human": "FAIL",
+      "judge": "FAIL"
+    },
+    {
+      "test_id": "TEST_150",
+      "human": "PASS",
+      "judge": "PASS"
+    }
+  ],
+  "seed": 20261112,
+  "review_set_sha256": "769673200649f249bd8e3746f9f784c61eb59fd4d6614752c4ec1b463019fe65",
+  "judge_checkpoint_sha256": "fcb19e710df194ed80c864b1f5967a3339c993191f0167a8ba69ebe0c81c1911",
+  "generated_at_utc": "2026-11-12T09:18:41Z"
+}
